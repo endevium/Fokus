@@ -2,23 +2,11 @@
 
 session_start();
 
-    $_SESSION;
-    $user_data = check_login($con);
+    include('connection.php');
+    include('functions.php');
 
-  //  require_once "C:\Users\Lenovo\OneDrive\Documents\CODING\API_FOKUS\login";
+    $user_data = check_login($con); //if the user logged in
 
-//$database = new Database();
-//$db = $database->connect();
-
-//$query = $db->query("SELECT * FROM ");
-   // $results = $query-> fetchAll(PDO: :FETCH_ASSOC);
-
-
-    //diplayy
-
-//foreach($results as $row) {
-//echo 'ID: ' .$row['id']. ' - Name: ' . $row['fullname']. '<br>' ;
- //   }
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +21,6 @@ session_start();
     <a href="logout.php"> Logout </a>
     <h1>Login Page</h1>
     <br> 
-    Hello, username:
+    Hello, <?php echo $user_data['username']; ?>
 </body>
 </html>

@@ -2,12 +2,12 @@
 
 
 $dbhost = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$dbName = "user_login";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "user_login";
 
 // Establish connection to the database
-$con = mysqli_connect($dbhost, $dbUser, $dbPass, $dbName);
+if (!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
 
 // Check connection
 if (!$con) {

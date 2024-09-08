@@ -3,7 +3,8 @@ if (session_status() == PHP_SESSION_NONE)
     session_start();
 
 function check_login($con) {
-    if (isset($_SESSION['user_id'])) {  //if the user is logged in
+    if (isset($_SESSION['user_id'])) {  // if the user is logged in
+        
         $id = $_SESSION['user_id'];
         $query = "SELECT * FROM users WHERE user_id = ? LIMIT 1";
 
@@ -25,5 +26,21 @@ function check_login($con) {
 
     // Redirect to login if not logged in
     header("Location: login.php");
-    exit();
+    die;
+}
+
+function random_num($length) {
+    $text = "";
+    
+    if ($length < 5) {
+        $length = 5;
+    }
+
+    $len = rand(4, $length);
+
+    for ($i = 0; $i < $len; $i++) {
+        $text .= rand(0, 9);
+    }
+
+    return $text;
 }

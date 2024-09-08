@@ -5,38 +5,39 @@ $_SESSION;
 include("connection.php");
 include("functions.php");
 
+    $user_data = check_login($con);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    //Data Retrieval
+
+    $user_name = $_POST['username'];
+    $password = $_POST['password']; 
+    $fullname = $_POST['fullname'];   
+    $email = $_POST['email'];       
 
     // Check if POST data is available
     $user_name = $_POST['user_name'];
     $password = $_POST['password']; // Fixed typo: 'passwprd' to 'password'
 
-    if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+    if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) 
+    {
 
-        // Generate a random user ID
-        $user_id = random_num(20); // Ensure $user_id is defined
-        $fullname = $_POST['fullname']; // to check if theres a field in this form
-        $email = $_POST['email']; // to check if theres a field in this form
+        //save to database
+        $user_id = random_num(20);
+        $query = "insert into users (id, fullname,username, password, email) values ('$id', '$fullname', '$username' '$password', '$email')";
 
-        // Prepare the query to prevent SQL injection
-        $query = "INSERT INTO users (user_id, fullname, username, password, email) VALUES (?, ?, ?, ?, ?)";
-        if ($stmt = mysqli_prepare($con, $query)) {
-            mysqli_stmt_bind_param($stmt, "sssss", $user_id, $fullname, $user_name, $password, $email);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
-            
-            header("Location: login.php");
-            exit();
-        } else {
-            echo "Database query failed: " . mysqli_error($con);
-        }
+        mysqli_query($con, $query);
 
-    } else {
-        echo "Please enter valid information!";
+        header("Location: login.php");
+        die;
+    }else
+    {
+
+        echo "Enter some valid information!";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
