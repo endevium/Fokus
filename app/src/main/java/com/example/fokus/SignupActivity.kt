@@ -41,7 +41,7 @@ class SignupActivity : AppCompatActivity() {
             val password = sPass.text.toString().trim()
 
             if (validateUser() && validateEmail() && validatePass()) {
-                createAccount(username, fullname, email, password)
+                createAccount(username, fullname, password, email)
             }
         }
 
@@ -90,8 +90,8 @@ class SignupActivity : AppCompatActivity() {
         return true
     }
 
-    private fun createAccount(username: String, fullname: String, email: String, password: String) {
-        apiService.signup(username, fullname, email, password).enqueue(object : Callback<SignupResponse> {
+    private fun createAccount(fullname: String, username: String, password: String, email: String) {
+        apiService.signup(username, fullname, password, email).enqueue(object : Callback<SignupResponse> {
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 if (response.isSuccessful) {
                     val signupResponse = response.body()
