@@ -23,5 +23,5 @@ class FourthActivity : AppCompatActivity() {
 
 
 
-        }
     }
+}
