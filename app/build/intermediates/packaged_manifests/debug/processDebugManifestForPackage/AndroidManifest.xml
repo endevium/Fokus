@@ -33,6 +33,15 @@
         android:theme="@style/Theme.Fokus"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.example.fokus.FourthActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.fokus.ThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.fokus.SecondActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.fokus.MainActivity"
             android:exported="false" />
         <activity
@@ -41,13 +50,6 @@
         <activity
             android:name="com.example.fokus.SignupActivity"
             android:exported="false" />
-        <activity
-            android:name="com.example.fokus.FourthActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.fokus.ThirdActivity"
-            android:exported="false" />
-        <activity android:name="com.example.fokus.SecondActivity" />
         <activity
             android:name="com.example.fokus.FirstActivity"
             android:exported="true" >

@@ -75,10 +75,10 @@ class LoginActivity : AppCompatActivity() {
                     val loginResponse = response.body()
                     if (loginResponse != null) {
                         Toast.makeText(this@LoginActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
-                        // Handle successful login
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
                     }
                 } else {
-                    // Log the response error
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(this@LoginActivity, "Login failed: $errorResponse", Toast.LENGTH_SHORT).show()
                 }

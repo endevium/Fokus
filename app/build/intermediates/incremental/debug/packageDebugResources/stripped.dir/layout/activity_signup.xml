@@ -49,11 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:background="@drawable/etcontainer"
-            android:drawableStart="@drawable/email"
             android:ems="10"
             android:hint=" Create Username"
+            android:drawableStart="@drawable/email"
             android:inputType="text"
-            android:maxLength="255"
             android:padding="14dp"
             android:textColor="@color/black"
             android:textColorHint="@color/lightgray" />
@@ -72,15 +71,14 @@
             android:layout_width="310dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:background="@drawable/etcontainer"
-            android:drawableStart="@drawable/email"
             android:ems="10"
-            android:hint=" Enter Email"
             android:inputType="textEmailAddress"
-            android:maxLength="255"
-            android:padding="14dp"
+            android:hint=" Enter Email"
+            android:drawableStart="@drawable/email"
+            android:textColorHint="@color/lightgray"
             android:textColor="@color/black"
-            android:textColorHint="@color/lightgray" />
+            android:background="@drawable/etcontainer"
+            android:padding="14dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -97,15 +95,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:background="@drawable/etcontainer"
-            android:drawableStart="@drawable/lock"
-            android:drawableEnd="@drawable/show"
             android:ems="10"
             android:hint=" Create Password"
-            android:inputType="textPassword"
-            android:maxLength="255"
-            android:padding="14dp"
+            android:drawableStart="@drawable/lock"
+            android:drawableEnd="@drawable/show"
+            android:textColorHint="@color/lightgray"
             android:textColor="@color/black"
-            android:textColorHint="@color/lightgray" />
+            android:inputType="textPassword"
+            android:padding="14dp" />
 
         <Button
             android:id="@+id/sBtn"
@@ -121,6 +118,20 @@
             android:shadowColor="@color/black"
             android:shadowDy="2"
             android:shadowDx="2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Or continue with"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+        <ImageView
+            android:id="@+id/googleBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/google"/>
 
 
         <LinearLayout

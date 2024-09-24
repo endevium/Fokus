@@ -3057,10 +3057,12 @@ drawable design_snackbar_background
 drawable email
 drawable etcontainer
 drawable google
+drawable home
 drawable i1
 drawable i2
 drawable i3
 drawable i4
+drawable ibcontainer
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3147,6 +3149,7 @@ drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
 drawable nexbtn
+drawable next
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -3160,8 +3163,14 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable playarrow
+drawable profile
+drawable restart
+drawable settings
 drawable show
+drawable tbtncontainer
 drawable test_level_drawable
+drawable timercontainer
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 font khula
@@ -3254,6 +3263,9 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id bHome
+id bProfile
+id bSettings
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3261,6 +3273,7 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottomNavigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3414,10 +3427,12 @@ id legacy
 id line1
 id line3
 id linear
+id linearTimer
 id listMode
 id list_item
 id locale
 id loginD
+id longbrkBtn
 id ltr
 id m3_side_sheet
 id main
@@ -3501,6 +3516,7 @@ id noState
 id none
 id normal
 id north
+id notesFr
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -3537,6 +3553,8 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id playButton
+id pomodoroBtn
 id position
 id postLayout
 id pressed
@@ -3547,6 +3565,7 @@ id radio
 id ratio
 id rectangles
 id report_drawn
+id restartButton
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3584,6 +3603,7 @@ id selected
 id selection_type
 id sharedValueSet
 id sharedValueUnset
+id shortbrkBtn
 id shortcut
 id showCustom
 id showHome
@@ -3623,6 +3643,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id tabLayout
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3637,6 +3658,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id taskFr
 id text
 id text2
 id textEnd
@@ -3653,12 +3675,17 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id themeFr
 id time
+id timerFr
+id timerText
+id timerTextView
 id title
 id titleDividerNoCustom
 id title_template
 id toggle
 id top
+id topLayout
 id topPanel
 id touch_outside
 id transitionToEnd
@@ -3678,6 +3705,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id viewPager
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3833,6 +3861,12 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_longbreak
+layout fragment_notes
+layout fragment_shortbreak
+layout fragment_task
+layout fragment_themes
+layout fragment_timer
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout m3_alert_dialog
@@ -3954,6 +3988,7 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description

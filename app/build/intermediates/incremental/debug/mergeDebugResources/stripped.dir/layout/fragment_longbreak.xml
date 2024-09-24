@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pomodoro Timer"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:textColor="@color/black"
+            android:text="Stay on track with timed work sessions and breaks."/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearTimer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15:00"
+            android:background="@drawable/timercontainer"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="50sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/pomodoroBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/DarkPurple"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:text="Pomodoro"/>
+            <Button
+                android:id="@+id/shortbrkBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/DarkPurple"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:text="Short Break"/>
+            <Button
+                android:id="@+id/longbrkBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/DarkPurple"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:text="Long Break"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/restartButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/restart"
+                android:background="@drawable/ibcontainer"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="15dp"/>
+
+            <ImageButton
+                android:id="@+id/playButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/playarrow"
+                android:background="@drawable/ibcontainer"
+                android:layout_marginTop="16dp" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/next"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/ibcontainer"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

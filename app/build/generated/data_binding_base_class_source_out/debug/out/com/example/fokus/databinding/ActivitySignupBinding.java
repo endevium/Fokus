@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -20,6 +21,9 @@ import java.lang.String;
 public final class ActivitySignupBinding implements ViewBinding {
   @NonNull
   private final RelativeLayout rootView;
+
+  @NonNull
+  public final ImageView googleBtn;
 
   @NonNull
   public final TextView loginD;
@@ -39,10 +43,11 @@ public final class ActivitySignupBinding implements ViewBinding {
   @NonNull
   public final EditText sUser;
 
-  private ActivitySignupBinding(@NonNull RelativeLayout rootView, @NonNull TextView loginD,
-      @NonNull RelativeLayout main, @NonNull Button sBtn, @NonNull EditText sEmail,
-      @NonNull EditText sPass, @NonNull EditText sUser) {
+  private ActivitySignupBinding(@NonNull RelativeLayout rootView, @NonNull ImageView googleBtn,
+      @NonNull TextView loginD, @NonNull RelativeLayout main, @NonNull Button sBtn,
+      @NonNull EditText sEmail, @NonNull EditText sPass, @NonNull EditText sUser) {
     this.rootView = rootView;
+    this.googleBtn = googleBtn;
     this.loginD = loginD;
     this.main = main;
     this.sBtn = sBtn;
@@ -78,6 +83,12 @@ public final class ActivitySignupBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.googleBtn;
+      ImageView googleBtn = ViewBindings.findChildViewById(rootView, id);
+      if (googleBtn == null) {
+        break missingId;
+      }
+
       id = R.id.loginD;
       TextView loginD = ViewBindings.findChildViewById(rootView, id);
       if (loginD == null) {
@@ -110,8 +121,8 @@ public final class ActivitySignupBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySignupBinding((RelativeLayout) rootView, loginD, main, sBtn, sEmail, sPass,
-          sUser);
+      return new ActivitySignupBinding((RelativeLayout) rootView, googleBtn, loginD, main, sBtn,
+          sEmail, sPass, sUser);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

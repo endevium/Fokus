@@ -7,8 +7,6 @@ import android.util.Patterns
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import retrofit2.*
 
 class SignupActivity : AppCompatActivity() {
@@ -97,11 +95,11 @@ class SignupActivity : AppCompatActivity() {
                     val signupResponse = response.body()
                     if (signupResponse != null) {
                         Toast.makeText(this@SignupActivity, signupResponse.message, Toast.LENGTH_SHORT).show()
-                        // Handle successful login
+                        val intent = Intent(this@SignupActivity, MainActivity::class.java)
+                        startActivity(intent)
                     }
                 } else {
                     val errorResponse = response.errorBody()?.string()
-                    Log.e("SignupError", "Error: $errorResponse")
                     Toast.makeText(this@SignupActivity, "Signup Failed: $errorResponse", Toast.LENGTH_SHORT).show()
                 }
             }

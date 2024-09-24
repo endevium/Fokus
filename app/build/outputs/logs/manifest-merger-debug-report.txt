@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-47:12
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:2:1-49:12
 MERGED from [androidx.databinding:viewbinding:8.5.0] C:\Users\PC\.gradle\caches\transforms-4\b4952b3c76c21e411a8bf51b3765e8f5\transformed\viewbinding-8.5.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.6.0] C:\Users\PC\.gradle\caches\transforms-4\58242f5e6feb8e3c8d5cdbb8e37cdea0\transformed\navigation-common-2.6.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.6.0] C:\Users\PC\.gradle\caches\transforms-4\d796bb46f8683ad2e71f3ba869cb4b7d\transformed\navigation-common-ktx-2.6.0\AndroidManifest.xml:17:1-22:12
@@ -86,8 +86,8 @@ ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.
 	android:name
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:7:22-73
 application
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:9:5-45:19
-INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:9:5-45:19
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:9:5-47:19
+INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:9:5-47:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\PC\.gradle\caches\transforms-4\dbcd089721a897ecf77a029bdd53459b\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\PC\.gradle\caches\transforms-4\dbcd089721a897ecf77a029bdd53459b\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\PC\.gradle\caches\transforms-4\017a0e4c8411e84afe214bf32f5894bf\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -130,56 +130,58 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\PC
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:12:9-65
 	android:usesCleartextTraffic
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:10:9-44
-activity#com.example.fokus.MainActivity
+activity#com.example.fokus.FourthActivity
 ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:20:9-22:40
 	android:exported
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:22:13-37
 	android:name
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:21:13-41
-activity#com.example.fokus.LoginActivity
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:21:13-43
+activity#com.example.fokus.ThirdActivity
 ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:24:13-42
-activity#com.example.fokus.SignupActivity
+activity#com.example.fokus.SecondActivity
 ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:27:13-43
-activity#com.example.fokus.FourthActivity
+activity#com.example.fokus.MainActivity
 ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:29:9-31:40
 	android:exported
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:31:13-37
 	android:name
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:30:13-43
-activity#com.example.fokus.ThirdActivity
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:30:13-41
+activity#com.example.fokus.LoginActivity
 ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:32:9-34:40
 	android:exported
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:34:13-37
 	android:name
 		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:33:13-42
-activity#com.example.fokus.SecondActivity
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:35:9-52
-	android:name
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:35:19-49
-activity#com.example.fokus.FirstActivity
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:36:9-44:20
+activity#com.example.fokus.SignupActivity
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:35:9-37:40
 	android:exported
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:38:13-36
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:37:13-37
 	android:name
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:37:13-42
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:36:13-43
+activity#com.example.fokus.FirstActivity
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:38:9-46:20
+	android:exported
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:40:13-36
+	android:name
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:39:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:39:13-43:29
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:41:13-45:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:40:17-69
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:42:17-69
 	android:name
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:40:25-66
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:42:17-77
+ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:44:17-77
 	android:name
-		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:42:27-74
+		ADDED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml:44:27-74
 uses-sdk
 INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\PC\AndroidStudioProjects\Fokus\app\src\main\AndroidManifest.xml
