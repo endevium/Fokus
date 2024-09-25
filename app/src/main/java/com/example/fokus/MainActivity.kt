@@ -7,7 +7,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -15,7 +17,6 @@ class MainActivity : AppCompatActivity() {
 
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
-
 
         val adapter = MainViewPagerAdapter(this)
         viewPager.adapter = adapter
@@ -29,4 +30,5 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
     }
+
 }

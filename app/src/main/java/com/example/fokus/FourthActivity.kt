@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class FourthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +15,11 @@ class FourthActivity : AppCompatActivity() {
         val nxtBtn = findViewById<Button>(R.id.nxtBtn)
 
         nxtBtn.setOnClickListener{
-            val Intent = Intent(this, LoginActivity::class.java)
+            val Intent = Intent(this, SignupActivity::class.java)
             startActivity(Intent)
         }
 
-        }
+
+
     }
+}

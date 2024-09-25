@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 
-class ShortBreakFragment : Fragment() {
+class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
 
     private lateinit var timerTextView: TextView
     private lateinit var playButton: ImageButton
     private lateinit var restartButton: ImageButton
+    private lateinit var nextButton: ImageButton
     private var timer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 5 * 60 * 1000
     private var isTimerRunning: Boolean = false
@@ -33,6 +34,7 @@ class ShortBreakFragment : Fragment() {
         timerTextView = view.findViewById(R.id.timerTextView)
         playButton = view.findViewById(R.id.playButton)
         restartButton = view.findViewById(R.id.restartButton)
+        nextButton = view.findViewById(R.id.sbnxtBtn)
 
         playButton.setOnClickListener {
             if (!isTimerRunning) {
@@ -42,6 +44,13 @@ class ShortBreakFragment : Fragment() {
 
         restartButton.setOnClickListener {
             resetTimer()
+        }
+        nextButton.setOnClickListener {
+            val longBreakFragment = LongBreakFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, longBreakFragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 

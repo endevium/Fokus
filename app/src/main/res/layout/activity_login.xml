@@ -38,8 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:layout_marginEnd="110dp"
+            android:textColor="@color/lightblack"
+            android:layout_marginEnd="112dp"
             android:text="Email Address"
             android:textStyle="bold"/>
 
@@ -52,6 +52,7 @@
             android:inputType="textEmailAddress"
             android:hint=" Enter Email"
             android:drawableStart="@drawable/email"
+            android:drawablePadding="5dp"
             android:textColorHint="@color/lightgray"
             android:textColor="@color/black"
             android:background="@drawable/etcontainer"
@@ -73,12 +74,13 @@
             android:layout_marginTop="1dp"
             android:background="@drawable/etcontainer"
             android:drawableStart="@drawable/lock"
+            android:drawablePadding="5dp"
             android:drawableEnd="@drawable/show"
             android:ems="10"
             android:hint=" Enter Password"
             android:inputType="textPassword"
             android:padding="14dp"
-            android:textColor="@color/black"
+            android:textColor="@color/lightblack"
             android:textColorHint="@color/lightgray" />
 
         <LinearLayout
@@ -127,20 +129,6 @@
             android:shadowColor="@color/black"
             android:shadowDy="2"
             android:shadowDx="2" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Or continue with"
-            android:textStyle="bold"
-            android:textSize="15sp" />
-        <ImageView
-            android:id="@+id/googleBtn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/google"/>
 
 
         <LinearLayout

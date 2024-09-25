@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 
-class LongBreakFragment : Fragment() {
+class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
 
     private lateinit var timerTextView: TextView
     private lateinit var playButton: ImageButton

@@ -8,56 +8,82 @@
     android:background="@color/WhiteBackground"
     tools:context=".ThirdActivity">
 
-    <ImageView
-        android:layout_width="350dp"
-        android:layout_height="600dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="222dp"
-        android:src="@drawable/i3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:layout_width="328dp"
-        android:layout_height="136dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="421dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="174dp"
-        android:gravity="center"
-        android:text="The pomodoro technique is effective, but you may prefer your own approach. Customize your focus and break intervals to suit your style."
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="450dp"
+            android:src="@drawable/i3" />
 
-    <ImageButton
-        android:id="@+id/inxtBtn"
-        android:layout_width="20dp"
-        android:layout_height="18dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="99dp"
-        android:contentDescription="Open new activity"
-        android:background="@color/WhiteBackground"
-        android:src="@drawable/nexbtn" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Taking appropriate breaks enhances focus and productivity. Consider stretching or resting your eyes"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@color/black" />
 
-    <ImageButton
-        android:id="@+id/ibckBtn"
-        android:layout_width="20dp"
-        android:layout_height="18dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="99dp"
-        android:background="@color/WhiteBackground"
-        android:src="@drawable/backbtn" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="75dp">
+
+            <ImageButton
+                android:id="@+id/ibckBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/backbtn"
+                android:backgroundTint="@color/white"
+                android:layout_marginEnd="110dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/smallcircle"
+                android:layout_marginEnd="5dp"
+                app:tint="@color/DarkPurple"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/smallcircle"
+                android:layout_marginEnd="5dp"
+                app:tint="@color/DarkPurple" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/circle"
+                android:layout_marginEnd="5dp"
+                app:tint="@color/DarkPurple" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/smallcircle"
+                app:tint="@color/DarkPurple" />
+
+            <ImageButton
+                android:id="@+id/inxtBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/nexbtn"
+                android:backgroundTint="@color/white"
+                android:layout_marginStart="110dp"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

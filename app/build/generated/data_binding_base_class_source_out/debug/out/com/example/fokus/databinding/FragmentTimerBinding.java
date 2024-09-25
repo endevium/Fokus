@@ -4,9 +4,7 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,38 +21,30 @@ public final class FragmentTimerBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final LinearLayout linearTimer;
-
-  @NonNull
-  public final Button longbrkBtn;
+  public final RelativeLayout fragmentContainer;
 
   @NonNull
   public final ImageButton playButton;
 
   @NonNull
-  public final Button pomodoroBtn;
-
-  @NonNull
   public final ImageButton restartButton;
-
-  @NonNull
-  public final Button shortbrkBtn;
 
   @NonNull
   public final TextView timerTextView;
 
-  private FragmentTimerBinding(@NonNull RelativeLayout rootView, @NonNull LinearLayout linearTimer,
-      @NonNull Button longbrkBtn, @NonNull ImageButton playButton, @NonNull Button pomodoroBtn,
-      @NonNull ImageButton restartButton, @NonNull Button shortbrkBtn,
-      @NonNull TextView timerTextView) {
+  @NonNull
+  public final ImageButton tnxtBtn;
+
+  private FragmentTimerBinding(@NonNull RelativeLayout rootView,
+      @NonNull RelativeLayout fragmentContainer, @NonNull ImageButton playButton,
+      @NonNull ImageButton restartButton, @NonNull TextView timerTextView,
+      @NonNull ImageButton tnxtBtn) {
     this.rootView = rootView;
-    this.linearTimer = linearTimer;
-    this.longbrkBtn = longbrkBtn;
+    this.fragmentContainer = fragmentContainer;
     this.playButton = playButton;
-    this.pomodoroBtn = pomodoroBtn;
     this.restartButton = restartButton;
-    this.shortbrkBtn = shortbrkBtn;
     this.timerTextView = timerTextView;
+    this.tnxtBtn = tnxtBtn;
   }
 
   @Override
@@ -84,27 +74,11 @@ public final class FragmentTimerBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.linearTimer;
-      LinearLayout linearTimer = ViewBindings.findChildViewById(rootView, id);
-      if (linearTimer == null) {
-        break missingId;
-      }
-
-      id = R.id.longbrkBtn;
-      Button longbrkBtn = ViewBindings.findChildViewById(rootView, id);
-      if (longbrkBtn == null) {
-        break missingId;
-      }
+      RelativeLayout fragmentContainer = (RelativeLayout) rootView;
 
       id = R.id.playButton;
       ImageButton playButton = ViewBindings.findChildViewById(rootView, id);
       if (playButton == null) {
-        break missingId;
-      }
-
-      id = R.id.pomodoroBtn;
-      Button pomodoroBtn = ViewBindings.findChildViewById(rootView, id);
-      if (pomodoroBtn == null) {
         break missingId;
       }
 
@@ -114,20 +88,20 @@ public final class FragmentTimerBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.shortbrkBtn;
-      Button shortbrkBtn = ViewBindings.findChildViewById(rootView, id);
-      if (shortbrkBtn == null) {
-        break missingId;
-      }
-
       id = R.id.timerTextView;
       TextView timerTextView = ViewBindings.findChildViewById(rootView, id);
       if (timerTextView == null) {
         break missingId;
       }
 
-      return new FragmentTimerBinding((RelativeLayout) rootView, linearTimer, longbrkBtn,
-          playButton, pomodoroBtn, restartButton, shortbrkBtn, timerTextView);
+      id = R.id.tnxtBtn;
+      ImageButton tnxtBtn = ViewBindings.findChildViewById(rootView, id);
+      if (tnxtBtn == null) {
+        break missingId;
+      }
+
+      return new FragmentTimerBinding((RelativeLayout) rootView, fragmentContainer, playButton,
+          restartButton, timerTextView, tnxtBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

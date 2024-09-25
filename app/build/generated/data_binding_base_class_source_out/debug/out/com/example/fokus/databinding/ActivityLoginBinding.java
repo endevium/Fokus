@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -25,9 +24,6 @@ public final class ActivityLoginBinding implements ViewBinding {
 
   @NonNull
   public final TextView fpassL;
-
-  @NonNull
-  public final ImageView googleBtn;
 
   @NonNull
   public final Button lBtn;
@@ -48,12 +44,10 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final TextView signupD;
 
   private ActivityLoginBinding(@NonNull RelativeLayout rootView, @NonNull TextView fpassL,
-      @NonNull ImageView googleBtn, @NonNull Button lBtn, @NonNull EditText lEmail,
-      @NonNull EditText lPass, @NonNull RelativeLayout main, @NonNull CheckBox rMeCb,
-      @NonNull TextView signupD) {
+      @NonNull Button lBtn, @NonNull EditText lEmail, @NonNull EditText lPass,
+      @NonNull RelativeLayout main, @NonNull CheckBox rMeCb, @NonNull TextView signupD) {
     this.rootView = rootView;
     this.fpassL = fpassL;
-    this.googleBtn = googleBtn;
     this.lBtn = lBtn;
     this.lEmail = lEmail;
     this.lPass = lPass;
@@ -95,12 +89,6 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.googleBtn;
-      ImageView googleBtn = ViewBindings.findChildViewById(rootView, id);
-      if (googleBtn == null) {
-        break missingId;
-      }
-
       id = R.id.lBtn;
       Button lBtn = ViewBindings.findChildViewById(rootView, id);
       if (lBtn == null) {
@@ -133,8 +121,8 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((RelativeLayout) rootView, fpassL, googleBtn, lBtn, lEmail,
-          lPass, main, rMeCb, signupD);
+      return new ActivityLoginBinding((RelativeLayout) rootView, fpassL, lBtn, lEmail, lPass, main,
+          rMeCb, signupD);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

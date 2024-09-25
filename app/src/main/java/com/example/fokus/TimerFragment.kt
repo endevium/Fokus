@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 
-class TimerFragment : Fragment() {
+class TimerFragment : Fragment(R.layout.fragment_timer) {
 
     private lateinit var timerTextView: TextView
     private lateinit var playButton: ImageButton
     private lateinit var restartButton: ImageButton
+    private lateinit var nextButton: ImageButton
     private var timer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 25 * 60 * 1000
     private var isTimerRunning: Boolean = false
@@ -28,9 +29,12 @@ class TimerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         timerTextView = view.findViewById(R.id.timerTextView)
         playButton = view.findViewById(R.id.playButton)
         restartButton = view.findViewById(R.id.restartButton)
+        nextButton = view.findViewById(R.id.tnxtBtn)
 
         playButton.setOnClickListener {
             if (!isTimerRunning) {
@@ -41,7 +45,16 @@ class TimerFragment : Fragment() {
         restartButton.setOnClickListener {
             resetTimer()
         }
+
+        nextButton.setOnClickListener {
+            val shortBreakFragment = ShortBreakFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, shortBreakFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
+
 
     private fun startTimer() {
         timer = object : CountDownTimer(timeLeftInMillis, 1000) {

@@ -4,7 +4,6 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -23,38 +22,33 @@ public final class FragmentShortbreakBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final LinearLayout linearTimer;
+  public final RelativeLayout fragmentContainer;
 
   @NonNull
-  public final Button longbrkBtn;
+  public final LinearLayout linearTimer;
 
   @NonNull
   public final ImageButton playButton;
 
   @NonNull
-  public final Button pomodoroBtn;
-
-  @NonNull
   public final ImageButton restartButton;
 
   @NonNull
-  public final Button shortbrkBtn;
+  public final ImageButton sbnxtBtn;
 
   @NonNull
   public final TextView timerTextView;
 
   private FragmentShortbreakBinding(@NonNull RelativeLayout rootView,
-      @NonNull LinearLayout linearTimer, @NonNull Button longbrkBtn,
-      @NonNull ImageButton playButton, @NonNull Button pomodoroBtn,
-      @NonNull ImageButton restartButton, @NonNull Button shortbrkBtn,
-      @NonNull TextView timerTextView) {
+      @NonNull RelativeLayout fragmentContainer, @NonNull LinearLayout linearTimer,
+      @NonNull ImageButton playButton, @NonNull ImageButton restartButton,
+      @NonNull ImageButton sbnxtBtn, @NonNull TextView timerTextView) {
     this.rootView = rootView;
+    this.fragmentContainer = fragmentContainer;
     this.linearTimer = linearTimer;
-    this.longbrkBtn = longbrkBtn;
     this.playButton = playButton;
-    this.pomodoroBtn = pomodoroBtn;
     this.restartButton = restartButton;
-    this.shortbrkBtn = shortbrkBtn;
+    this.sbnxtBtn = sbnxtBtn;
     this.timerTextView = timerTextView;
   }
 
@@ -85,15 +79,11 @@ public final class FragmentShortbreakBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      RelativeLayout fragmentContainer = (RelativeLayout) rootView;
+
       id = R.id.linearTimer;
       LinearLayout linearTimer = ViewBindings.findChildViewById(rootView, id);
       if (linearTimer == null) {
-        break missingId;
-      }
-
-      id = R.id.longbrkBtn;
-      Button longbrkBtn = ViewBindings.findChildViewById(rootView, id);
-      if (longbrkBtn == null) {
         break missingId;
       }
 
@@ -103,21 +93,15 @@ public final class FragmentShortbreakBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.pomodoroBtn;
-      Button pomodoroBtn = ViewBindings.findChildViewById(rootView, id);
-      if (pomodoroBtn == null) {
-        break missingId;
-      }
-
       id = R.id.restartButton;
       ImageButton restartButton = ViewBindings.findChildViewById(rootView, id);
       if (restartButton == null) {
         break missingId;
       }
 
-      id = R.id.shortbrkBtn;
-      Button shortbrkBtn = ViewBindings.findChildViewById(rootView, id);
-      if (shortbrkBtn == null) {
+      id = R.id.sbnxtBtn;
+      ImageButton sbnxtBtn = ViewBindings.findChildViewById(rootView, id);
+      if (sbnxtBtn == null) {
         break missingId;
       }
 
@@ -127,8 +111,8 @@ public final class FragmentShortbreakBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentShortbreakBinding((RelativeLayout) rootView, linearTimer, longbrkBtn,
-          playButton, pomodoroBtn, restartButton, shortbrkBtn, timerTextView);
+      return new FragmentShortbreakBinding((RelativeLayout) rootView, fragmentContainer,
+          linearTimer, playButton, restartButton, sbnxtBtn, timerTextView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
