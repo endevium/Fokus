@@ -1,14 +1,13 @@
 package com.example.fokus
 
-import android.content.ClipData.Item
-import android.media.audiofx.Equalizer.Settings
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigation)
 
         val adapter = MainViewPagerAdapter(this)
         viewPager.adapter = adapter
@@ -31,6 +31,28 @@ class MainActivity : AppCompatActivity() {
                 3 -> tab.text = "Notes"
             }
         }.attach()
-    }
 
+        bottomNavigationView.selectedItemId = R.id.bHome
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.bHome -> {
+                    true
+                }
+                R.id.bSettings -> {
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0)  // No animation
+                    true
+                }
+                R.id.bProfile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0)  // No animation
+                    true
+                }
+                else -> false
+            }
+        }
+    }
 }
