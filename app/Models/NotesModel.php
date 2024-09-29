@@ -15,6 +15,9 @@ class NotesModel extends Model
         'fokus_app_id' // This associates the note with a user
     ];
 
+    
+        protected $table = 'notes';  // Specify the correct table name
+
     // Define a relationship back to the FokusApp model
     public function fokusApp()
     {

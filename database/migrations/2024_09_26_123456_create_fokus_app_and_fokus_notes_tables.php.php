@@ -20,14 +20,14 @@ class CreateFokusAppAndFokusNotesTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('FOKUS_NOTES', function (Blueprint $table) {
-            $table->id(); // Add an id column
+        // Create the fokus_notes table
+        Schema::create('fokus_notes', function (Blueprint $table) {
+            $table->id();
             $table->string('title');
             $table->text('content');
             $table->foreignId('fokus_app_id')->constrained('fokus_app')->onDelete('cascade'); // Foreign key reference
-            $table->timestamps();
+            $table->timestamps(); // Ensure you have timestamps for notes as well
         });
-        
     }
 
     /**

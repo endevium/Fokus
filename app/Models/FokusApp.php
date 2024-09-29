@@ -19,7 +19,8 @@ class FokusApp extends Authenticatable // Changed to extend Authenticatable
     // Define a relationship to the NotesModel
     public function notes()
     {
-        return $this->hasMany(NotesModel::class); // Use the correct model name
+        return $this->hasMany(NotesModel::class);
+
     }
 
     // Optionally, you can define hidden attributes for the model

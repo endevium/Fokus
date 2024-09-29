@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\FokusController;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
-
+use App\Http\Controllers\AuthController;
 
 
 //TOKEN
@@ -19,10 +19,14 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Define routes for FokusApp
-Route::get('/FokusApp', [fokusController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/FokusApp', [FokusController::class, 'index']);
 Route::post('/FokusApp', [FokusController::class, 'store']);
 Route::get('/FokusApp/{id}', [FokusController::class, 'show']);
 Route::post('/login', [FokusController::class, 'login'])->name('login');
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
 // Routes for NotesController
 Route::middleware('auth:sanctum')->group(function () {

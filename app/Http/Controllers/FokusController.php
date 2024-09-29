@@ -39,21 +39,18 @@ class fokusController extends Controller
     {
         $request->validate(['email' => 'required|string|email', 'password' => 'required|string']);
         
-        // Fetch user by email
         $user = FokusApp::where('email', $request->email)->first();
     
-        if ($user && Hash::check($request->password, $user->password)) {
-            // Create a token for the user
-            $token = $user->createToken('YourAppName')->plainTextToken;
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'Email not found'], 404);
+        }
     
-            return response()->json([
-                'success' => true,
-                'message' => 'Login successful',
-                'user' => $user,
-                'token' => $token
-            ], 200);
+        if (Hash::check($request->password, $user->password)) {
+            $token = $user->createToken('Fokus_App')->plainTextToken;
+            return response()->json(['success' => true, 'message' => 'Login successful', 'user' => $user, 'token' => $token], 200);
         } else {
-            return response()->json(['success' => false, 'message' => 'Invalid email or password'], 401);
+            return response()->json(['success' => false, 'message' => 'Invalid password'], 401);
         }
     }
-}    
+}
+
