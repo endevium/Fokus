@@ -3039,6 +3039,7 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f070074
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f070075
 int drawable abc_textfield_search_material 0x7f070076
 int drawable abc_vector_test 0x7f070077
+int drawable add 0x7f070106
 int drawable avd_hide_password 0x7f070078
 int drawable avd_show_password 0x7f070079
 int drawable backbtn 0x7f07007a
@@ -3254,6 +3255,7 @@ int id action_text 0x7f090043
 int id actions 0x7f090044
 int id activity_chooser_view_content 0x7f090045
 int id add 0x7f090046
+int id addTask 0x7f090227
 int id alertTitle 0x7f090047
 int id aligned 0x7f090048
 int id all 0x7f090049
@@ -3849,7 +3851,9 @@ int layout activity_first 0x7f0c001c
 int layout activity_fourth 0x7f0c001d
 int layout activity_login 0x7f0c001e
 int layout activity_main 0x7f0c001f
+int layout activity_profile 0x7f0c007a
 int layout activity_second 0x7f0c0020
+int layout activity_settings 0x7f0c007b
 int layout activity_signup 0x7f0c0021
 int layout activity_third 0x7f0c0022
 int layout custom_dialog 0x7f0c0023

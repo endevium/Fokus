@@ -15,9 +15,11 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
     private lateinit var playButton: ImageButton
     private lateinit var restartButton: ImageButton
     private lateinit var nextButton: ImageButton
+    private lateinit var timerFragment: TimerFragment
     private var timer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 5 * 60 * 1000
     private var isTimerRunning: Boolean = false
+    private var phase: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,28 +31,46 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         timerTextView = view.findViewById(R.id.timerTextView)
         playButton = view.findViewById(R.id.playButton)
         restartButton = view.findViewById(R.id.restartButton)
         nextButton = view.findViewById(R.id.sbnxtBtn)
+        timerFragment = TimerFragment()
+
+        val args = this.arguments
+        val fetchedPhase = args?.getInt("phase")
+        val fetchedAutoStart = args?.getBoolean("autoStart")
+
+        if (fetchedAutoStart != null && fetchedAutoStart) {
+            startTimer()
+        }
+
+        if (fetchedPhase != null) {
+            phase = fetchedPhase
+        }
 
         playButton.setOnClickListener {
             if (!isTimerRunning) {
                 startTimer()
+            } else if (isTimerRunning) {
+                isTimerRunning = false
+                timer?.cancel()
             }
         }
 
         restartButton.setOnClickListener {
             resetTimer()
         }
+
         nextButton.setOnClickListener {
-            val longBreakFragment = LongBreakFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, longBreakFragment)
-                .addToBackStack(null)
-                .commit()
+            val bundle = Bundle()
+            phase += 1
+            bundle.putInt("phase", phase)
+
+            if (phase == 2) {
+                timerFragment.arguments = bundle
+                timerFragment()
+            }
         }
     }
 
@@ -64,6 +84,16 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             override fun onFinish() {
                 timerTextView.text = "00:00"
                 isTimerRunning = false
+
+                val bundle = Bundle()
+                phase += 1
+                bundle.putInt("phase", phase)
+                bundle.putBoolean("autoStart", true)
+
+                if (phase == 2) {
+                    timerFragment.arguments = bundle
+                    timerFragment()
+                }
             }
         }.start()
         isTimerRunning = true
@@ -80,6 +110,13 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         val seconds = (timeLeftInMillis / 1000) % 60
         val minutes = (timeLeftInMillis / 1000) / 60
         timerTextView.text = String.format("%02d:%02d", minutes, seconds)
+    }
+
+    private fun timerFragment() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, timerFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onDestroy() {

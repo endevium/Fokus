@@ -11,6 +11,7 @@ color lightgray
 color white
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
+drawable add
 drawable backbtn
 drawable circle
 drawable email
@@ -46,6 +47,7 @@ drawable ttvcontainer2
 drawable ttvcontainer3
 font khula
 font lexend
+id addTask
 id bHome
 id bProfile
 id bSettings
@@ -89,7 +91,9 @@ layout activity_first
 layout activity_fourth
 layout activity_login
 layout activity_main
+layout activity_profile
 layout activity_second
+layout activity_settings
 layout activity_signup
 layout activity_third
 layout fragment_longbreak

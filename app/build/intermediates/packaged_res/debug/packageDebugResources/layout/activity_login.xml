@@ -17,21 +17,27 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="180dp"
-            android:src="@drawable/logof" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-130dp">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="180dp"
+                android:src="@drawable/logof" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log In"
-            android:textSize="30sp"
-            android:textColor="@color/DarkPurple"
-            android:textStyle="bold"
-            android:shadowRadius="2"
-            android:shadowColor="@color/black"
+            android:shadowColor="#D3000000"
+            android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowDx="2"/>
+            android:shadowRadius="2"
+            android:text="Log In"
+            android:textColor="#6D31ED"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
 
         <TextView
@@ -43,20 +49,30 @@
             android:text="Email Address"
             android:textStyle="bold"/>
 
-        <EditText
-            android:id="@+id/lEmail"
-            android:layout_width="310dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint=" Enter Email"
-            android:drawableStart="@drawable/email"
-            android:drawablePadding="5dp"
-            android:textColorHint="@color/lightgray"
-            android:textColor="@color/black"
-            android:background="@drawable/etcontainer"
-            android:padding="14dp"/>
+            app:cardElevation="6dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <EditText
+                android:id="@+id/lEmail"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint=" Enter Email"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="5dp"
+                android:textColorHint="@color/lightgray"
+                android:textColor="@color/black"
+                android:background="@drawable/etcontainer"
+                android:padding="14dp"/>
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,21 +83,31 @@
             android:text="Password"
             android:textStyle="bold"/>
 
-        <EditText
-            android:id="@+id/lPass"
-            android:layout_width="310dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/etcontainer"
-            android:drawableStart="@drawable/lock"
-            android:drawablePadding="5dp"
-            android:drawableEnd="@drawable/show"
-            android:ems="10"
-            android:hint=" Enter Password"
-            android:inputType="textPassword"
-            android:padding="14dp"
-            android:textColor="@color/lightblack"
-            android:textColorHint="@color/lightgray" />
+            app:cardElevation="6dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <EditText
+                android:id="@+id/lPass"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/etcontainer"
+                android:drawableStart="@drawable/lock"
+                android:drawablePadding="5dp"
+                android:drawableEnd="@drawable/show"
+                android:ems="10"
+                android:hint=" Enter Password"
+                android:inputType="textPassword"
+                android:padding="14dp"
+                android:textColor="@color/lightblack"
+                android:textColorHint="@color/lightgray" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <LinearLayout
             android:layout_width="320dp"
@@ -109,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:text="Forgot Password?"
-                android:textColor="@color/DarkPurple"
+                android:textColor="#6D31ED"
                 android:textStyle="bold" />
 
 
@@ -120,37 +146,36 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
-            android:text="Log In"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/DarkPurple"
-            android:shadowRadius="2"
+            android:backgroundTint="#6D31ED"
             android:shadowColor="@color/black"
+            android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowDx="2" />
+            android:shadowRadius="2"
+            android:text="Log In"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dont Have an account?"
-                android:layout_marginTop="5dp"
                 android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/signupD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:text="  Sign up"
-                android:textColor="@color/DarkPurple"
+                android:textColor="#6D31ED"
                 android:textStyle="bold" />
 
         </LinearLayout>
