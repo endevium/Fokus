@@ -1,9 +1,9 @@
 package com.example.fokus
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
@@ -11,15 +11,40 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
+    private lateinit var bottomNav: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val viewPager: ViewPager2 = findViewById(R.id.viewPager)
-        val tabLayout: TabLayout = findViewById(R.id.tabLayout)
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigation)
+        viewPager = findViewById(R.id.viewPager)
+        tabLayout = findViewById(R.id.tabLayout)
+        bottomNav = findViewById(R.id.bottomNavigation)
 
+        setupViewPagerAndTabs()
+
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.bHome -> {
+                    showMainScreen()
+                    true
+                }
+                R.id.bSettings -> {
+                    loadFragment(SettingsFragment())
+                    true
+                }
+                R.id.bProfile -> {
+                    loadFragment(ProfileFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setupViewPagerAndTabs() {
         val adapter = MainViewPagerAdapter(this)
         viewPager.adapter = adapter
 
@@ -32,27 +57,29 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
-        bottomNavigationView.selectedItemId = R.id.bHome
+        viewPager.visibility = View.VISIBLE
+        tabLayout.visibility = View.VISIBLE
+    }
 
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.bHome -> {
-                    true
-                }
-                R.id.bSettings -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(0, 0)  // No animation
-                    true
-                }
-                R.id.bProfile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(0, 0)  // No animation
-                    true
-                }
-                else -> false
-            }
-        }
+    // show main (reset viewPager2 and tabLayout)
+    private fun showMainScreen() {
+        // remove fragments to main
+        supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+        // show viewPager2 and tabLayout
+        viewPager.visibility = View.VISIBLE
+        tabLayout.visibility = View.VISIBLE
+    }
+
+    // load transaction
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.main, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+
+        // hide viewPager2 and tabLayout when in fragment xD
+        viewPager.visibility = View.GONE
+        tabLayout.visibility = View.GONE
     }
 }
