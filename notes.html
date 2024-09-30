@@ -55,7 +55,7 @@
 <body>
 
 <h2>Your Notes</h2>
-<textarea id="note-input" placeholder="Write your note here..."></textarea>
+<textarea id="note-input" placeholder="Write a notes"></textarea>
 <button onclick="saveNote()">Save Note</button>
 
 <ul class="notes-list" id="notes-list"></ul>
@@ -67,7 +67,7 @@
     });
 
     function fetchNotes() {
-        fetch('http://127.0.0.1:8000/api/Notes', { // Adjust URL as needed
+        fetch('http://127.0.0.1:8000/api/fokus_notes', { // Adjust URL as needed
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`, // Assuming you're storing the token
             }
@@ -100,7 +100,7 @@
         };
 
         // Send the note to the backend
-        fetch('http://127.0.0.1:8000/api/Notes', {
+        fetch('http://127.0.0.1:8000/api/fokus_notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

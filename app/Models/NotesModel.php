@@ -12,15 +12,16 @@ class NotesModel extends Model
     protected $fillable = [
         'title',
         'content',
-        'fokus_app_id' // This associates the note with a user
+        'fokus_app_id' // associates the note with a user
     ];
 
     
-        protected $table = 'notes';  // Specify the correct table name
+        protected $table = 'fokus_notes';  // table name
 
-    // Define a relationship back to the FokusApp model
+    // relationship back to the FokusApp model
     public function fokusApp()
     {
-        return $this->belongsTo(FokusApp::class, 'fokus_app_id'); // Specify the foreign key
+        return $this->belongsTo(FokusApp::class, 'fokus_app_id'); // foreign key
     }
+    
 }

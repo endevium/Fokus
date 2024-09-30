@@ -20,7 +20,7 @@ class fokusController extends Controller
     {
         $request->validate([
             'username' => 'required|string|max:255|unique:fokus_app',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|max:50|unique:fokus_app',
             'email' => 'required|string|email|max:255|unique:fokus_app',
         ]);
 

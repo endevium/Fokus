@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\AuthController;
 
-// Resource routes for the NotesController
+//routes forNotesController
 Route::resource('notes', NotesController::class);
 
 // For login and signup
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/signup', [AuthController::class, 'signup']);
+Route::post('/login.html', [AuthController::class, 'login']);
+Route::post('/signup.hrml', [AuthController::class, 'signup']);
 
-// Optional: Define a route for the welcome view
-Route::get('/', function () {
-    return view('welcome'); // Ensure you have a view named 'welcome'
+
+// Route to show the welcome page for the Fokus_app
+Route::get('/Fokus_app', function () {
+    return view('welcome'); // view named 'welcome'
 });

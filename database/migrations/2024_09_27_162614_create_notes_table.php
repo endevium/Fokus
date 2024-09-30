@@ -9,10 +9,12 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing ID
-            $table->string('title'); // Title of the note
-            $table->text('content'); // Content of the note
-            $table->timestamps(); // Created at and updated at timestamps
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->text('note');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('fokus_app')->onDelete('cascade');
         });
     }
 

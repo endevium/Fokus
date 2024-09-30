@@ -8,42 +8,41 @@ use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 use App\Http\Controllers\AuthController;
 
 
-//TOKEN
+
+// Registration route
+Route::post('/register', [AuthController::class, 'signup']);
+// AUTHENTICATION ROUTES
+Route::post('/login', [AuthController::class, 'login']);
+
+
+// TOKEN ROUTE
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'showCookie']);
 
-
-//PROTECTION FROM MIDDLEWARE
-
+// PROTECTED ROUTES FOR AUTHENTICATED USERS
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('notes', NotesController::class);
-});
-
-// Define routes for FokusApp
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/FokusApp', [FokusController::class, 'index']);
-Route::post('/FokusApp', [FokusController::class, 'store']);
-Route::get('/FokusApp/{id}', [FokusController::class, 'show']);
-Route::post('/login', [FokusController::class, 'login'])->name('login');
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
-// Routes for NotesController
-Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('notes', NotesController::class);
+    // Notes routes
+    Route::apiResource('fokus_notes', NotesController::class);
     
-    // Additional routes if needed
-    Route::post('/notes', [NotesController::class, 'store']);
-    Route::put('/notes/{id}', [NotesController::class, 'update']);
-    Route::delete('/notes/{id}', [NotesController::class, 'destroy']);
+    // Additional routes
+    Route::get('/user_id', function (Request $request) {
+        return $request->user(); // Returns authenticated user info
+    });
+
+    // BACKUP CHUCHUCHUCHUCHUCHUCHUCHUCHUCH
+    
+    // Route::post('/fokus_notes', [NotesController::class, 'store']);
+    // Route::put('/fokus_notes/{id}', [NotesController::class, 'update']);
+    // Route::delete('/fokus_notes/{id}', [NotesController::class, 'destroy']);
 });
 
-// Route to get authenticated user
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// FOKUS APP ROUTES
+Route::post('/FokusApp', [FokusController::class, 'store']);
+Route::get('/FokusApp', [FokusController::class, 'index']);
+Route::get('/FokusApp/{id}', [FokusController::class, 'show']);
+
+
 
 // Test route
 Route::get('/test', function () {
-    return "test";
+    return "test"; // Simple test route
 });
