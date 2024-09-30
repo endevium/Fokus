@@ -3041,6 +3041,9 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable add
+drawable addnotes
+drawable ancontainer
+drawable arrowback
 drawable avd_hide_password
 drawable avd_show_password
 drawable backbtn
@@ -3058,6 +3061,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable econtainer
 drawable email
 drawable etcontainer
 drawable google
@@ -3092,6 +3096,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable ic_search_black_24
 drawable indeterminate_static
+drawable key
 drawable lock
 drawable logof
 drawable m3_avd_hide_password
@@ -3152,9 +3157,12 @@ drawable mtrl_switch_thumb_unchecked_pressed
 drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
+drawable mute
 drawable navigation_empty_icon
+drawable ncontainer
 drawable nexbtn
 drawable next
+drawable notification
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -3171,11 +3179,14 @@ drawable notify_panel_notification_icon_bg
 drawable playarrow
 drawable profile
 drawable restart
+drawable rtimer
 drawable settings
 drawable show
 drawable smallcircle
+drawable snext
 drawable tbtncontainer
 drawable test_level_drawable
+drawable timer
 drawable timercontainer
 drawable timercontainer2
 drawable tooltip_frame_dark
@@ -3183,6 +3194,8 @@ drawable tooltip_frame_light
 drawable ttvcontainer
 drawable ttvcontainer2
 drawable ttvcontainer3
+drawable vibrate
+drawable volume
 font khula
 font lexend
 id ALT
@@ -3257,6 +3270,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addTask
+id addnoteBtn
 id alertTitle
 id aligned
 id all
@@ -3362,6 +3376,7 @@ id easeInOut
 id easeOut
 id east
 id edge
+id edit
 id edit_query
 id edit_text_id
 id elastic
@@ -3852,9 +3867,7 @@ layout activity_first
 layout activity_fourth
 layout activity_login
 layout activity_main
-layout activity_profile
 layout activity_second
-layout activity_settings
 layout activity_signup
 layout activity_third
 layout custom_dialog

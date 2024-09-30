@@ -30,14 +30,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:shadowColor="#D3000000"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="2"
             android:text="Log In"
-            android:textColor="#6D31ED"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textColor="@color/DarkPurple"
+            android:textStyle="bold"
+            android:shadowRadius="2"
+            android:shadowColor="@color/black"
+            android:shadowDy="2"
+            android:shadowDx="2"/>
 
 
         <TextView
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:text="Forgot Password?"
-                android:textColor="#6D31ED"
+                android:textColor="@color/DarkPurple"
                 android:textStyle="bold" />
 
 
@@ -146,15 +146,15 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
-            android:backgroundTint="#6D31ED"
-            android:shadowColor="@color/black"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="2"
             android:text="Log In"
-            android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/DarkPurple"
+            android:shadowRadius="2"
+            android:shadowColor="@color/black"
+            android:shadowDy="2"
+            android:shadowDx="2" />
 
 
         <LinearLayout
@@ -175,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="  Sign up"
-                android:textColor="#6D31ED"
+                android:textColor="@color/DarkPurple"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -57,12 +57,10 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="25dp"
                 android:background="@drawable/ttvcontainer"
-                android:fontFamily="@font/lexend"
-                android:gravity="center"
                 android:text="Pomodoro"
                 android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -70,23 +68,19 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="25dp"
                 android:background="@drawable/ttvcontainer3"
-                android:fontFamily="@font/lexend"
-                android:gravity="center"
                 android:text="Short Break"
                 android:textAlignment="center"
-                android:textColor="@color/lightblack"
-                android:textSize="12sp" />
+                android:gravity="center"
+                android:textColor="@color/lightblack" />
 
             <TextView
                 android:layout_width="85dp"
                 android:layout_height="30dp"
                 android:background="@drawable/ttvcontainer3"
-                android:fontFamily="@font/lexend"
-                android:gravity="center"
                 android:text="Long Break"
                 android:textAlignment="center"
-                android:textColor="@color/lightblack"
-                android:textSize="12sp" />
+                android:gravity="center"
+                android:textColor="@color/lightblack" />
 
 
 

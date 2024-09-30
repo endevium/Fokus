@@ -4,9 +4,9 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fokus.R;
 import java.lang.NullPointerException;
@@ -14,15 +14,15 @@ import java.lang.Override;
 
 public final class FragmentProfileBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final RelativeLayout rootView;
 
-  private FragmentProfileBinding(@NonNull ConstraintLayout rootView) {
+  private FragmentProfileBinding(@NonNull RelativeLayout rootView) {
     this.rootView = rootView;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -47,6 +47,6 @@ public final class FragmentProfileBinding implements ViewBinding {
       throw new NullPointerException("rootView");
     }
 
-    return new FragmentProfileBinding((ConstraintLayout) rootView);
+    return new FragmentProfileBinding((RelativeLayout) rootView);
   }
 }

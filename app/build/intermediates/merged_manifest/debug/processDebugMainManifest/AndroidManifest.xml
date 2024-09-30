@@ -33,12 +33,6 @@
         android:theme="@style/Theme.Fokus"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.example.fokus.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.fokus.SettingsActivity"
-            android:exported="false" />
-        <activity
             android:name="com.example.fokus.FourthActivity"
             android:exported="false" />
         <activity

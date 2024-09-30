@@ -13,7 +13,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var lPass: EditText
     private lateinit var loginBtn: Button
     private lateinit var signUp: TextView
-
+    private lateinit var rememberMe: CheckBox
     private lateinit var apiService: APIService
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,17 +21,35 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         enableEdgeToEdge()
 
-        // Variables
+        val sharedPref = getSharedPreferences("rememberMe", MODE_PRIVATE)
+        val sharedPrefEditor = sharedPref.edit()
+
         apiService = RetrofitClient.create(APIService::class.java)
         lEmail = findViewById(R.id.lEmail)
         lPass = findViewById(R.id.lPass)
         loginBtn = findViewById(R.id.lBtn)
         signUp = findViewById(R.id.signupD)
+        rememberMe = findViewById(R.id.rMeCb)
 
-        // OnClickListeners
+        // Instantly retrieve and load data from sharedPref
+        lEmail.setText(sharedPref.getString("email", null))
+        lPass.setText(sharedPref.getString("password", null))
+        rememberMe.isChecked = sharedPref.getBoolean("isRemembered", false)
+
         loginBtn.setOnClickListener {
             val email = lEmail.text.toString().trim()
             val password = lPass.text.toString().trim()
+            val isRemembered = rememberMe.isChecked
+
+            // Save to sharedPref if rememberMe isChecked
+            if (rememberMe.isChecked) {
+                sharedPrefEditor.apply {
+                    putString("email", email)
+                    putString("password", password)
+                    putBoolean("isRemembered", isRemembered)
+                    apply()
+                }
+            }
 
             if (validateEmail() && validatePass()) {
                 login(email, password)

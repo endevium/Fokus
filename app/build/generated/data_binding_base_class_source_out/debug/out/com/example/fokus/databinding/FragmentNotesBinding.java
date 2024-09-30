@@ -4,8 +4,9 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -20,11 +21,16 @@ public final class FragmentNotesBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final TextView timerText;
+  public final ImageButton addnoteBtn;
 
-  private FragmentNotesBinding(@NonNull RelativeLayout rootView, @NonNull TextView timerText) {
+  @NonNull
+  public final LinearLayout edit;
+
+  private FragmentNotesBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addnoteBtn,
+      @NonNull LinearLayout edit) {
     this.rootView = rootView;
-    this.timerText = timerText;
+    this.addnoteBtn = addnoteBtn;
+    this.edit = edit;
   }
 
   @Override
@@ -54,13 +60,19 @@ public final class FragmentNotesBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.timerText;
-      TextView timerText = ViewBindings.findChildViewById(rootView, id);
-      if (timerText == null) {
+      id = R.id.addnoteBtn;
+      ImageButton addnoteBtn = ViewBindings.findChildViewById(rootView, id);
+      if (addnoteBtn == null) {
         break missingId;
       }
 
-      return new FragmentNotesBinding((RelativeLayout) rootView, timerText);
+      id = R.id.edit;
+      LinearLayout edit = ViewBindings.findChildViewById(rootView, id);
+      if (edit == null) {
+        break missingId;
+      }
+
+      return new FragmentNotesBinding((RelativeLayout) rootView, addnoteBtn, edit);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
