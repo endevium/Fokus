@@ -24,13 +24,17 @@ public final class FragmentNotesBinding implements ViewBinding {
   public final ImageButton addnoteBtn;
 
   @NonNull
-  public final LinearLayout edit;
+  public final LinearLayout notesCardLayout;
+
+  @NonNull
+  public final RelativeLayout notesContainer;
 
   private FragmentNotesBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addnoteBtn,
-      @NonNull LinearLayout edit) {
+      @NonNull LinearLayout notesCardLayout, @NonNull RelativeLayout notesContainer) {
     this.rootView = rootView;
     this.addnoteBtn = addnoteBtn;
-    this.edit = edit;
+    this.notesCardLayout = notesCardLayout;
+    this.notesContainer = notesContainer;
   }
 
   @Override
@@ -66,13 +70,16 @@ public final class FragmentNotesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.edit;
-      LinearLayout edit = ViewBindings.findChildViewById(rootView, id);
-      if (edit == null) {
+      id = R.id.notesCardLayout;
+      LinearLayout notesCardLayout = ViewBindings.findChildViewById(rootView, id);
+      if (notesCardLayout == null) {
         break missingId;
       }
 
-      return new FragmentNotesBinding((RelativeLayout) rootView, addnoteBtn, edit);
+      RelativeLayout notesContainer = (RelativeLayout) rootView;
+
+      return new FragmentNotesBinding((RelativeLayout) rootView, addnoteBtn, notesCardLayout,
+          notesContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

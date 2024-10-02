@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,9 +23,14 @@ public final class FragmentTaskBinding implements ViewBinding {
   @NonNull
   public final ImageButton addTask;
 
-  private FragmentTaskBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addTask) {
+  @NonNull
+  public final LinearLayout taskCardContainer;
+
+  private FragmentTaskBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addTask,
+      @NonNull LinearLayout taskCardContainer) {
     this.rootView = rootView;
     this.addTask = addTask;
+    this.taskCardContainer = taskCardContainer;
   }
 
   @Override
@@ -60,7 +66,13 @@ public final class FragmentTaskBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentTaskBinding((RelativeLayout) rootView, addTask);
+      id = R.id.taskCardContainer;
+      LinearLayout taskCardContainer = ViewBindings.findChildViewById(rootView, id);
+      if (taskCardContainer == null) {
+        break missingId;
+      }
+
+      return new FragmentTaskBinding((RelativeLayout) rootView, addTask, taskCardContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

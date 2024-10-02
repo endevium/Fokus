@@ -1424,6 +1424,7 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color darkred
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1471,11 +1472,13 @@ color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
 color gray
+color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color lightblack
 color lightergray
 color lightgray
+color lightpurple
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2075,6 +2078,7 @@ color material_timepicker_button_stroke
 color material_timepicker_clock_text_color
 color material_timepicker_clockface
 color material_timepicker_modebutton_tint
+color mildgray
 color mtrl_btn_bg_color_selector
 color mtrl_btn_ripple_color
 color mtrl_btn_stroke_color_selector
@@ -2140,6 +2144,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -3044,6 +3049,8 @@ drawable add
 drawable addnotes
 drawable ancontainer
 drawable arrowback
+drawable arrowdown
+drawable arrowup
 drawable avd_hide_password
 drawable avd_show_password
 drawable backbtn
@@ -3189,11 +3196,16 @@ drawable test_level_drawable
 drawable timer
 drawable timercontainer
 drawable timercontainer2
+drawable timerprogressbar
+drawable timerprogressbar2
+drawable timerprogressbar3
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable ttvcontainer
 drawable ttvcontainer2
 drawable ttvcontainer3
+drawable ttvcontainer4
+drawable ttvcontainer5
 drawable vibrate
 drawable volume
 font khula
@@ -3291,6 +3303,7 @@ id autoCompleteToStart
 id bHome
 id bProfile
 id bSettings
+id backBtn
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3306,6 +3319,7 @@ id bounceStart
 id buttonPanel
 id cache_measures
 id callMeasure
+id cancelBtn
 id cancel_button
 id carryVelocity
 id center
@@ -3316,6 +3330,13 @@ id center_vertical
 id chain
 id chain2
 id chains
+id changeemailBtn
+id changelbtimerBtn
+id changepassBtn
+id changepfpBtn
+id changeptimerBtn
+id changesbtimerBtn
+id changeuserBtn
 id checkbox
 id checked
 id chronometer
@@ -3376,7 +3397,6 @@ id easeInOut
 id easeOut
 id east
 id edge
-id edit
 id edit_query
 id edit_text_id
 id elastic
@@ -3541,7 +3561,9 @@ id noState
 id none
 id normal
 id north
+id notesCardLayout
 id notesFr
+id notes_container
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -3589,6 +3611,7 @@ id radio
 id ratio
 id rectangles
 id report_drawn
+id resetBtn
 id restartButton
 id reverseSawtooth
 id right
@@ -3602,6 +3625,7 @@ id sBtn
 id sEmail
 id sPass
 id sUser
+id saveBtn
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3682,6 +3706,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id taskCardContainer
 id taskFr
 id text
 id text2
@@ -3863,12 +3888,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_first
 layout activity_fourth
 layout activity_login
 layout activity_main
 layout activity_second
 layout activity_signup
+layout activity_splash_screen
 layout activity_third
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3886,6 +3911,14 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_changeemail
+layout fragment_changelbtimer
+layout fragment_changepassword
+layout fragment_changepfp
+layout fragment_changeptimer
+layout fragment_changesbtimer
+layout fragment_changeusername
+layout fragment_editnotes
 layout fragment_longbreak
 layout fragment_notes
 layout fragment_profile

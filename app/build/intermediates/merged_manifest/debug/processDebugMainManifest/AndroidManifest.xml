@@ -33,25 +33,25 @@
         android:theme="@style/Theme.Fokus"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.example.fokus.FourthActivity"
+            android:name="com.example.fokus.activities.FourthActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.fokus.ThirdActivity"
+            android:name="com.example.fokus.activities.ThirdActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.fokus.SecondActivity"
+            android:name="com.example.fokus.activities.SecondActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.fokus.MainActivity"
+            android:name="com.example.fokus.activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.fokus.LoginActivity"
+            android:name="com.example.fokus.activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.fokus.SignupActivity"
+            android:name="com.example.fokus.activities.SignupActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.fokus.FirstActivity"
+            android:name="com.example.fokus.activities.SplashScreen"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

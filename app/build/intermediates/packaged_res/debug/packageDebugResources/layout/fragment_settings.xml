@@ -17,27 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="-50dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="-75dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center" >
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="-125dp"
-                android:src="@drawable/arrowback"
-                android:background="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
                 android:text="Settings"
-                android:textSize="24sp"/>
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +43,6 @@
             android:layout_marginStart="35dp"
             android:layout_marginBottom="5dp"/>
 
-
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="150dp"
@@ -58,6 +51,7 @@
             android:gravity="start">
 
             <LinearLayout
+                android:id="@+id/changepfpBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -70,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:textSize="16sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:drawableStart="@drawable/profile"
                     android:drawableEnd="@drawable/snext"
                     android:text="   Change profile picture"/>
@@ -78,6 +72,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/changeuserBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -88,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:drawableStart="@drawable/profile"
                     android:drawableEnd="@drawable/snext"
                     android:textSize="16sp"
@@ -97,6 +92,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/changeemailBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="7dp"
@@ -107,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:textSize="16sp"
                     android:drawableStart="@drawable/email"
                     android:drawableEnd="@drawable/snext"
@@ -116,6 +112,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/changepassBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -124,7 +121,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/key"
                     android:drawableEnd="@drawable/snext"
@@ -138,7 +135,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:text="Pomodoro Settings"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -167,7 +164,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/rtimer"
                     android:text="   Run in background"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:textSize="16sp">
                 </TextView>
 
@@ -179,6 +176,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/changeptimerBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -188,7 +186,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/timer"
                     android:drawableEnd="@drawable/snext"
@@ -198,6 +196,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/changesbtimerBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -207,7 +206,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/timer"
                     android:drawableEnd="@drawable/snext"
@@ -217,6 +216,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/changelbtimerBtn"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -225,7 +225,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/timer"
                     android:drawableEnd="@drawable/snext"
@@ -241,7 +241,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:text="Sound Settings"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -270,7 +270,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/mute"
                     android:text="Silent mode"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:textSize="16sp">
                 </TextView>
 
@@ -295,7 +295,7 @@
                     android:drawableStart="@drawable/vibrate"
                     android:text="Vibration"
                     android:textSize="16sp"
-                    android:textColor="@color/black">
+                    android:textColor="@color/lightblack">
                 </TextView>
 
                 <Switch
@@ -318,7 +318,7 @@
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/notification"
                     android:text="Sound Notifications"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:textSize="16sp">
                 </TextView>
 
@@ -340,7 +340,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:drawableStart="@drawable/volume"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightblack"
                     android:text="Volume"
                     android:textSize="16sp">
                 </TextView>
