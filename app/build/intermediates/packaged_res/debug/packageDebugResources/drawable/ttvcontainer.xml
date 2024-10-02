@@ -1,4 +1,9 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/DarkPurple"/>
+    <!-- Define gradient colors and angle -->
+    <gradient
+        android:startColor="@color/DarkPurple"
+        android:endColor="@color/lightpurple"
+        android:angle="50" />
+
     <corners android:radius="4dp"/>
 </shape>

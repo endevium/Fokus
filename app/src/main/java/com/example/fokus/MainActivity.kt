@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav = findViewById(R.id.bottomNavigation)
 
         setupViewPagerAndTabs()
+
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.bHome -> {
