@@ -4,6 +4,7 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,10 +23,41 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final BottomNavigationView bottomNavigation;
 
+  @NonNull
+  public final LinearLayout changeemailBtn;
+
+  @NonNull
+  public final LinearLayout changelbtimerBtn;
+
+  @NonNull
+  public final LinearLayout changepassBtn;
+
+  @NonNull
+  public final LinearLayout changepfpBtn;
+
+  @NonNull
+  public final LinearLayout changeptimerBtn;
+
+  @NonNull
+  public final LinearLayout changesbtimerBtn;
+
+  @NonNull
+  public final LinearLayout changeuserBtn;
+
   private FragmentSettingsBinding(@NonNull RelativeLayout rootView,
-      @NonNull BottomNavigationView bottomNavigation) {
+      @NonNull BottomNavigationView bottomNavigation, @NonNull LinearLayout changeemailBtn,
+      @NonNull LinearLayout changelbtimerBtn, @NonNull LinearLayout changepassBtn,
+      @NonNull LinearLayout changepfpBtn, @NonNull LinearLayout changeptimerBtn,
+      @NonNull LinearLayout changesbtimerBtn, @NonNull LinearLayout changeuserBtn) {
     this.rootView = rootView;
     this.bottomNavigation = bottomNavigation;
+    this.changeemailBtn = changeemailBtn;
+    this.changelbtimerBtn = changelbtimerBtn;
+    this.changepassBtn = changepassBtn;
+    this.changepfpBtn = changepfpBtn;
+    this.changeptimerBtn = changeptimerBtn;
+    this.changesbtimerBtn = changesbtimerBtn;
+    this.changeuserBtn = changeuserBtn;
   }
 
   @Override
@@ -61,7 +93,51 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((RelativeLayout) rootView, bottomNavigation);
+      id = R.id.changeemailBtn;
+      LinearLayout changeemailBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changeemailBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.changelbtimerBtn;
+      LinearLayout changelbtimerBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changelbtimerBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.changepassBtn;
+      LinearLayout changepassBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changepassBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.changepfpBtn;
+      LinearLayout changepfpBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changepfpBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.changeptimerBtn;
+      LinearLayout changeptimerBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changeptimerBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.changesbtimerBtn;
+      LinearLayout changesbtimerBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changesbtimerBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.changeuserBtn;
+      LinearLayout changeuserBtn = ViewBindings.findChildViewById(rootView, id);
+      if (changeuserBtn == null) {
+        break missingId;
+      }
+
+      return new FragmentSettingsBinding((RelativeLayout) rootView, bottomNavigation,
+          changeemailBtn, changelbtimerBtn, changepassBtn, changepfpBtn, changeptimerBtn,
+          changesbtimerBtn, changeuserBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
