@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash; // For hashing passwords
 use App\Models\FokusApp;
 use App\Models\NotesModel; // Correct model import
+use App\Models\TaskModel;  // Import TaskModel
+use Laravel\Sanctum\HasApiTokens;
 
 class AuthController extends Controller
 {
+    use HasApiTokens; // Use HasApiTokens trait for token functionalities
+
     public function signup(Request $request)
     {
         // Validate the incoming request data
@@ -32,6 +36,12 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         // Validate the login request data
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        // Attempt to log in the user
         $credentials = $request->only('email', 'password');
         $user = FokusApp::where('email', $credentials['email'])->first();
 
@@ -42,13 +52,21 @@ class AuthController extends Controller
             // Manual login for user
             Auth::login($user);
 
-            // Check if title and content are provided for note creation
+            // Optionally create notes and tasks if provided in the request
             if ($request->has('title') && $request->has('content')) {
                 // Insert a note into the database
                 NotesModel::create([
                     'fokus_app_id' => $user->id,
                     'title' => $request->title, // Title from request
                     'content' => $request->content, // Content from request
+                ]);
+            }
+
+            if ($request->has('task_name') && $request->has('is_completed')) {
+                // Insert a task into the database
+                TaskModel::create([
+                    'fokus_app_id' => $user->id,
+                    'task_title' => $request->task_name, // Task name from request
                 ]);
             }
 
