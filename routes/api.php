@@ -23,8 +23,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // Notes routes
     Route::apiResource('fokus_notes', NotesController::class);
     
-    // Task routes
-    Route::apiResource('task', TaskController::class); // RESTful routes for tasks
+    // Task routes (RESTful API routes)
+    Route::apiResource('task', TaskController::class); 
+    
+    Route::post('/task', [TaskController::class, 'store']);          // Create new task (POST)
+    Route::put('/task/{id}', [TaskController::class, 'update']);     // Update task (PUT)
+    Route::delete('/task/{id}', [TaskController::class, 'destroy']); // Delete task (DELETE)
 
     // Additional routes
     Route::get('/user_id', function (Request $request) {
@@ -32,10 +36,12 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 });
 
-// FOKUS APP ROUTES
-Route::post('/FokusApp', [FokusController::class, 'store']);
-Route::get('/FokusApp', [FokusController::class, 'index']);
-Route::get('/FokusApp/{id}', [FokusController::class, 'show']);
+// FOKUS APP ROUTES PARANG ADMIN NA DIN SIGURO??? HAHAHAHAHAHAHAHAHA
+    Route::post('/FokusApp', [FokusController::class, 'store']);    
+    Route::get('/FokusApp', [FokusController::class, 'index']);
+    Route::get('/FokusApp/{id}', [FokusController::class, 'show']);  
+    Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
+    Route::delete('/FokusApp/{id}', [FokusController::class, 'destroy']);
 
 // Test route
 Route::get('/test', function () {

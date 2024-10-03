@@ -6,12 +6,12 @@ use App\Models\FokusApp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class fokusController extends Controller
+class FokusController extends Controller
 {
     public function index()
     {
         // Fetch all users from the FokusApp model
-        $users = FokusApp::all(); // Or use a paginator like FokusApp::paginate(10);
+        $users = FokusApp::all();
         
         return response()->json($users);
     }
@@ -20,7 +20,7 @@ class fokusController extends Controller
     {
         $request->validate([
             'username' => 'required|string|max:255|unique:fokus_app',
-            'password' => 'required|string|max:50|unique:fokus_app',
+            'password' => 'required|string|max:50',
             'email' => 'required|string|email|max:255|unique:fokus_app',
         ]);
 
@@ -33,6 +33,61 @@ class fokusController extends Controller
         $fokusApp->save();
 
         return response()->json(['message' => 'User created successfully!', 'data' => $fokusApp], 201);
+    }
+
+    public function show($id)
+    {
+        // Fetch a specific user by ID
+        $fokusApp = FokusApp::find($id);
+        
+        if (!$fokusApp) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($fokusApp);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $fokusApp = FokusApp::find($id);
+
+        if (!$fokusApp) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        $request->validate([
+            'username' => 'sometimes|required|string|max:255|unique:fokus_app,username,' . $fokusApp->id,
+            'password' => 'sometimes|required|string|max:50',
+            'email' => 'sometimes|required|string|email|max:255|unique:fokus_app,email,' . $fokusApp->id,
+        ]);
+
+        // Update the fields only if they are present in the request
+        if ($request->has('username')) {
+            $fokusApp->username = $request->username;
+        }
+        if ($request->has('email')) {
+            $fokusApp->email = $request->email;
+        }
+        if ($request->has('password')) {
+            $fokusApp->password = Hash::make($request->password);
+        }
+
+        $fokusApp->save();
+
+        return response()->json(['message' => 'User updated successfully!', 'data' => $fokusApp]);
+    }
+
+    public function destroy($id)
+    {
+        $fokusApp = FokusApp::find($id);
+
+        if (!$fokusApp) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        $fokusApp->delete();
+
+        return response()->json(['message' => 'User deleted successfully!']);
     }
 
     public function login(Request $request)
@@ -53,4 +108,3 @@ class fokusController extends Controller
         }
     }
 }
-

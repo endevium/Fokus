@@ -6,7 +6,7 @@ use App\Models\NotesModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class notesController extends Controller
+class NotesController extends Controller
 {
     public function index()
     {
