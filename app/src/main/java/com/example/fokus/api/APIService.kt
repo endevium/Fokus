@@ -1,14 +1,8 @@
 package com.example.fokus.api
 
-import com.example.fokus.models.LoginResponse
-import com.example.fokus.models.Notes
-import com.example.fokus.models.SignupResponse
+import com.example.fokus.models.*
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Headers
+import retrofit2.http.*
 
 interface APIService {
     @Headers("Accept: application/json")
@@ -38,4 +32,14 @@ interface APIService {
         @Field("title") title: String,
         @Field("content") content: String
     ): Call<Void> // NOT YET IMPLEMENTED
+
+    @GET("/api/task")
+    fun getTasks(): Call<List<Task>>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("/api/task")
+    fun createTask(
+        @Field("task_title") taskTitle: String,
+    )
 }

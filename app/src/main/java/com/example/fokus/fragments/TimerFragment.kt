@@ -19,7 +19,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private lateinit var shortBreakFrag: ShortBreakFragment
     private lateinit var longBreakFrag: LongBreakFragment
     private var timer: CountDownTimer? = null
-    private var timeLeft: Long = 1 * 60 * 1000
+    private var timeLeft: Long = 25 * 60 * 1000
     private var isTimerRunning: Boolean = false
     private var phase: Int = 0
 

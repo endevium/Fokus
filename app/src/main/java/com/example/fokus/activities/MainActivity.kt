@@ -14,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import androidx.activity.addCallback
+import com.example.fokus.api.clearToken
 
 class MainActivity : AppCompatActivity() {
 

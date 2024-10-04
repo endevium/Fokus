@@ -19,7 +19,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             // Move to second activity after delay time
-            startActivity(Intent (this, SecondActivity::class.java))
+            startActivity(Intent(this, SecondActivity::class.java))
             finish()
         }, 2000) // 2 seconds delay
     }

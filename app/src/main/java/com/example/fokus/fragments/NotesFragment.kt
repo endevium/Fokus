@@ -55,8 +55,7 @@ class NotesFragment : Fragment() {
                     // Display all fetched notes from the hashmap
                     displayNotes()
                 } else {
-                    val errorResponse = response.errorBody()?.string()
-                    Toast.makeText(requireContext(), "Fetching notes failed: $errorResponse", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Fetching notes failed", Toast.LENGTH_SHORT).show()
                 }
             }
 
