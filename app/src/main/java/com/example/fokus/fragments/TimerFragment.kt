@@ -98,8 +98,8 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         timer = object : CountDownTimer(timeLeft, 1000) {
             // Modify countdown time and update per tick
             override fun onTick(millisUntilFinished: Long) {
-                timeLeft = millisUntilFinished
                 updateTimer()
+                timeLeft = millisUntilFinished
             }
 
             // Increment phase and move to the next phase if timer hits 0

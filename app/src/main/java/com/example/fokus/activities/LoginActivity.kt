@@ -109,10 +109,6 @@ class LoginActivity : AppCompatActivity() {
                     // Save token if not null
                     if (token != null) {
                         saveToken(applicationContext, token)
-                    }
-
-                    // Set token if not null
-                    if (token != null) {
                         RetrofitClient.setToken(token)
                     }
 

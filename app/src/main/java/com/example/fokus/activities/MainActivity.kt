@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         tabLayout = findViewById(R.id.tabLayout)
         bottomNav = findViewById(R.id.bottomNavigation)
 
+
+
         setupViewPagerAndTabs()
 
         bottomNav.setOnNavigationItemSelectedListener { item ->
