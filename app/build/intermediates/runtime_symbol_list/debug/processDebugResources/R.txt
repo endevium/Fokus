@@ -3413,6 +3413,9 @@ int id fill 0x7f0900bf
 int id fill_horizontal 0x7f0900c0
 int id fill_vertical 0x7f0900c1
 int id filled 0x7f0900c2
+int id firstDigit 0x7f090233
+int id firstDownBtn 0x7f090234
+int id firstUpBtn 0x7f090235
 int id fitCenter 0x7f0900c3
 int id fitEnd 0x7f0900c4
 int id fitStart 0x7f0900c5
@@ -3422,6 +3425,9 @@ int id fixed 0x7f0900c8
 int id flip 0x7f0900c9
 int id floating 0x7f0900ca
 int id forever 0x7f0900cb
+int id fourthDigit 0x7f090236
+int id fourthDownBtn 0x7f090237
+int id fourthUpBtn 0x7f090238
 int id fpassL 0x7f0900cc
 int id fragment_container 0x7f0900cd
 int id fragment_container_view_tag 0x7f0900ce
@@ -3646,6 +3652,9 @@ int id search_mag_icon 0x7f0901a5
 int id search_plate 0x7f0901a6
 int id search_src_text 0x7f0901a7
 int id search_voice_btn 0x7f0901a8
+int id secondDigit 0x7f090239
+int id secondDownBtn 0x7f09023a
+int id secondUpBtn 0x7f09023b
 int id select_dialog_listview 0x7f0901a9
 int id selected 0x7f0901aa
 int id selection_type 0x7f0901ab
@@ -3724,6 +3733,9 @@ int id textinput_placeholder 0x7f0901f3
 int id textinput_prefix_text 0x7f0901f4
 int id textinput_suffix_text 0x7f0901f5
 int id themeFr 0x7f0901f6
+int id thirdDigit 0x7f09023c
+int id thirdDownBtn 0x7f09023d
+int id thirdUpBtn 0x7f09023e
 int id time 0x7f0901f7
 int id timerFr 0x7f0901f8
 int id timerText 0x7f0901f9

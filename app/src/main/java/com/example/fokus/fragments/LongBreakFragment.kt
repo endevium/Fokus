@@ -9,6 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
+import com.example.fokus.api.longbreakMinutes
+import com.example.fokus.api.longbreakSeconds
+import com.example.fokus.api.shortbreakMinutes
+import com.example.fokus.api.shortbreakSeconds
 
 class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
 
@@ -18,7 +22,7 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
     private lateinit var nextButton: ImageButton
     private lateinit var timerFragment: TimerFragment
     private var timer: CountDownTimer? = null
-    private var timeLeftInMillis: Long = 15 * 60 * 1000
+    private var timeLeft: Long = 15 * 60 * 1000
     private var isTimerRunning: Boolean = false
     private var phase: Int = 0
 
@@ -38,6 +42,14 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
         restartButton = view.findViewById(R.id.restartButton)
         nextButton = view.findViewById(R.id.sbnxtBtn)
         timerFragment = TimerFragment()
+
+        if (longbreakMinutes(requireContext()) != null && longbreakSeconds(requireContext()) != null) {
+            val minutes = longbreakMinutes(requireContext()) ?: 15
+            val seconds = longbreakSeconds(requireContext()) ?: 0
+            timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
+            updateTimer()
+        }
+
         val args = this.arguments
         val fetchedPhase = args?.getInt("phase")
         val fetchedAutoStart = args?.getBoolean("autoStart")
@@ -87,10 +99,10 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
     }
 
     private fun startTimer() {
-        timer = object : CountDownTimer(timeLeftInMillis, 1000) {
+        timer = object : CountDownTimer(timeLeft, 1000) {
             // Modify countdown time and update per tick
             override fun onTick(millisUntilFinished: Long) {
-                timeLeftInMillis = millisUntilFinished
+                timeLeft = millisUntilFinished
                 updateTimer()
             }
 
@@ -114,15 +126,19 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
     // Reset timer
     private fun resetTimer() {
         timer?.cancel()
-        timeLeftInMillis = 15 * 60 * 1000 // Default time is 15 minutes
-        updateTimer()
+        if (longbreakMinutes(requireContext()) != null && longbreakSeconds(requireContext()) != null) {
+            val minutes = longbreakMinutes(requireContext()) ?: 15
+            val seconds = longbreakSeconds(requireContext()) ?: 0
+            timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
+            updateTimer()
+        }
         isTimerRunning = false
     }
 
     // Update timerTextView
     private fun updateTimer() {
-        val seconds = (timeLeftInMillis / 1000) % 60
-        val minutes = (timeLeftInMillis / 1000) / 60
+        val seconds = (timeLeft / 1000) % 60
+        val minutes = (timeLeft / 1000) / 60
         timerTextView.text = String.format("%02d:%02d", minutes, seconds)
     }
 

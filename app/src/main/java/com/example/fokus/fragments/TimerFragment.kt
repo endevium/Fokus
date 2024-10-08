@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
+import com.example.fokus.api.pomodoroMinutes
+import com.example.fokus.api.pomodoroSeconds
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
 
@@ -40,6 +42,14 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         nextButton = view.findViewById(R.id.tnxtBtn)
         shortBreakFrag = ShortBreakFragment()
         longBreakFrag = LongBreakFragment()
+
+        if (pomodoroMinutes(requireContext()) != null && pomodoroSeconds(requireContext()) != null) {
+            val minutes = pomodoroMinutes(requireContext()) ?: 25
+            val seconds = pomodoroSeconds(requireContext()) ?: 0
+            timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
+            updateTimer()
+        }
+
         val args = this.arguments
         val fetchedPhase = args?.getInt("phase")
         val fetchedAutoStart = args?.getBoolean("autoStart")
@@ -98,8 +108,8 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         timer = object : CountDownTimer(timeLeft, 1000) {
             // Modify countdown time and update per tick
             override fun onTick(millisUntilFinished: Long) {
-                updateTimer()
                 timeLeft = millisUntilFinished
+                updateTimer()
             }
 
             // Increment phase and move to the next phase if timer hits 0
@@ -135,9 +145,13 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     // Reset timer
     private fun resetTimer() {
         timer?.cancel()
-        timeLeft = 25 * 60 * 1000 // Default time is 25 minutes
+        if (pomodoroMinutes(requireContext()) != null && pomodoroSeconds(requireContext()) != null) {
+            val minutes = pomodoroMinutes(requireContext()) ?: 25
+            val seconds = pomodoroSeconds(requireContext()) ?: 0
+            timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
+            updateTimer()
+        }
 
-        updateTimer()
         isTimerRunning = false
     }
 

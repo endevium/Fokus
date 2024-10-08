@@ -24,17 +24,71 @@ public final class FragmentChangesbtimerBinding implements ViewBinding {
   public final ImageButton backBtn;
 
   @NonNull
+  public final TextView firstDigit;
+
+  @NonNull
+  public final ImageButton firstDownBtn;
+
+  @NonNull
+  public final ImageButton firstUpBtn;
+
+  @NonNull
+  public final TextView fourthDigit;
+
+  @NonNull
+  public final ImageButton fourthDownBtn;
+
+  @NonNull
+  public final ImageButton fourthUpBtn;
+
+  @NonNull
   public final TextView resetBtn;
 
   @NonNull
   public final TextView saveBtn;
 
+  @NonNull
+  public final TextView secondDigit;
+
+  @NonNull
+  public final ImageButton secondDownBtn;
+
+  @NonNull
+  public final ImageButton secondUpBtn;
+
+  @NonNull
+  public final TextView thirdDigit;
+
+  @NonNull
+  public final ImageButton thirdDownBtn;
+
+  @NonNull
+  public final ImageButton thirdUpBtn;
+
   private FragmentChangesbtimerBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageButton backBtn, @NonNull TextView resetBtn, @NonNull TextView saveBtn) {
+      @NonNull ImageButton backBtn, @NonNull TextView firstDigit, @NonNull ImageButton firstDownBtn,
+      @NonNull ImageButton firstUpBtn, @NonNull TextView fourthDigit,
+      @NonNull ImageButton fourthDownBtn, @NonNull ImageButton fourthUpBtn,
+      @NonNull TextView resetBtn, @NonNull TextView saveBtn, @NonNull TextView secondDigit,
+      @NonNull ImageButton secondDownBtn, @NonNull ImageButton secondUpBtn,
+      @NonNull TextView thirdDigit, @NonNull ImageButton thirdDownBtn,
+      @NonNull ImageButton thirdUpBtn) {
     this.rootView = rootView;
     this.backBtn = backBtn;
+    this.firstDigit = firstDigit;
+    this.firstDownBtn = firstDownBtn;
+    this.firstUpBtn = firstUpBtn;
+    this.fourthDigit = fourthDigit;
+    this.fourthDownBtn = fourthDownBtn;
+    this.fourthUpBtn = fourthUpBtn;
     this.resetBtn = resetBtn;
     this.saveBtn = saveBtn;
+    this.secondDigit = secondDigit;
+    this.secondDownBtn = secondDownBtn;
+    this.secondUpBtn = secondUpBtn;
+    this.thirdDigit = thirdDigit;
+    this.thirdDownBtn = thirdDownBtn;
+    this.thirdUpBtn = thirdUpBtn;
   }
 
   @Override
@@ -70,6 +124,42 @@ public final class FragmentChangesbtimerBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.firstDigit;
+      TextView firstDigit = ViewBindings.findChildViewById(rootView, id);
+      if (firstDigit == null) {
+        break missingId;
+      }
+
+      id = R.id.firstDownBtn;
+      ImageButton firstDownBtn = ViewBindings.findChildViewById(rootView, id);
+      if (firstDownBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.firstUpBtn;
+      ImageButton firstUpBtn = ViewBindings.findChildViewById(rootView, id);
+      if (firstUpBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.fourthDigit;
+      TextView fourthDigit = ViewBindings.findChildViewById(rootView, id);
+      if (fourthDigit == null) {
+        break missingId;
+      }
+
+      id = R.id.fourthDownBtn;
+      ImageButton fourthDownBtn = ViewBindings.findChildViewById(rootView, id);
+      if (fourthDownBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.fourthUpBtn;
+      ImageButton fourthUpBtn = ViewBindings.findChildViewById(rootView, id);
+      if (fourthUpBtn == null) {
+        break missingId;
+      }
+
       id = R.id.resetBtn;
       TextView resetBtn = ViewBindings.findChildViewById(rootView, id);
       if (resetBtn == null) {
@@ -82,8 +172,45 @@ public final class FragmentChangesbtimerBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentChangesbtimerBinding((RelativeLayout) rootView, backBtn, resetBtn,
-          saveBtn);
+      id = R.id.secondDigit;
+      TextView secondDigit = ViewBindings.findChildViewById(rootView, id);
+      if (secondDigit == null) {
+        break missingId;
+      }
+
+      id = R.id.secondDownBtn;
+      ImageButton secondDownBtn = ViewBindings.findChildViewById(rootView, id);
+      if (secondDownBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.secondUpBtn;
+      ImageButton secondUpBtn = ViewBindings.findChildViewById(rootView, id);
+      if (secondUpBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.thirdDigit;
+      TextView thirdDigit = ViewBindings.findChildViewById(rootView, id);
+      if (thirdDigit == null) {
+        break missingId;
+      }
+
+      id = R.id.thirdDownBtn;
+      ImageButton thirdDownBtn = ViewBindings.findChildViewById(rootView, id);
+      if (thirdDownBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.thirdUpBtn;
+      ImageButton thirdUpBtn = ViewBindings.findChildViewById(rootView, id);
+      if (thirdUpBtn == null) {
+        break missingId;
+      }
+
+      return new FragmentChangesbtimerBinding((RelativeLayout) rootView, backBtn, firstDigit,
+          firstDownBtn, firstUpBtn, fourthDigit, fourthDownBtn, fourthUpBtn, resetBtn, saveBtn,
+          secondDigit, secondDownBtn, secondUpBtn, thirdDigit, thirdDownBtn, thirdUpBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
