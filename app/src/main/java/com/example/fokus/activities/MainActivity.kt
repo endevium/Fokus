@@ -1,5 +1,6 @@
 package com.example.fokus.activities
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var bottomNav: BottomNavigationView
+    private lateinit var musicPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         tabLayout = findViewById(R.id.tabLayout)
         bottomNav = findViewById(R.id.bottomNavigation)
 
-
+        musicPlayer = MediaPlayer.create(this, R.raw.fokus_one)
+        musicPlayer.isLooping = true
 
         setupViewPagerAndTabs()
 
@@ -54,6 +57,14 @@ class MainActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this) {
             closeAlert()
+        }
+    }
+
+    fun toggleMusic() {
+        if (!musicPlayer.isPlaying) {
+            musicPlayer.start()
+        } else {
+            musicPlayer.pause()
         }
     }
 

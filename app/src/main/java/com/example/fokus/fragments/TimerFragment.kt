@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.pomodoroMinutes
 import com.example.fokus.api.pomodoroSeconds
 
@@ -66,6 +67,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
         // Start/pause timer if clicked
         playButton.setOnClickListener {
+            (activity as? MainActivity)?.toggleMusic()
             if (!isTimerRunning) {
                 startTimer()
             } else if (isTimerRunning) {
@@ -76,11 +78,13 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
         // Reset timer if clicked
         restartButton.setOnClickListener {
+            (activity as? MainActivity)?.toggleMusic()
             resetTimer()
         }
 
         // Increment and pass pomodoro phase args and move to the next phase
         nextButton.setOnClickListener {
+            (activity as? MainActivity)?.toggleMusic()
             val bundle = Bundle()
             phase += 1
             bundle.putInt("phase", phase)

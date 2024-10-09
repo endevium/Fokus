@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.longbreakMinutes
 import com.example.fokus.api.longbreakSeconds
 import com.example.fokus.api.shortbreakMinutes
@@ -66,6 +67,7 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
 
         // Start/pause timer if clicked
         playButton.setOnClickListener {
+            (activity as? MainActivity)?.toggleMusic()
             if (!isTimerRunning) {
                 startTimer()
             } else if (isTimerRunning) {
@@ -76,11 +78,13 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
 
         // Reset timer if clicked
         restartButton.setOnClickListener {
+            (activity as? MainActivity)?.toggleMusic()
             resetTimer()
         }
 
         // Reset phase at the last phase and redirect back to TimerFragment
         nextButton.setOnClickListener {
+            (activity as? MainActivity)?.toggleMusic()
             val bundle = Bundle()
             phase = 0
             bundle.putInt("phase", phase)
