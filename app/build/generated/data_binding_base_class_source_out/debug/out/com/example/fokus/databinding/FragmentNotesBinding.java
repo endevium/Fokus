@@ -24,16 +24,16 @@ public final class FragmentNotesBinding implements ViewBinding {
   public final ImageButton addnoteBtn;
 
   @NonNull
-  public final LinearLayout editNotes;
+  public final LinearLayout notesCardLayout;
 
   @NonNull
   public final RelativeLayout notesContainer;
 
   private FragmentNotesBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addnoteBtn,
-      @NonNull LinearLayout editNotes, @NonNull RelativeLayout notesContainer) {
+      @NonNull LinearLayout notesCardLayout, @NonNull RelativeLayout notesContainer) {
     this.rootView = rootView;
     this.addnoteBtn = addnoteBtn;
-    this.editNotes = editNotes;
+    this.notesCardLayout = notesCardLayout;
     this.notesContainer = notesContainer;
   }
 
@@ -70,15 +70,15 @@ public final class FragmentNotesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.editNotes;
-      LinearLayout editNotes = ViewBindings.findChildViewById(rootView, id);
-      if (editNotes == null) {
+      id = R.id.notesCardLayout;
+      LinearLayout notesCardLayout = ViewBindings.findChildViewById(rootView, id);
+      if (notesCardLayout == null) {
         break missingId;
       }
 
       RelativeLayout notesContainer = (RelativeLayout) rootView;
 
-      return new FragmentNotesBinding((RelativeLayout) rootView, addnoteBtn, editNotes,
+      return new FragmentNotesBinding((RelativeLayout) rootView, addnoteBtn, notesCardLayout,
           notesContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);

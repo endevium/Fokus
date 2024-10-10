@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fokus.app-mergeDebugResources-46:/values-mn/values-mn.xml",
+            "outputFile": "com.example.fokus.app-mergeDebugResources-49:/values-mn/values-mn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shekinah\\.gradle\\caches\\transforms-4\\c9e3c18c3c90012c86b39544e7a6f253\\transformed\\navigation-ui-2.6.0\\res\\values-mn\\values-mn.xml",

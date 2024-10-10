@@ -45,12 +45,14 @@
             android:gravity="center">
 
             <ImageButton
+                android:id="@+id/firstUpBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowup"
                 android:background="@null"/>
 
             <TextView
+                android:id="@+id/firstDigit"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
                 android:text="0"
@@ -59,6 +61,7 @@
                 android:gravity="center" />
 
             <ImageButton
+                android:id="@+id/firstDownBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowdown"
@@ -73,12 +76,14 @@
             android:gravity="center">
 
             <ImageButton
+                android:id="@+id/secondUpBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowup"
                 android:background="@null"/>
 
             <TextView
+                android:id="@+id/secondDigit"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
                 android:text="5"
@@ -87,6 +92,7 @@
                 android:gravity="center" />
 
             <ImageButton
+                android:id="@+id/secondDownBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowdown"
@@ -115,12 +121,14 @@
             android:gravity="center">
 
             <ImageButton
+                android:id="@+id/thirdUpBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowup"
                 android:background="@null"/>
 
             <TextView
+                android:id="@+id/thirdDigit"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
                 android:text="0"
@@ -129,6 +137,7 @@
                 android:gravity="center" />
 
             <ImageButton
+                android:id="@+id/thirdDownBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowdown"
@@ -143,12 +152,14 @@
             android:gravity="center">
 
             <ImageButton
+                android:id="@+id/fourthUpBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowup"
                 android:background="@null"/>
 
             <TextView
+                android:id="@+id/fourthDigit"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
                 android:text="0"
@@ -157,6 +168,7 @@
                 android:gravity="center" />
 
             <ImageButton
+                android:id="@+id/fourthDownBtn"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:src="@drawable/arrowdown"

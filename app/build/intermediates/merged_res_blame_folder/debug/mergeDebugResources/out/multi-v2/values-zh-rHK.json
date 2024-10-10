@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fokus.app-mergeDebugResources-46:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.example.fokus.app-mergeDebugResources-49:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Shekinah\\.gradle\\caches\\transforms-4\\dbcd089721a897ecf77a029bdd53459b\\transformed\\material-1.12.0\\res\\values-zh-rHK\\values-zh-rHK.xml",

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/WhiteBackground"
-    tools:context=".SecondActivity">
+    tools:context=".activities.SecondActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,9 +40,10 @@
                 android:id="@+id/ibckBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/backbtn"
+                android:layout_marginEnd="110dp"
                 android:backgroundTint="@color/white"
-                android:layout_marginEnd="110dp"/>
+                android:src="@drawable/backbtn"
+                android:visibility="invisible" />
 
             <ImageView
                 android:layout_width="wrap_content"
