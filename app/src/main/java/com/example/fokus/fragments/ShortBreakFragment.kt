@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
-import com.example.fokus.api.pomodoroMinutes
-import com.example.fokus.api.pomodoroSeconds
-import com.example.fokus.api.shortbreakMinutes
-import com.example.fokus.api.shortbreakSeconds
+import com.example.fokus.api.shortBreakSettings
 
 class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
 
@@ -22,6 +19,7 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
     private lateinit var restartButton: ImageButton
     private lateinit var nextButton: ImageButton
     private lateinit var timerFragment: TimerFragment
+    private val shrtbrk = shortBreakSettings()
     private var timer: CountDownTimer? = null
     private var timeLeft: Long = 5 * 60 * 1000
     private var isTimerRunning: Boolean = false
@@ -44,9 +42,9 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         nextButton = view.findViewById(R.id.sbnxtBtn)
         timerFragment = TimerFragment()
 
-        if (shortbreakMinutes(requireContext()) != null && shortbreakSeconds(requireContext()) != null) {
-            val minutes = shortbreakMinutes(requireContext()) ?: 5
-            val seconds = shortbreakSeconds(requireContext()) ?: 0
+        if (shrtbrk.shortbreakMinutes(requireContext()) != null && shrtbrk.shortbreakSeconds(requireContext()) != null) {
+            val minutes = shrtbrk.shortbreakMinutes(requireContext()) ?: 5
+            val seconds = shrtbrk.shortbreakSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }
@@ -134,9 +132,9 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
     // Reset timer
     private fun resetTimer() {
         timer?.cancel()
-        if (shortbreakMinutes(requireContext()) != null && shortbreakSeconds(requireContext()) != null) {
-            val minutes = shortbreakMinutes(requireContext()) ?: 5
-            val seconds = shortbreakSeconds(requireContext()) ?: 0
+        if (shrtbrk.shortbreakMinutes(requireContext()) != null && shrtbrk.shortbreakSeconds(requireContext()) != null) {
+            val minutes = shrtbrk.shortbreakMinutes(requireContext()) ?: 5
+            val seconds = shrtbrk.shortbreakSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }

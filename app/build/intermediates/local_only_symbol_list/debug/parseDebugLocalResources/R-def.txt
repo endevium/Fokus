@@ -166,6 +166,7 @@ menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw fokus_one
 string app_name
 string hello_blank_fragment
 string title_activity_main2

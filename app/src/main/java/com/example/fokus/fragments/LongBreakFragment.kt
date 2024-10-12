@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
-import com.example.fokus.api.longbreakMinutes
-import com.example.fokus.api.longbreakSeconds
-import com.example.fokus.api.shortbreakMinutes
-import com.example.fokus.api.shortbreakSeconds
+import com.example.fokus.api.longBreakSettings
 
 class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
 
@@ -22,6 +19,7 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
     private lateinit var restartButton: ImageButton
     private lateinit var nextButton: ImageButton
     private lateinit var timerFragment: TimerFragment
+    private val lngbrk = longBreakSettings()
     private var timer: CountDownTimer? = null
     private var timeLeft: Long = 15 * 60 * 1000
     private var isTimerRunning: Boolean = false
@@ -44,9 +42,9 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
         nextButton = view.findViewById(R.id.sbnxtBtn)
         timerFragment = TimerFragment()
 
-        if (longbreakMinutes(requireContext()) != null && longbreakSeconds(requireContext()) != null) {
-            val minutes = longbreakMinutes(requireContext()) ?: 15
-            val seconds = longbreakSeconds(requireContext()) ?: 0
+        if (lngbrk.longbreakMinutes(requireContext()) != null && lngbrk.longbreakSeconds(requireContext()) != null) {
+            val minutes = lngbrk.longbreakMinutes(requireContext()) ?: 15
+            val seconds = lngbrk.longbreakSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }
@@ -130,9 +128,9 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
     // Reset timer
     private fun resetTimer() {
         timer?.cancel()
-        if (longbreakMinutes(requireContext()) != null && longbreakSeconds(requireContext()) != null) {
-            val minutes = longbreakMinutes(requireContext()) ?: 15
-            val seconds = longbreakSeconds(requireContext()) ?: 0
+        if (lngbrk.longbreakMinutes(requireContext()) != null && lngbrk.longbreakSeconds(requireContext()) != null) {
+            val minutes = lngbrk.longbreakMinutes(requireContext()) ?: 15
+            val seconds = lngbrk.longbreakSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }

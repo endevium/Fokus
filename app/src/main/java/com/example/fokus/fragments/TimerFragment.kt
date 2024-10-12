@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
-import com.example.fokus.api.pomodoroMinutes
-import com.example.fokus.api.pomodoroSeconds
+import com.example.fokus.api.pomodoroSettings
+import com.example.fokus.api.shortBreakSettings
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
 
@@ -21,6 +21,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private lateinit var nextButton: ImageButton
     private lateinit var shortBreakFrag: ShortBreakFragment
     private lateinit var longBreakFrag: LongBreakFragment
+    private var pmdr = pomodoroSettings()
     private var timer: CountDownTimer? = null
     private var timeLeft: Long = 25 * 60 * 1000
     private var isTimerRunning: Boolean = false
@@ -44,9 +45,9 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         shortBreakFrag = ShortBreakFragment()
         longBreakFrag = LongBreakFragment()
 
-        if (pomodoroMinutes(requireContext()) != null && pomodoroSeconds(requireContext()) != null) {
-            val minutes = pomodoroMinutes(requireContext()) ?: 25
-            val seconds = pomodoroSeconds(requireContext()) ?: 0
+        if (pmdr.pomodoroMinutes(requireContext()) != null && pmdr.pomodoroSeconds(requireContext()) != null) {
+            val minutes = pmdr.pomodoroMinutes(requireContext()) ?: 25
+            val seconds = pmdr.pomodoroSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }
@@ -149,9 +150,9 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     // Reset timer
     private fun resetTimer() {
         timer?.cancel()
-        if (pomodoroMinutes(requireContext()) != null && pomodoroSeconds(requireContext()) != null) {
-            val minutes = pomodoroMinutes(requireContext()) ?: 25
-            val seconds = pomodoroSeconds(requireContext()) ?: 0
+        if (pmdr.pomodoroMinutes(requireContext()) != null && pmdr.pomodoroSeconds(requireContext()) != null) {
+            val minutes = pmdr.pomodoroMinutes(requireContext()) ?: 25
+            val seconds = pmdr.pomodoroSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }

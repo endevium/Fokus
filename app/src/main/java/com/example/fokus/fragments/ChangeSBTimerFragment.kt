@@ -6,8 +6,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.fokus.api.loadShortbreakSettings
-import com.example.fokus.api.savePomodoro
-import com.example.fokus.api.saveShortbreak
+import com.example.fokus.api.shortBreakSettings
 
 class ChangeSBTimerFragment : Fragment(R.layout.fragment_changesbtimer) {
     private lateinit var firstUpBtn: ImageButton
@@ -25,6 +24,7 @@ class ChangeSBTimerFragment : Fragment(R.layout.fragment_changesbtimer) {
     private lateinit var backBtn: ImageButton
     private lateinit var resetBtn: TextView
     private lateinit var saveBtn: TextView
+    private val shrtbrk = shortBreakSettings()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -141,7 +141,7 @@ class ChangeSBTimerFragment : Fragment(R.layout.fragment_changesbtimer) {
         val fourthNum = fourthDigit.text.toString()
         val secondsStr = "$thirdNum$fourthNum"
 
-        saveShortbreak(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
+        shrtbrk.saveShortbreak(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
         secondNum, thirdNum, fourthNum)
     }
 }

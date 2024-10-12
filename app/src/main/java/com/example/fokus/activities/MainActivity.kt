@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity() {
         builder.setMessage("Are you sure you want to close the application?")
         builder.setCancelable(false)
         builder.setPositiveButton("Yes") { _, _ ->
+            clearToken(applicationContext)
             finishAffinity()
         }
         builder.setNegativeButton("No") { dialog, _ ->

@@ -6,7 +6,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.fokus.api.loadLongbreakSettings
-import com.example.fokus.api.saveLongbreak
+import com.example.fokus.api.longBreakSettings
 
 class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
     private lateinit var firstUpBtn: ImageButton
@@ -24,6 +24,7 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
     private lateinit var backBtn: ImageButton
     private lateinit var resetBtn: TextView
     private lateinit var saveBtn: TextView
+    private val lngbrk = longBreakSettings()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -140,7 +141,7 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
         val fourthNum = fourthDigit.text.toString()
         val secondsStr = "$thirdNum$fourthNum"
 
-        saveLongbreak(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
+        lngbrk.saveLongbreak(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
             secondNum, thirdNum, fourthNum)
     }
 }

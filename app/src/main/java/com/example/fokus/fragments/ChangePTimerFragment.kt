@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.fokus.api.loadPomodoroSettings
-import com.example.fokus.api.savePomodoro
+import com.example.fokus.api.pomodoroSettings
 
 class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
     private lateinit var firstUpBtn: ImageButton
@@ -25,6 +25,7 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
     private lateinit var backBtn: ImageButton
     private lateinit var resetBtn: TextView
     private lateinit var saveBtn: TextView
+    private val pmdr = pomodoroSettings()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -141,7 +142,7 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
         val fourthNum = fourthDigit.text.toString()
         val secondsStr = "$thirdNum$fourthNum"
 
-        savePomodoro(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
+        pmdr.savePomodoro(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
         secondNum, thirdNum, fourthNum)
     }
 }
