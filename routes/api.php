@@ -27,29 +27,24 @@ Route::middleware('auth:sanctum')->group(function () {
     // Task routes (RESTful API routes)
     Route::apiResource('task', TaskController::class); 
     
-    Route::post('/task', [TaskController::class, 'store']);          // Create new task (POST)
-    Route::put('/task/{id}', [TaskController::class, 'update']);     // Update task (PUT)
-    Route::delete('/task/{id}', [TaskController::class, 'destroy']); // Delete task (DELETE)
+    Route::post('/task', [TaskController::class, 'store']);  
+    Route::put('/task/{id}', [TaskController::class, 'update']);    
+    Route::delete('/task/{id}', [TaskController::class, 'destroy']); 
 
-    // Additional routes
     Route::get('/user_id', function (Request $request) {
         return $request->user(); // Returns authenticated user info
     });
+
+    // USER PROFILE
+    Route::post('/profile', [ProfileController::class, 'uploadProfilePicture'])->name('upload.profile.picture');
 });
 
-// FOKUS APP ROUTES PARANG ADMIN NA DIN SIGURO??? HAHAHAHAHAHAHAHAHA
-    Route::post('/FokusApp', [FokusController::class, 'store']);    
-    Route::get('/FokusApp', [FokusController::class, 'index']);
-    Route::get('/FokusApp/{id}', [FokusController::class, 'show']);  
-    Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
-    Route::delete('/FokusApp/{id}', [FokusController::class, 'destroy']);
-
-
-    //USER_PROFILE
-    Route::middleware('auth:sanctum')->group(function () {
-        Route::post('/profile', [ProfileController::class, 'uploadProfilePicture'])->name('upload.profile.picture');
-    });
-    
+// FOKUS APP ROUTES
+Route::post('/FokusApp', [FokusController::class, 'store']);    
+Route::get('/FokusApp', [FokusController::class, 'index']);
+Route::get('/FokusApp/{id}', [FokusController::class, 'show']);  
+Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
+Route::delete('/FokusApp/{id}', [FokusController::class, 'destroy']);
 
 // Test route
 Route::get('/test', function () {

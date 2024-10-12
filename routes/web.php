@@ -5,17 +5,22 @@ use App\Http\Controllers\NotesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 
-//routes forNotesController
+// Routes for NotesController
 Route::resource('notes', NotesController::class);
 
 // For login and signup
 Route::post('/login.html', [AuthController::class, 'login']);
-Route::post('/signup.hrml', [AuthController::class, 'signup']);
-
+Route::post('/signup.html', [AuthController::class, 'signup']); // Corrected spelling
 
 // Route to show the welcome page for the Fokus_app
 Route::get('/Fokus_app', function () {
-    return view('welcome'); // view named 'welcome'
+    return view('welcome'); // View named 'welcome'
 });
 
-Route::post('/upload-profile', [ProfileController::class, 'upload'])->name('profile.upload');
+// Route to show the profile upload form
+Route::get('/profile', function () {
+    return view('profile'); // Returns the profile upload view
+});
+
+// Profile picture upload route
+Route::post('/profile', [ProfileController::class, 'uploadProfilePicture'])->name('upload.profile.picture');
