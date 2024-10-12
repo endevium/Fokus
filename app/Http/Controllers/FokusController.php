@@ -18,12 +18,19 @@ class FokusController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'username.unique' => 'The username has already been taken.',
+            'email.unique' => 'The email has already been registered.',
+        ];
+
+        // Validate incoming request data
         $request->validate([
             'username' => 'required|string|max:255|unique:fokus_app',
             'password' => 'required|string|max:50',
             'email' => 'required|string|email|max:255|unique:fokus_app',
-        ]);
+        ], $messages);
 
+        // Create a new user and hash the password
         $fokusApp = new FokusApp([
             'username' => $request->username,
             'password' => Hash::make($request->password),

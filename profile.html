@@ -1,0 +1,6 @@
+<form action="{{ route('upload.profile.picture') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <label for="profile_picture">Upload Profile Picture:</label>
+    <input type="file" name="profile_picture" id="profile_picture" required>
+    <button type="submit">Upload</button>
+</form>

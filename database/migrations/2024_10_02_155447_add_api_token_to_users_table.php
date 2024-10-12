@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing ID
-            $table->morphs('tokenable'); // Polymorphic relationship
-            $table->string('name'); // Name of the token
-            $table->string('token', 64)->unique(); // Unique token string
-            $table->text('abilities')->nullable(); // Nullable field for token abilities
+        Schema::create('api_token', function (Blueprint $table) {
+            $table->id(); // Auto-increment
+            $table->morphs('tokenable'); 
+            $table->string('name'); 
+            $table->string('token', 64)->unique(); 
+            $table->text('abilities')->nullable(); 
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens'); // Drop the tokens table
+        Schema::dropIfExists('api_token'); 
     }
 };
 

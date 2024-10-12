@@ -6,6 +6,7 @@ use App\Http\Controllers\NotesController;
 use App\Http\Controllers\FokusController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ProfileController;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
 // Registration route
@@ -42,6 +43,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/FokusApp/{id}', [FokusController::class, 'show']);  
     Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
     Route::delete('/FokusApp/{id}', [FokusController::class, 'destroy']);
+
+
+    //USER_PROFILE
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/profile', [ProfileController::class, 'uploadProfilePicture'])->name('upload.profile.picture');
+    });
+    
 
 // Test route
 Route::get('/test', function () {

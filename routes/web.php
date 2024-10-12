@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 //routes forNotesController
 Route::resource('notes', NotesController::class);
@@ -16,3 +17,5 @@ Route::post('/signup.hrml', [AuthController::class, 'signup']);
 Route::get('/Fokus_app', function () {
     return view('welcome'); // view named 'welcome'
 });
+
+Route::post('/upload-profile', [ProfileController::class, 'upload'])->name('profile.upload');

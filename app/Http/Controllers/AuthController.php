@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash; // For hashing passwords
 use App\Models\FokusApp;
-use App\Models\NotesModel; // Correct model import
-use App\Models\TaskModel;  // Import TaskModel
+use App\Models\NotesModel; 
+use App\Models\TaskModel; 
 use Laravel\Sanctum\HasApiTokens;
 
 class AuthController extends Controller
