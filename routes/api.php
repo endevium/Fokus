@@ -31,6 +31,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/task/{id}', [TaskController::class, 'update']);    
     Route::delete('/task/{id}', [TaskController::class, 'destroy']); 
 
+    //TASK COMPLETION ROUTES
+    Route::put('/task/{id}/complete', [FokusController::class, 'completeTask']);
+    Route::get('/task/{id}/status', [FokusController::class, 'checkTaskCompletion']);
+
+
+
     Route::get('/user_id', function (Request $request) {
         return $request->user(); // Returns authenticated user info
     });
@@ -45,6 +51,8 @@ Route::get('/FokusApp', [FokusController::class, 'index']);
 Route::get('/FokusApp/{id}', [FokusController::class, 'show']);  
 Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
 Route::delete('/FokusApp/{id}', [FokusController::class, 'destroy']);
+
+    
 
 // Test route
 Route::get('/test', function () {

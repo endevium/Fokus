@@ -15,6 +15,7 @@ class CreateFokusAppAndFokusNotesTables extends Migration
             Schema::create('fokus_app', function (Blueprint $table) {
                 $table->id();
                 $table->string('username')->unique();
+                $table->string('fullname')->nullable();
                 $table->string('password');
                 $table->string('email')->unique();
                 $table->string('profile_picture')->nullable();
@@ -38,6 +39,7 @@ class CreateFokusAppAndFokusNotesTables extends Migration
                 $table->foreignId('fokus_app_id')->constrained('fokus_app')->onDelete('cascade');
                 $table->string('token')->unique();
                 $table->string('task_title');
+                $table->boolean('is_completed')->default(false); //task Field
                 $table->timestamps();
             });
         }

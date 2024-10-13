@@ -16,21 +16,52 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
-        // Validate the incoming request data
         $request->validate([
             'username' => 'required|string|unique:fokus_app,username',
             'email' => 'required|string|email|unique:fokus_app,email',
             'password' => 'required|string|min:8',
         ]);
 
-        // Create the user and hash the password
+        // Create user and hash the password
         $user = FokusApp::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password), // Hashing the password
         ]);
 
-        return response()->json(['message' => 'Account created successfully!'], 201);
+        if ($user->id) {
+            $token = $user->createToken('FokusApp')->plainTextToken; // Create token
+
+            // Manual login for user
+            Auth::login($user);
+
+            if ($request->has('title') && $request->has('content')) {
+                NotesModel::create([
+                    'fokus_app_id' => $user->id,
+                    'title' => $request->title, 
+                    'content' => $request->content, 
+                ]);
+            }
+
+            if ($request->has('task_name') && $request->has('is_completed')) {
+               
+                TaskModel::create([
+                    'fokus_app_id' => $user->id,
+                    'task_title' => $request->task_name, 
+                    'is_completed' => $request->is_completed, 
+                ]);
+            }
+
+            // Return the response with the user object and token
+            return response()->json([
+                'message' => 'Account created successfully!', 
+                'token' => $token, 
+                'data' => $user
+            ], 201);
+        }
+
+        // If user creation fails, return error
+        return response()->json(['message' => 'Account creation failed.'], 400);
     }
 
     public function login(Request $request)
@@ -47,30 +78,38 @@ class AuthController extends Controller
 
         if ($user && Hash::check($credentials['password'], $user->password)) {
             // Authentication passed, generate token
-            $token = $user->createToken('FokusApp')->plainTextToken; // Create token
+            $token = $user->createToken('FokusApp')->plainTextToken; //TOKEN CREATION
 
-            // Manual login for user
+            // Manual login
             Auth::login($user);
 
-            // Optionally create notes and tasks if provided in the request
+            
+            $loggedin = [
+                'id' => $user->id,
+                'username' => $user->username,
+                'email' => $user->email
+            ];
+
+            
             if ($request->has('title') && $request->has('content')) {
-                // Insert a note into the database
+                // Insert a note
                 NotesModel::create([
                     'fokus_app_id' => $user->id,
-                    'title' => $request->title, // Title from request
-                    'content' => $request->content, // Content from request
+                    'title' => $request->title, 
+                    'content' => $request->content, 
                 ]);
             }
 
             if ($request->has('task_name') && $request->has('is_completed')) {
-                // Insert a task into the database
+               
                 TaskModel::create([
                     'fokus_app_id' => $user->id,
-                    'task_title' => $request->task_name, // Task name from request
+                    'task_title' => $request->task_name, 
+                    'is_completed' => $request->is_completed, 
                 ]);
             }
 
-            return response()->json(['message' => 'Login successful', 'token' => $token], 200);
+            return response()->json(['message' => 'Login successful', 'token' => $token, 'data' => $loggedin], 200);
         }
 
         return response()->json(['message' => 'Invalid credentials'], 401);
