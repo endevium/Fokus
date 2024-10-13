@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FokusApp;
-use App\Models\FokusTask; // Import the FokusTask model
 use App\Models\TaskModel;
-use App\Models\PasswordHistory; // Import the PasswordHistory model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -67,33 +65,16 @@ class FokusController extends Controller
 
         $request->validate([
             'username' => 'sometimes|required|string|max:255|unique:fokus_app,username,' . $fokusApp->id,
-            'password' => 'sometimes|required|string|max:50',
+            'password' => 'sometimes|required|string|',
             'email' => 'sometimes|required|string|email|max:255|unique:fokus_app,email,' . $fokusApp->id,
         ]);
 
-        // Check for password reuse
+        // Update the fields only if they are present in the request
         if ($request->has('password')) {
-            $passwordExists = PasswordHistory::where('user_id', $fokusApp->id)
-                ->get()
-                ->contains(function ($history) use ($request) {
-                    return Hash::check($request->password, $history->password);
-                });
-
-            if ($passwordExists) {
-                return response()->json(['message' => 'You cannot reuse a recent password.'], 422);
-            }
-
-            // Save the old password to the password history
-            PasswordHistory::create([
-                'user_id' => $fokusApp->id,
-                'password' => $fokusApp->password,
-            ]);
-
             // Hash the new password and update it
             $fokusApp->password = Hash::make($request->password);
         }
-
-        // Update the fields only if they are present in the request
+        
         if ($request->has('username')) {
             $fokusApp->username = $request->username;
         }
@@ -138,9 +119,30 @@ class FokusController extends Controller
     }
 
 
-
-    
-    //TASK METHOD
+        //CHANGE PASSWORD
+        public function changePassword(Request $request)
+        {
+            // Validate incoming request data
+            $request->validate([
+                'email' => 'required|string|email',
+                'new_password' => 'required|string',
+            ]);
+        
+            // Find user by email
+            $user = FokusApp::where('email', $request->email)->first();
+        
+            if (!$user) {
+                return response()->json(['message' => 'Email not found'], 404);
+            }
+        
+            // Hash new password and update it
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+        
+            return response()->json(['message' => 'Password changed successfully!'], 200);
+        }
+        
+    // TASK METHOD
     public function completeTask(Request $request, $id)
     {
         $request->validate([
@@ -154,7 +156,7 @@ class FokusController extends Controller
             return response()->json(['message' => 'Task not found'], 404);
         }
 
-        // Update  task completion status
+        // Update task completion status
         $task->is_completed = $request->is_completed; // true or false based on request
         $task->save(); 
 

@@ -15,6 +15,9 @@ Route::post('/register', [AuthController::class, 'signup']);
 // AUTHENTICATION ROUTES
 Route::post('/login', [AuthController::class, 'login']);
 
+//CHANGE PASSWORD
+Route::post('/new_password', [FokusController::class, 'changePassword']);
+
 // TOKEN ROUTE
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'showCookie']);
 
