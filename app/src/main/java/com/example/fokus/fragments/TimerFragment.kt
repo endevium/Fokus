@@ -78,13 +78,11 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
         // Reset timer if clicked
         restartButton.setOnClickListener {
-            (activity as? MainActivity)?.toggleMusic()
             resetTimer()
         }
 
         // Increment and pass pomodoro phase args and move to the next phase
         nextButton.setOnClickListener {
-            (activity as? MainActivity)?.toggleMusic()
             val bundle = Bundle()
             phase += 1
             bundle.putInt("phase", phase)

@@ -6,14 +6,79 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:background="@drawable/profile_circle"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Rasheed Paner"
+            android:layout_gravity="center"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="joco.paner.up@phinmaed.com"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/LogoutBtn"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="@drawable/etcontainer"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/logout"
+                android:gravity="center"
+                android:text=" Log out"
+                android:textColor="@color/red"
+                android:textSize="16dp"
+                android:layout_marginEnd="150dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

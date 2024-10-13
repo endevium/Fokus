@@ -4,8 +4,8 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -20,20 +20,20 @@ public final class ActivitySecondBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final ImageButton ibckBtn;
-
-  @NonNull
-  public final ImageButton inxtBtn;
+  public final TextView loginBtn;
 
   @NonNull
   public final RelativeLayout main;
 
-  private ActivitySecondBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton ibckBtn,
-      @NonNull ImageButton inxtBtn, @NonNull RelativeLayout main) {
+  @NonNull
+  public final TextView signupBtn;
+
+  private ActivitySecondBinding(@NonNull RelativeLayout rootView, @NonNull TextView loginBtn,
+      @NonNull RelativeLayout main, @NonNull TextView signupBtn) {
     this.rootView = rootView;
-    this.ibckBtn = ibckBtn;
-    this.inxtBtn = inxtBtn;
+    this.loginBtn = loginBtn;
     this.main = main;
+    this.signupBtn = signupBtn;
   }
 
   @Override
@@ -63,21 +63,21 @@ public final class ActivitySecondBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ibckBtn;
-      ImageButton ibckBtn = ViewBindings.findChildViewById(rootView, id);
-      if (ibckBtn == null) {
-        break missingId;
-      }
-
-      id = R.id.inxtBtn;
-      ImageButton inxtBtn = ViewBindings.findChildViewById(rootView, id);
-      if (inxtBtn == null) {
+      id = R.id.loginBtn;
+      TextView loginBtn = ViewBindings.findChildViewById(rootView, id);
+      if (loginBtn == null) {
         break missingId;
       }
 
       RelativeLayout main = (RelativeLayout) rootView;
 
-      return new ActivitySecondBinding((RelativeLayout) rootView, ibckBtn, inxtBtn, main);
+      id = R.id.signupBtn;
+      TextView signupBtn = ViewBindings.findChildViewById(rootView, id);
+      if (signupBtn == null) {
+        break missingId;
+      }
+
+      return new ActivitySecondBinding((RelativeLayout) rootView, loginBtn, main, signupBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

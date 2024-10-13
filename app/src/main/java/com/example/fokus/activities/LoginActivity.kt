@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var signUp: TextView
     private lateinit var rememberMe: CheckBox
     private lateinit var apiService: APIService
+    private lateinit var forgotPasswordLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,9 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.lBtn)
         signUp = findViewById(R.id.signupD)
         rememberMe = findViewById(R.id.rMeCb)
+        forgotPasswordLayout = findViewById<LinearLayout>(R.id.forgotpassBtn)
+
+
 
         // Instantly retrieve and load data from sharedPref
         lEmail.setText(sharedPref.getString("email", null))
@@ -65,6 +69,11 @@ class LoginActivity : AppCompatActivity() {
         // Do signUpClick function if signUp button is clicked
         signUp.setOnClickListener {
             signUpClick()
+        }
+
+        forgotPasswordLayout.setOnClickListener {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -122,6 +131,8 @@ class LoginActivity : AppCompatActivity() {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(this@LoginActivity, "Login failed: $errorResponse", Toast.LENGTH_SHORT).show()
                 }
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -135,4 +146,3 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
-

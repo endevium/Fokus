@@ -18,10 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.FourthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ThirdActivity"
+            android:name=".activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SecondActivity"

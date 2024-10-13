@@ -78,13 +78,11 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
 
         // Reset timer if clicked
         restartButton.setOnClickListener {
-            (activity as? MainActivity)?.toggleMusic()
             resetTimer()
         }
 
         // Reset phase at the last phase and redirect back to TimerFragment
         nextButton.setOnClickListener {
-            (activity as? MainActivity)?.toggleMusic()
             val bundle = Bundle()
             phase = 0
             bundle.putInt("phase", phase)

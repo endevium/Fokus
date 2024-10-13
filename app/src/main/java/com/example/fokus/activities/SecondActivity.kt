@@ -3,6 +3,7 @@ package com.example.fokus.activities
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fokus.R
@@ -14,11 +15,17 @@ class SecondActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
 
-        val iNxtBtn = findViewById<ImageButton>(R.id.inxtBtn)
+        val signupBtn = findViewById<TextView>(R.id.signupBtn)
+        val loginBtn = findViewById<TextView>(R.id.loginBtn)
 
-        // Move to third activity if next button is clicked
-        iNxtBtn.setOnClickListener {
-            val Intent = Intent(this, ThirdActivity::class.java)
+
+        // Move to Sign Up activity if signupBtn is clicked
+        signupBtn.setOnClickListener {
+            val Intent = Intent(this, SignupActivity::class.java)
+            startActivity(Intent)
+        }
+        loginBtn.setOnClickListener {
+            val Intent = Intent(this, LoginActivity::class.java)
             startActivity(Intent)
         }
     }

@@ -15,4 +15,5 @@
     <color name="green">#00BA08</color>
     <color name="red">#FF0000</color>
     <color name="darkred">#8C0000</color>
+    <color name="yellow">#FFC107</color>
 </resources>

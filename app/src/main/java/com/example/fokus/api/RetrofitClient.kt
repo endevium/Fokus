@@ -11,7 +11,7 @@ import kotlin.jvm.Throws
 
 object RetrofitClient {
     // API URL
-    private const val BASE_URL = "https://scorpion-workable-panda.ngrok-free.app/"
+    private const val BASE_URL = "https://honeybee-proven-labrador.ngrok-free.app/"
 
     private var authToken: String? = null
 

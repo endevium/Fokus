@@ -18,14 +18,14 @@ class SplashScreen : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             // Move to second activity after delay time
-            if (getToken(applicationContext) == null) {
+            //if (getToken(applicationContext) == null) {
                 startActivity(Intent(this, SecondActivity::class.java))
                 finish()
-            } else {
-                getToken(applicationContext)?.let { RetrofitClient.setToken(it) }
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }
+            //} else {
+                //getToken(applicationContext)?.let { RetrofitClient.setToken(it) }
+                //startActivity(Intent(this, MainActivity::class.java))
+                //finish()
+            //}
         }, 2000) // 2 seconds delay
     }
 }

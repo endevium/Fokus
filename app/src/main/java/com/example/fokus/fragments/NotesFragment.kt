@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.fokus.*
 import com.example.fokus.api.*
 import com.example.fokus.models.*
@@ -71,7 +72,6 @@ class NotesFragment : Fragment() {
             createNoteCard(notesCardLayout, title, content)
         }
     }
-
 
     // FOR FETCHED NOTES
     private fun createNoteCard(parentLayout: LinearLayout, title: String, content: String) {
@@ -166,6 +166,27 @@ class NotesFragment : Fragment() {
             // Change text style
             text = "Edit"
             textAlignment = View.TEXT_ALIGNMENT_CENTER
+
+            // Set click listener to handle fragment transaction to EditNotesFragment
+            setOnClickListener {
+                // Create a bundle to pass data to EditNotesFragment
+                val bundle = Bundle().apply {
+                    putString("note_title", title)
+                    putString("note_content", content)
+                }
+
+                // Instantiate EditNotesFragment and pass the bundle
+                val editNotesFragment = EditNotesFragment().apply {
+                    arguments = bundle
+                }
+
+                // Perform the fragme   nt transaction
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.notes_container, editNotesFragment) // Replace current fragment
+                    .addToBackStack(null) // Add to back stack to allow back navigation
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // Add transition effect
+                    .commit()
+            }
         }
 
         secondLinearLayout.addView(editButton) // Wrap edit button first

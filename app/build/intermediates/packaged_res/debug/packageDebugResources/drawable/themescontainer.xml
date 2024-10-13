@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Rounded background with stroke (optional) -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" /> <!-- Set rounded corners here -->
+            <solid android:color="#FFFFFF"/> <!-- Background color (optional) -->
+        </shape>
+    </item>
+
+    <!-- Bitmap image with rounded corners -->
+    <item>
+        <bitmap
+            android:src="@drawable/th12"
+        android:tileMode="disabled"
+        android:antialias="true"/>
+    </item>
+</layer-list>
