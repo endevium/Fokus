@@ -2160,6 +2160,7 @@ color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
 color white
+color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -3054,6 +3055,7 @@ drawable arrowup
 drawable avd_hide_password
 drawable avd_show_password
 drawable backbtn
+drawable bg
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3105,7 +3107,11 @@ drawable ic_search_black_24
 drawable indeterminate_static
 drawable key
 drawable lock
+drawable logo2
 drawable logof
+drawable logout
+drawable logoutcontainer
+drawable lscontainer
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3183,16 +3189,24 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable opencontainer
 drawable playarrow
 drawable profile
+drawable profile_circle
 drawable restart
 drawable rtimer
 drawable settings
 drawable show
 drawable smallcircle
 drawable snext
+drawable stop
 drawable tbtncontainer
 drawable test_level_drawable
+drawable th12
+drawable th13
+drawable th14
+drawable th15
+drawable themescontainer
 drawable timer
 drawable timercontainer
 drawable timercontainer2
@@ -3206,6 +3220,7 @@ drawable ttvcontainer2
 drawable ttvcontainer3
 drawable ttvcontainer4
 drawable ttvcontainer5
+drawable user
 drawable vibrate
 drawable volume
 font khula
@@ -3215,6 +3230,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id LogoutBtn
 id META
 id NO_DEBUG
 id SHIFT
@@ -3406,6 +3422,7 @@ id endToStart
 id enterAlways
 id enterAlwaysCollapsed
 id escape
+id etUsername
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3426,10 +3443,10 @@ id fixed
 id flip
 id floating
 id forever
+id forgotpassBtn
 id fourthDigit
 id fourthDownBtn
 id fourthUpBtn
-id fpassL
 id fragment_container
 id fragment_container_view_tag
 id frost
@@ -3450,7 +3467,6 @@ id homeAsUp
 id honorRequest
 id horizontal_only
 id i1img
-id ibckBtn
 id icon
 id icon_group
 id ifRoom
@@ -3463,7 +3479,6 @@ id indeterminate
 id info
 id invisible
 id inward
-id inxtBtn
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
@@ -3483,6 +3498,7 @@ id linearTimer
 id listMode
 id list_item
 id locale
+id loginBtn
 id loginD
 id ltr
 id m3_side_sheet
@@ -3562,6 +3578,8 @@ id navigation_notifications
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newEmail
+id newPassword
 id noScroll
 id noState
 id none
@@ -3573,8 +3591,9 @@ id notes_container
 id notification_background
 id notification_main_column
 id notification_main_column_container
-id nxtBtn
 id off
+id oldEmail
+id oldPassword
 id on
 id onInterceptTouchReturnSwipe
 id open_search_bar_text_view
@@ -3665,6 +3684,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signupBtn
 id signupD
 id sin
 id skipCollapsed
@@ -3696,6 +3716,7 @@ id startVertical
 id staticLayout
 id staticPostLayout
 id stop
+id stopBtn
 id stretch
 id submenuarrow
 id submit_area
@@ -3739,7 +3760,6 @@ id thirdDownBtn
 id thirdUpBtn
 id time
 id timerFr
-id timerText
 id timerTextView
 id title
 id titleDividerNoCustom
@@ -3900,13 +3920,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_fourth
+layout activity_forgotpassword
 layout activity_login
 layout activity_main
 layout activity_second
 layout activity_signup
 layout activity_splash_screen
-layout activity_third
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

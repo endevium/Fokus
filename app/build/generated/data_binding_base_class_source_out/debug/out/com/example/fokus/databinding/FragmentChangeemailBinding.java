@@ -4,6 +4,7 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,13 +28,22 @@ public final class FragmentChangeemailBinding implements ViewBinding {
   public final TextView cancelBtn;
 
   @NonNull
+  public final EditText newEmail;
+
+  @NonNull
+  public final EditText oldEmail;
+
+  @NonNull
   public final TextView saveBtn;
 
   private FragmentChangeemailBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton backBtn,
-      @NonNull TextView cancelBtn, @NonNull TextView saveBtn) {
+      @NonNull TextView cancelBtn, @NonNull EditText newEmail, @NonNull EditText oldEmail,
+      @NonNull TextView saveBtn) {
     this.rootView = rootView;
     this.backBtn = backBtn;
     this.cancelBtn = cancelBtn;
+    this.newEmail = newEmail;
+    this.oldEmail = oldEmail;
     this.saveBtn = saveBtn;
   }
 
@@ -76,13 +86,26 @@ public final class FragmentChangeemailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.newEmail;
+      EditText newEmail = ViewBindings.findChildViewById(rootView, id);
+      if (newEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.oldEmail;
+      EditText oldEmail = ViewBindings.findChildViewById(rootView, id);
+      if (oldEmail == null) {
+        break missingId;
+      }
+
       id = R.id.saveBtn;
       TextView saveBtn = ViewBindings.findChildViewById(rootView, id);
       if (saveBtn == null) {
         break missingId;
       }
 
-      return new FragmentChangeemailBinding((RelativeLayout) rootView, backBtn, cancelBtn, saveBtn);
+      return new FragmentChangeemailBinding((RelativeLayout) rootView, backBtn, cancelBtn, newEmail,
+          oldEmail, saveBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

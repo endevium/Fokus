@@ -4,6 +4,7 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,13 +28,22 @@ public final class FragmentChangepasswordBinding implements ViewBinding {
   public final TextView cancelBtn;
 
   @NonNull
+  public final EditText newPassword;
+
+  @NonNull
+  public final EditText oldPassword;
+
+  @NonNull
   public final TextView saveBtn;
 
   private FragmentChangepasswordBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageButton backBtn, @NonNull TextView cancelBtn, @NonNull TextView saveBtn) {
+      @NonNull ImageButton backBtn, @NonNull TextView cancelBtn, @NonNull EditText newPassword,
+      @NonNull EditText oldPassword, @NonNull TextView saveBtn) {
     this.rootView = rootView;
     this.backBtn = backBtn;
     this.cancelBtn = cancelBtn;
+    this.newPassword = newPassword;
+    this.oldPassword = oldPassword;
     this.saveBtn = saveBtn;
   }
 
@@ -76,6 +86,18 @@ public final class FragmentChangepasswordBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.newPassword;
+      EditText newPassword = ViewBindings.findChildViewById(rootView, id);
+      if (newPassword == null) {
+        break missingId;
+      }
+
+      id = R.id.oldPassword;
+      EditText oldPassword = ViewBindings.findChildViewById(rootView, id);
+      if (oldPassword == null) {
+        break missingId;
+      }
+
       id = R.id.saveBtn;
       TextView saveBtn = ViewBindings.findChildViewById(rootView, id);
       if (saveBtn == null) {
@@ -83,7 +105,7 @@ public final class FragmentChangepasswordBinding implements ViewBinding {
       }
 
       return new FragmentChangepasswordBinding((RelativeLayout) rootView, backBtn, cancelBtn,
-          saveBtn);
+          newPassword, oldPassword, saveBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

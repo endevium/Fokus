@@ -2159,6 +2159,7 @@ int color switch_thumb_normal_material_light 0x7f05030a
 int color tooltip_background_dark 0x7f05030b
 int color tooltip_background_light 0x7f05030c
 int color white 0x7f05030d
+int color yellow 0x7f050313
 int dimen abc_action_bar_content_inset_material 0x7f060000
 int dimen abc_action_bar_content_inset_with_nav 0x7f060001
 int dimen abc_action_bar_default_height_material 0x7f060002
@@ -3053,6 +3054,7 @@ int drawable arrowup 0x7f070118
 int drawable avd_hide_password 0x7f07007c
 int drawable avd_show_password 0x7f07007d
 int drawable backbtn 0x7f07007e
+int drawable bg 0x7f07011b
 int drawable btn_checkbox_checked_mtrl 0x7f07007f
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f070080
 int drawable btn_checkbox_unchecked_mtrl 0x7f070081
@@ -3104,7 +3106,11 @@ int drawable ic_search_black_24 0x7f0700ae
 int drawable indeterminate_static 0x7f0700af
 int drawable key 0x7f0700b0
 int drawable lock 0x7f0700b1
+int drawable logo2 0x7f07011c
 int drawable logof 0x7f0700b2
+int drawable logout 0x7f07011d
+int drawable logoutcontainer 0x7f07011e
+int drawable lscontainer 0x7f07011f
 int drawable m3_avd_hide_password 0x7f0700b3
 int drawable m3_avd_show_password 0x7f0700b4
 int drawable m3_bottom_sheet_drag_handle 0x7f0700b5
@@ -3182,16 +3188,24 @@ int drawable notification_template_icon_bg 0x7f0700fc
 int drawable notification_template_icon_low_bg 0x7f0700fd
 int drawable notification_tile_bg 0x7f0700fe
 int drawable notify_panel_notification_icon_bg 0x7f0700ff
+int drawable opencontainer 0x7f070120
 int drawable playarrow 0x7f070100
 int drawable profile 0x7f070101
+int drawable profile_circle 0x7f070121
 int drawable restart 0x7f070102
 int drawable rtimer 0x7f070103
 int drawable settings 0x7f070104
 int drawable show 0x7f070105
 int drawable smallcircle 0x7f070106
 int drawable snext 0x7f070107
+int drawable stop 0x7f070122
 int drawable tbtncontainer 0x7f070108
 int drawable test_level_drawable 0x7f070109
+int drawable th12 0x7f070123
+int drawable th13 0x7f070124
+int drawable th14 0x7f070125
+int drawable th15 0x7f070126
+int drawable themescontainer 0x7f070127
 int drawable timer 0x7f07010a
 int drawable timercontainer 0x7f07010b
 int drawable timercontainer2 0x7f07010c
@@ -3205,6 +3219,7 @@ int drawable ttvcontainer2 0x7f070113
 int drawable ttvcontainer3 0x7f070114
 int drawable ttvcontainer4 0x7f070119
 int drawable ttvcontainer5 0x7f07011a
+int drawable user 0x7f070128
 int drawable vibrate 0x7f070115
 int drawable volume 0x7f070116
 int font khula 0x7f080000
@@ -3214,6 +3229,7 @@ int id BOTTOM_END 0x7f090001
 int id BOTTOM_START 0x7f090002
 int id CTRL 0x7f090003
 int id FUNCTION 0x7f090004
+int id LogoutBtn 0x7f090244
 int id META 0x7f090005
 int id NO_DEBUG 0x7f090006
 int id SHIFT 0x7f090007
@@ -3405,6 +3421,7 @@ int id endToStart 0x7f0900b7
 int id enterAlways 0x7f0900b8
 int id enterAlwaysCollapsed 0x7f0900b9
 int id escape 0x7f0900ba
+int id etUsername 0x7f09023f
 int id exitUntilCollapsed 0x7f0900bb
 int id expand_activities_button 0x7f0900bc
 int id expanded_menu 0x7f0900bd
@@ -3425,10 +3442,10 @@ int id fixed 0x7f0900c8
 int id flip 0x7f0900c9
 int id floating 0x7f0900ca
 int id forever 0x7f0900cb
+int id forgotpassBtn 0x7f090245
 int id fourthDigit 0x7f090236
 int id fourthDownBtn 0x7f090237
 int id fourthUpBtn 0x7f090238
-int id fpassL 0x7f0900cc
 int id fragment_container 0x7f0900cd
 int id fragment_container_view_tag 0x7f0900ce
 int id frost 0x7f0900cf
@@ -3449,7 +3466,6 @@ int id homeAsUp 0x7f0900dd
 int id honorRequest 0x7f0900de
 int id horizontal_only 0x7f0900df
 int id i1img 0x7f0900e0
-int id ibckBtn 0x7f0900e1
 int id icon 0x7f0900e2
 int id icon_group 0x7f0900e3
 int id ifRoom 0x7f0900e4
@@ -3462,7 +3478,6 @@ int id indeterminate 0x7f0900ea
 int id info 0x7f0900eb
 int id invisible 0x7f0900ec
 int id inward 0x7f0900ed
-int id inxtBtn 0x7f0900ee
 int id italic 0x7f0900ef
 int id item_touch_helper_previous_elevation 0x7f0900f0
 int id jumpToEnd 0x7f0900f1
@@ -3482,6 +3497,7 @@ int id linearTimer 0x7f0900fe
 int id listMode 0x7f0900ff
 int id list_item 0x7f090100
 int id locale 0x7f090101
+int id loginBtn 0x7f090246
 int id loginD 0x7f090102
 int id ltr 0x7f090103
 int id m3_side_sheet 0x7f090104
@@ -3561,6 +3577,8 @@ int id navigation_notifications 0x7f09014d
 int id never 0x7f09014e
 int id neverCompleteToEnd 0x7f09014f
 int id neverCompleteToStart 0x7f090150
+int id newEmail 0x7f090247
+int id newPassword 0x7f090242
 int id noScroll 0x7f090151
 int id noState 0x7f090152
 int id none 0x7f090153
@@ -3572,8 +3590,9 @@ int id notes_container 0x7f090230
 int id notification_background 0x7f090158
 int id notification_main_column 0x7f090159
 int id notification_main_column_container 0x7f09015a
-int id nxtBtn 0x7f09015b
 int id off 0x7f09015c
+int id oldEmail 0x7f090248
+int id oldPassword 0x7f090243
 int id on 0x7f09015d
 int id onInterceptTouchReturnSwipe 0x7f09015e
 int id open_search_bar_text_view 0x7f09015f
@@ -3664,6 +3683,7 @@ int id shortcut 0x7f0901ae
 int id showCustom 0x7f0901af
 int id showHome 0x7f0901b0
 int id showTitle 0x7f0901b1
+int id signupBtn 0x7f090249
 int id signupD 0x7f0901b2
 int id sin 0x7f0901b3
 int id skipCollapsed 0x7f0901b4
@@ -3695,6 +3715,7 @@ int id startVertical 0x7f0901cd
 int id staticLayout 0x7f0901ce
 int id staticPostLayout 0x7f0901cf
 int id stop 0x7f0901d0
+int id stopBtn 0x7f09024a
 int id stretch 0x7f0901d1
 int id submenuarrow 0x7f0901d2
 int id submit_area 0x7f0901d3
@@ -3738,7 +3759,6 @@ int id thirdDownBtn 0x7f09023d
 int id thirdUpBtn 0x7f09023e
 int id time 0x7f0901f7
 int id timerFr 0x7f0901f8
-int id timerText 0x7f0901f9
 int id timerTextView 0x7f0901fa
 int id title 0x7f0901fb
 int id titleDividerNoCustom 0x7f0901fc
@@ -3899,13 +3919,12 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0c0018
 int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
-int layout activity_fourth 0x7f0c001c
+int layout activity_forgotpassword 0x7f0c0082
 int layout activity_login 0x7f0c001d
 int layout activity_main 0x7f0c001e
 int layout activity_second 0x7f0c001f
 int layout activity_signup 0x7f0c0020
 int layout activity_splash_screen 0x7f0c0021
-int layout activity_third 0x7f0c0022
 int layout custom_dialog 0x7f0c0023
 int layout design_bottom_navigation_item 0x7f0c0024
 int layout design_bottom_sheet_dialog 0x7f0c0025

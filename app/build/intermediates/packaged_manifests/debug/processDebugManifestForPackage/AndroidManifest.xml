@@ -34,10 +34,7 @@
         android:theme="@style/Theme.Fokus"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.example.fokus.activities.FourthActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.fokus.activities.ThirdActivity"
+            android:name="com.example.fokus.activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name="com.example.fokus.activities.SecondActivity"

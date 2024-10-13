@@ -1,6 +1,7 @@
 package com.example.fokus.models
 
 data class SignupResponse(
+    val token: String,
     val message: String,
-    val user: User?
+    val data: User?
 )

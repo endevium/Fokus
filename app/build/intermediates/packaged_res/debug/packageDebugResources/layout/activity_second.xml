@@ -5,84 +5,55 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteBackground"
+    android:background="@drawable/bg"
     tools:context=".activities.SecondActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
+        android:layout_height="550dp"
+        android:layout_marginTop="30dp"
         android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="450dp"
-            android:src="@drawable/i2" />
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/opencontainer"
+        android:layout_marginBottom="-75dp">
 
         <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Fokus boosts productivity with Pomorodo timers and progress tracking, helping you stay focused and efficient"
-            android:gravity="center"
+            android:id="@+id/signupBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginEnd="50dp"
             android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="@color/black" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="75dp">
+            android:text="Sign Up"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@drawable/lscontainer" />
 
-            <ImageButton
-                android:id="@+id/ibckBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="110dp"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/backbtn"
-                android:visibility="invisible" />
+        <TextView
+            android:id="@+id/loginBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:text="Log In"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:background="@drawable/lscontainer" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/smallcircle"
-                android:layout_marginEnd="5dp"
-                app:tint="@color/DarkPurple"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/circle"
-                android:layout_marginEnd="5dp"
-                app:tint="@color/DarkPurple" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/smallcircle"
-                android:layout_marginEnd="5dp"
-                app:tint="@color/DarkPurple" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/smallcircle"
-                app:tint="@color/DarkPurple" />
-
-            <ImageButton
-                android:id="@+id/inxtBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/nexbtn"
-                android:backgroundTint="@color/white"
-                android:layout_marginStart="110dp"/>
-
-
-
-        </LinearLayout>
 
     </LinearLayout>
 

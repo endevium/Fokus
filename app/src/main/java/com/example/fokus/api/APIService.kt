@@ -23,6 +23,30 @@ interface APIService {
         @Field("email") email: String
     ): Call<SignupResponse> // Sends a request with sign up response body
 
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PUT("/api/FokusApp/{id}")
+    fun changeUser(
+        @Path("id") id: Int,
+        @Field("username") username: String
+    ): Call<UserResponse> // Sends a request
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PUT("/api/FokusApp/{id}")
+    fun changeEmail(
+        @Path("id") id: Int,
+        @Field("email") email: String
+    ): Call<UserResponse> // Sends a request
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PUT("/api/FokusApp/{id}")
+    fun changePassword(
+        @Path("id") id: Int,
+        @Field("password") password: String
+    ): Call<UserResponse> // Sends a request
+
     // NOTES ROUTES
     @GET("/api/fokus_notes")
     fun getNotes(): Call<List<Notes>> // Sends a request of notes in a list

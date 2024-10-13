@@ -113,6 +113,15 @@
                 android:layout_marginStart="16dp"
                 android:background="@drawable/ibcontainer2"/>
 
+            <ImageButton
+                android:id="@+id/stopBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/stop"
+                android:background="@drawable/ibcontainer2"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"/>
+
         </LinearLayout>
 
 

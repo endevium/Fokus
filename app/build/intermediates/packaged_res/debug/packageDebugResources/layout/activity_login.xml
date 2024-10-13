@@ -129,14 +129,20 @@
                 android:layout_marginEnd="40dp"
                 android:text="Remember me" />
 
-            <TextView
-                android:id="@+id/fpassL"
+            <LinearLayout
+                android:id="@+id/forgotpassBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/DarkPurple"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/DarkPurple"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.fokus.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +11,8 @@ import com.example.fokus.api.APIService
 import com.example.fokus.api.RetrofitClient
 import com.example.fokus.models.SignupResponse
 import com.example.fokus.R
+import com.example.fokus.api.saveToken
+import com.example.fokus.api.saveUser
 import retrofit2.*
 
 class SignupActivity : AppCompatActivity() {
@@ -18,8 +21,8 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var sPass: EditText
     private lateinit var signUpBtn: Button
     private lateinit var loginBtnT: TextView
-
     private lateinit var apiService: APIService
+    private val save = saveUser()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,9 +106,21 @@ class SignupActivity : AppCompatActivity() {
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 if (response.isSuccessful) {
                     val signupResponse = response.body()
+                    val token = signupResponse?.token
+                    val idFromResponse = signupResponse?.data?.id
+                    val usernameFromResponse = signupResponse?.data?.username
+                    val emailFromResponse = signupResponse?.data?.email
 
-                    // Move to MainActivity if signup request is successful
-                    if (signupResponse != null) {
+                    // Save token if not null
+                    if (token != null && idFromResponse != null && usernameFromResponse != null
+                        && emailFromResponse != null) {
+                        saveToken(applicationContext, token)
+                        RetrofitClient.setToken(token)
+                        save.saveId(applicationContext, idFromResponse)
+                        save.saveUsername(applicationContext, usernameFromResponse)
+                        save.saveEmail(applicationContext, emailFromResponse)
+                        save.savePass(applicationContext, password)
+
                         Toast.makeText(this@SignupActivity, signupResponse.message, Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@SignupActivity, MainActivity::class.java)
                         startActivity(intent)

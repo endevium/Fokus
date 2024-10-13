@@ -30,6 +30,9 @@ public final class FragmentTimerBinding implements ViewBinding {
   public final ImageButton restartButton;
 
   @NonNull
+  public final ImageButton stopBtn;
+
+  @NonNull
   public final TextView timerTextView;
 
   @NonNull
@@ -37,12 +40,13 @@ public final class FragmentTimerBinding implements ViewBinding {
 
   private FragmentTimerBinding(@NonNull RelativeLayout rootView,
       @NonNull RelativeLayout fragmentContainer, @NonNull ImageButton playButton,
-      @NonNull ImageButton restartButton, @NonNull TextView timerTextView,
-      @NonNull ImageButton tnxtBtn) {
+      @NonNull ImageButton restartButton, @NonNull ImageButton stopBtn,
+      @NonNull TextView timerTextView, @NonNull ImageButton tnxtBtn) {
     this.rootView = rootView;
     this.fragmentContainer = fragmentContainer;
     this.playButton = playButton;
     this.restartButton = restartButton;
+    this.stopBtn = stopBtn;
     this.timerTextView = timerTextView;
     this.tnxtBtn = tnxtBtn;
   }
@@ -88,6 +92,12 @@ public final class FragmentTimerBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.stopBtn;
+      ImageButton stopBtn = ViewBindings.findChildViewById(rootView, id);
+      if (stopBtn == null) {
+        break missingId;
+      }
+
       id = R.id.timerTextView;
       TextView timerTextView = ViewBindings.findChildViewById(rootView, id);
       if (timerTextView == null) {
@@ -101,7 +111,7 @@ public final class FragmentTimerBinding implements ViewBinding {
       }
 
       return new FragmentTimerBinding((RelativeLayout) rootView, fragmentContainer, playButton,
-          restartButton, timerTextView, tnxtBtn);
+          restartButton, stopBtn, timerTextView, tnxtBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

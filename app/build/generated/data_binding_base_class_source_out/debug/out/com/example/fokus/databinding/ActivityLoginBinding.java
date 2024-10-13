@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,7 +24,7 @@ public final class ActivityLoginBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final TextView fpassL;
+  public final LinearLayout forgotpassBtn;
 
   @NonNull
   public final Button lBtn;
@@ -43,11 +44,12 @@ public final class ActivityLoginBinding implements ViewBinding {
   @NonNull
   public final TextView signupD;
 
-  private ActivityLoginBinding(@NonNull RelativeLayout rootView, @NonNull TextView fpassL,
-      @NonNull Button lBtn, @NonNull EditText lEmail, @NonNull EditText lPass,
-      @NonNull RelativeLayout main, @NonNull CheckBox rMeCb, @NonNull TextView signupD) {
+  private ActivityLoginBinding(@NonNull RelativeLayout rootView,
+      @NonNull LinearLayout forgotpassBtn, @NonNull Button lBtn, @NonNull EditText lEmail,
+      @NonNull EditText lPass, @NonNull RelativeLayout main, @NonNull CheckBox rMeCb,
+      @NonNull TextView signupD) {
     this.rootView = rootView;
-    this.fpassL = fpassL;
+    this.forgotpassBtn = forgotpassBtn;
     this.lBtn = lBtn;
     this.lEmail = lEmail;
     this.lPass = lPass;
@@ -83,9 +85,9 @@ public final class ActivityLoginBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fpassL;
-      TextView fpassL = ViewBindings.findChildViewById(rootView, id);
-      if (fpassL == null) {
+      id = R.id.forgotpassBtn;
+      LinearLayout forgotpassBtn = ViewBindings.findChildViewById(rootView, id);
+      if (forgotpassBtn == null) {
         break missingId;
       }
 
@@ -121,8 +123,8 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((RelativeLayout) rootView, fpassL, lBtn, lEmail, lPass, main,
-          rMeCb, signupD);
+      return new ActivityLoginBinding((RelativeLayout) rootView, forgotpassBtn, lBtn, lEmail, lPass,
+          main, rMeCb, signupD);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

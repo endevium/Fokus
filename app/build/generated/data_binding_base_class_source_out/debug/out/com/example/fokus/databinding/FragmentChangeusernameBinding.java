@@ -4,6 +4,7 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,13 +28,18 @@ public final class FragmentChangeusernameBinding implements ViewBinding {
   public final TextView cancelBtn;
 
   @NonNull
+  public final EditText etUsername;
+
+  @NonNull
   public final TextView saveBtn;
 
   private FragmentChangeusernameBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageButton backBtn, @NonNull TextView cancelBtn, @NonNull TextView saveBtn) {
+      @NonNull ImageButton backBtn, @NonNull TextView cancelBtn, @NonNull EditText etUsername,
+      @NonNull TextView saveBtn) {
     this.rootView = rootView;
     this.backBtn = backBtn;
     this.cancelBtn = cancelBtn;
+    this.etUsername = etUsername;
     this.saveBtn = saveBtn;
   }
 
@@ -76,6 +82,12 @@ public final class FragmentChangeusernameBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etUsername;
+      EditText etUsername = ViewBindings.findChildViewById(rootView, id);
+      if (etUsername == null) {
+        break missingId;
+      }
+
       id = R.id.saveBtn;
       TextView saveBtn = ViewBindings.findChildViewById(rootView, id);
       if (saveBtn == null) {
@@ -83,7 +95,7 @@ public final class FragmentChangeusernameBinding implements ViewBinding {
       }
 
       return new FragmentChangeusernameBinding((RelativeLayout) rootView, backBtn, cancelBtn,
-          saveBtn);
+          etUsername, saveBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

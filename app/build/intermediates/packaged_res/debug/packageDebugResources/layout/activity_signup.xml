@@ -56,16 +56,17 @@
             app:cardElevation="6dp"
             app:cardCornerRadius="8dp"
             app:cardBackgroundColor="@color/white">
+
             <EditText
                 android:id="@+id/sUser"
                 android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:background="@drawable/etcontainer"
+                android:drawableStart="@drawable/user"
+                android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint=" Create Username"
-                android:drawableStart="@drawable/email"
-                android:drawablePadding="5dp"
                 android:inputType="text"
                 android:padding="14dp"
                 android:textColor="@color/lightblack"

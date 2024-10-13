@@ -2,6 +2,7 @@ package com.example.fokus.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
@@ -10,7 +11,7 @@ import com.example.fokus.api.APIService
 import com.example.fokus.models.LoginResponse
 import com.example.fokus.api.RetrofitClient
 import com.example.fokus.R
-import com.example.fokus.api.saveToken
+import com.example.fokus.api.*
 import retrofit2.*
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var signUp: TextView
     private lateinit var rememberMe: CheckBox
     private lateinit var apiService: APIService
+    private lateinit var forgotPasswordLayout: LinearLayout
+    private val save = saveUser()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.lBtn)
         signUp = findViewById(R.id.signupD)
         rememberMe = findViewById(R.id.rMeCb)
+        forgotPasswordLayout = findViewById(R.id.forgotpassBtn)
 
         // Instantly retrieve and load data from sharedPref
         lEmail.setText(sharedPref.getString("email", null))
@@ -65,6 +69,11 @@ class LoginActivity : AppCompatActivity() {
         // Do signUpClick function if signUp button is clicked
         signUp.setOnClickListener {
             signUpClick()
+        }
+
+        forgotPasswordLayout.setOnClickListener {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -105,15 +114,20 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     val token = loginResponse?.token
+                    val idFromResponse = loginResponse?.data?.id
+                    val usernameFromResponse = loginResponse?.data?.username
+                    val emailFromResponse = loginResponse?.data?.email
 
                     // Save token if not null
-                    if (token != null) {
+                    if (token != null && idFromResponse != null && usernameFromResponse != null
+                        && emailFromResponse != null) {
                         saveToken(applicationContext, token)
                         RetrofitClient.setToken(token)
-                    }
+                        save.saveId(applicationContext, idFromResponse)
+                        save.saveUsername(applicationContext, usernameFromResponse)
+                        save.saveEmail(applicationContext, emailFromResponse)
+                        save.savePass(applicationContext, password)
 
-                    // Move to MainActivity if there is a login response
-                    if (loginResponse != null) {
                         Toast.makeText(this@LoginActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)

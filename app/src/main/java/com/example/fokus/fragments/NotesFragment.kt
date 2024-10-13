@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.fokus.*
 import com.example.fokus.api.*
 import com.example.fokus.models.*
@@ -16,6 +17,7 @@ class NotesFragment : Fragment() {
     private lateinit var notesCardLayout: LinearLayout
     private lateinit var addNoteBtn: ImageButton
     private lateinit var apiService: APIService
+    private lateinit var editNotesFrag: EditNotesFragment
     private val hmNotes: HashMap<String, String> = HashMap()
 
     override fun onCreateView(
@@ -31,6 +33,7 @@ class NotesFragment : Fragment() {
         notesCardLayout = view.findViewById(R.id.notesCardLayout)
         addNoteBtn = view.findViewById(R.id.addnoteBtn)
         apiService = RetrofitClient.create(APIService::class.java)
+        editNotesFrag = EditNotesFragment()
 
         // Fetch notes when switched to this fragment
         fetchNotes()
@@ -168,6 +171,15 @@ class NotesFragment : Fragment() {
             textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
 
+        editButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("title", title)
+            bundle.putString("content", content)
+
+            editNotesFrag.arguments = bundle
+            editNotesFragment()
+        }
+
         secondLinearLayout.addView(editButton) // Wrap edit button first
         firstLinearLayout.addView(noteTitle)
         firstLinearLayout.addView(noteDescription)
@@ -256,11 +268,28 @@ class NotesFragment : Fragment() {
             textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
 
+        editButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("title", "Note Title")
+            bundle.putString("content", "Start typing here...")
+
+            editNotesFrag.arguments = bundle
+            editNotesFragment()
+        }
+
         secondLinearLayout.addView(editButton) // Wrap edit button first
         firstLinearLayout.addView(noteTitle)
         firstLinearLayout.addView(noteDescription)
         firstLinearLayout.addView(secondLinearLayout) // Then wrap it together with the title and description
         noteCardView.addView(firstLinearLayout) // Wrap all of the elements in the card
         parentLayout.addView(noteCardView) // Display the card
+    }
+
+    private fun editNotesFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.notes_container, editNotesFrag) // Replace current fragment
+            .addToBackStack(null) // Add to back stack to allow back navigation
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // Add transition effect
+            .commit()
     }
 }

@@ -1,11 +1,23 @@
 [
     {
-        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_settings.xml",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_settings.xml"
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_changeusername.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_changeusername.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_editnotes.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_editnotes.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_shortbreak.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_shortbreak.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_changepassword.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changepassword.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_themes.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_themes.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_timer.xml",
@@ -14,6 +26,10 @@
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_changeemail.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changeemail.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_changeemail.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_changeemail.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_editnotes.xml",
@@ -28,8 +44,20 @@
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_task.xml"
     },
     {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_timer.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_timer.xml"
+    },
+    {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_settings.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_changepfp.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_changepfp.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/activity_second.xml",
+        "source": "com.example.fokus.app-main-53:/layout/activity_second.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\activity_fourth.xml",
@@ -48,8 +76,20 @@
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_splash_screen.xml"
     },
     {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/activity_forgotpassword.xml",
+        "source": "com.example.fokus.app-main-53:/layout/activity_forgotpassword.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/activity_signup.xml",
+        "source": "com.example.fokus.app-main-53:/layout/activity_signup.xml"
+    },
+    {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\activity_second.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_second.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_profile.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_profile.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_changeptimer.xml",
@@ -58,6 +98,10 @@
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\activity_login.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/activity_login.xml",
+        "source": "com.example.fokus.app-main-53:/layout/activity_login.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_changeusername.xml",
@@ -80,6 +124,10 @@
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changelbtimer.xml"
     },
     {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_changepassword.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_changepassword.xml"
+    },
+    {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_profile.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_profile.xml"
     },
@@ -94,5 +142,9 @@
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-50:\\layout\\fragment_longbreak.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_longbreak.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-50:/layout/fragment_longbreak.xml",
+        "source": "com.example.fokus.app-main-53:/layout/fragment_longbreak.xml"
     }
 ]
