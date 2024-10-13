@@ -124,8 +124,7 @@
                 android:src="@drawable/stop"
                 android:background="@drawable/ibcontainer"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="15dp"/>
+                android:layout_marginStart="16dp"/>
 
         </LinearLayout>
 
