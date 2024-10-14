@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_lscontainer.xml.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\lscontainer.xml"
-    },
-    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ncontainer.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ncontainer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_lscontainer.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\lscontainer.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_profile.xml.flat",
@@ -24,8 +24,28 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\arrowdown.xml"
     },
     {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_rth12.png.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\rth12.png"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_rrth12.png.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\rrth12.png"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timerbtn_selector.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timerbtn_selector.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-debug-51:/drawable_timercontainer.xml.flat",
+        "source": "com.example.fokus.app-main-53:/drawable/timercontainer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_purplebtn_selector.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\purplebtn_selector.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\menu_bottom_nav_menu.xml.flat",
@@ -50,10 +70,6 @@
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_shortbreak.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_shortbreak.xml"
-    },
-    {
-        "merged": "com.example.fokus.app-debug-51:/drawable_bg.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/bg.png"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_signup.xml.flat",
@@ -96,20 +112,20 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\bg.png"
     },
     {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer5.xml.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer5.xml"
-    },
-    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_opencontainer.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\opencontainer.xml"
     },
     {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\raw_fokus_one.mp3.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\raw\\fokus_one.mp3"
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer5.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer5.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_logo2.png.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\logo2.png"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\raw_fokus_one.mp3.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\raw\\fokus_one.mp3"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_email.xml.flat",
@@ -124,12 +140,20 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_pressed_btn.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\pressed_btn.xml"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_arrowup.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\arrowup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_bg2.png.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\bg2.png"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ic_launcher_background.xml.flat",
@@ -156,12 +180,20 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\next.xml"
     },
     {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_hide.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\hide.xml"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_user.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\user.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_notification.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timerbtn_selector2.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timerbtn_selector2.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_settings.xml.flat",
@@ -182,10 +214,6 @@
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-mdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_fourth.xml.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_fourth.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_playarrow.xml.flat",
@@ -288,12 +316,28 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timerprogressbar3.xml"
     },
     {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_button_selector1.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\button_selector1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_th12_container.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\th12_container.xml"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_i4.png.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\i4.png"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_pressed_btn2.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\pressed_btn2.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_bg3.png.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\bg3.png"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timer.xml.flat",
@@ -306,10 +350,6 @@
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_logout.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\logout.xml"
-    },
-    {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_third.xml.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_third.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ancontainer.xml.flat",
@@ -334,6 +374,10 @@
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_redbtn_selector.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\redbtn_selector.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_profile_circle.xml.flat",
@@ -392,8 +436,16 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\th12.png"
     },
     {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_settingsbuttons_selector.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\settingsbuttons_selector.xml"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_logoutcontainer.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\logoutcontainer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timebtn_selector.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timebtn_selector.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_editnotes.xml.flat",
@@ -408,6 +460,10 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_notes.xml"
     },
     {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changesbtimer.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changesbtimer.xml"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer3.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer3.xml"
     },
@@ -416,16 +472,20 @@
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\add.xml"
     },
     {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changesbtimer.xml.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changesbtimer.xml"
-    },
-    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changepassword.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changepassword.xml"
     },
     {
+        "merged": "com.example.fokus.app-debug-51:/drawable_timercontainer2.xml.flat",
+        "source": "com.example.fokus.app-main-53:/drawable/timercontainer2.xml"
+    },
+    {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_timer.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_timer.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ibcontainer.xml.flat",
+        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ibcontainer.xml"
     },
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\navigation_mobile_navigation.xml.flat",
@@ -434,9 +494,5 @@
     {
         "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_snext.xml.flat",
         "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\snext.xml"
-    },
-    {
-        "merged": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ibcontainer.xml.flat",
-        "source": "C:\\Users\\Shekinah\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ibcontainer.xml"
     }
 ]

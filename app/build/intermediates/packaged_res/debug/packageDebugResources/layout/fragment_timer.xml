@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/restart"
-                android:background="@drawable/ibcontainer"
+                android:background="@drawable/timebtn_selector"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="15dp"/>
 
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/playarrow"
-                android:background="@drawable/ibcontainer"
+                android:background="@drawable/timebtn_selector"
                 android:layout_marginTop="16dp" />
 
             <ImageButton
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/ibcontainer"
+                android:background="@drawable/timebtn_selector"
                 android:src="@drawable/next" />
 
             <ImageButton
@@ -122,10 +122,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/stop"
-                android:background="@drawable/ibcontainer"
+                android:background="@drawable/timebtn_selector"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="15dp"/>
+                android:layout_marginStart="16dp"/>
 
         </LinearLayout>
 

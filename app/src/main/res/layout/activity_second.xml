@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg2"
     tools:context=".activities.SecondActivity">
 
     <LinearLayout
@@ -22,18 +21,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="225dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/opencontainer"
-        android:layout_marginBottom="-75dp">
+        android:layout_marginBottom="-100dp">
 
         <TextView
             android:id="@+id/signupBtn"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="40dp"
             android:layout_marginEnd="50dp"
             android:textStyle="bold"
             android:gravity="center"
@@ -46,7 +45,7 @@
             android:id="@+id/loginBtn"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="40dp"
             android:gravity="center"
             android:text="Log In"
             android:textStyle="bold"

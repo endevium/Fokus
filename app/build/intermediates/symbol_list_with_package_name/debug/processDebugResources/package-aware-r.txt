@@ -1409,6 +1409,7 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color blandpurple
 color blue
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -1425,6 +1426,7 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color darkred
+color darkyellow
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1476,9 +1478,11 @@ color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color lightblack
+color lightblue
 color lightergray
 color lightgray
 color lightpurple
+color lightred
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -3056,6 +3060,8 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable backbtn
 drawable bg
+drawable bg2
+drawable bg3
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3064,6 +3070,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable button_selector1
 drawable circle
 drawable design_fab_background
 drawable design_ic_visibility
@@ -3074,6 +3081,7 @@ drawable econtainer
 drawable email
 drawable etcontainer
 drawable google
+drawable hide
 drawable home
 drawable i1
 drawable i2
@@ -3189,11 +3197,16 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable opencontainer
 drawable playarrow
+drawable pressed_btn
+drawable pressed_btn2
 drawable profile
 drawable profile_circle
+drawable purplebtn_selector
+drawable redbtn_selector
 drawable restart
 drawable rtimer
 drawable settings
+drawable settingsbuttons_selector
 drawable show
 drawable smallcircle
 drawable snext
@@ -3205,7 +3218,9 @@ drawable th13
 drawable th14
 drawable th15
 drawable themescontainer
+drawable timebtn_selector
 drawable timer
+drawable timerbtn_selector2
 drawable timercontainer
 drawable timercontainer2
 drawable timerprogressbar
@@ -3332,6 +3347,7 @@ id bounceEnd
 id bounceStart
 id buttonPanel
 id cache_measures
+id cafeBtn
 id callMeasure
 id cancelBtn
 id cancel_button
@@ -3355,6 +3371,7 @@ id checkbox
 id checked
 id chronometer
 id circle_center
+id classicalBtn
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -3445,6 +3462,8 @@ id fourthDigit
 id fourthDownBtn
 id fourthUpBtn
 id fragment_container
+id fragment_container2
+id fragment_container3
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3457,6 +3476,8 @@ id group_divider
 id grouping
 id groups
 id header_title
+id hideBtn
+id hideBtn2
 id hide_ime_id
 id hideable
 id home
@@ -3560,6 +3581,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id natureBtn
 id nav_controller_view_tag
 id nav_host_fragment_container
 id navigation_bar_item_active_indicator_view
@@ -3690,6 +3712,7 @@ id snackbar_text
 id snap
 id snapMargins
 id south
+id spaceBtn
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -3748,6 +3771,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id themeFr
+id themesLL
 id thirdDigit
 id thirdDownBtn
 id thirdUpBtn

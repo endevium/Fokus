@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_container">
+    android:id="@+id/fragment_container2">
 
 
     <LinearLayout
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/restart"
-                android:background="@drawable/ibcontainer2"
+                android:background="@drawable/timerbtn_selector2"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="15dp"/>
 
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/playarrow"
-                android:background="@drawable/ibcontainer2"
+                android:background="@drawable/timerbtn_selector2"
                 android:layout_marginTop="16dp" />
             <ImageButton
                 android:id="@+id/sbnxtBtn"
@@ -111,17 +111,16 @@
                 android:src="@drawable/next"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
-                android:background="@drawable/ibcontainer2"/>
+                android:background="@drawable/timerbtn_selector2"/>
 
             <ImageButton
                 android:id="@+id/stopBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/stop"
-                android:background="@drawable/ibcontainer2"
+                android:background="@drawable/timerbtn_selector2"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="15dp"/>
+                android:layout_marginStart="16dp"/>
 
         </LinearLayout>
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- State when the LinearLayout is pressed -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/blandpurple"/> <!-- Change the pressed color -->
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+    <!-- Default state (normal) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/DarkPurple"
+                android:endColor="@color/lightpurple"
+                android:angle="50" /> <!-- Default color -->
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+</selector>

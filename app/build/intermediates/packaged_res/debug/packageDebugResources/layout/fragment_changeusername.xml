@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
     <LinearLayout
@@ -35,43 +36,57 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="98dp"
-                android:text="Change Username"
-                android:textColor="@color/black" />
+                android:gravity="start"
+                android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/etcontainer" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Change Username"
+                    android:textColor="@color/black" />
 
-                <EditText
-                    android:layout_width="280dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@null"
-                    android:textColor="@color/black"
-                    android:hint="Enter Username" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/etcontainer">
+
+                        <EditText
+                            android:layout_width="280dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@null"
+                            android:textColor="@color/black"
+                            android:hint="Enter Username" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="5dp"
+                    android:text="This Username is available!"
+                    android:textColor="@color/green"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="75dp"
-                android:text="This Username is available!"
-                android:textColor="@color/green"
-                android:textStyle="bold" />
-
         </LinearLayout>
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -82,24 +97,43 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/cancelBtn"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="Cancel"
-            android:textColor="@color/white"
-            android:background="@drawable/ttvcontainer5"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white">
 
-        <TextView
-            android:id="@+id/saveBtn"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="60dp"
-            android:text="Save"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@drawable/ttvcontainer"/>
+            <TextView
+                android:id="@+id/cancelBtn"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:background="@drawable/redbtn_selector"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginStart="60dp">
+
+            <TextView
+                android:id="@+id/saveBtn"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:text="Save"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/purplebtn_selector"/>
+
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
 

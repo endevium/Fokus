@@ -17,6 +17,7 @@ class NotesFragment : Fragment() {
     private lateinit var notesCardLayout: LinearLayout
     private lateinit var addNoteBtn: ImageButton
     private lateinit var apiService: APIService
+    private lateinit var editNotesFrag: EditNotesFragment
     private val hmNotes: HashMap<String, String> = HashMap()
 
     override fun onCreateView(
@@ -32,6 +33,7 @@ class NotesFragment : Fragment() {
         notesCardLayout = view.findViewById(R.id.notesCardLayout)
         addNoteBtn = view.findViewById(R.id.addnoteBtn)
         apiService = RetrofitClient.create(APIService::class.java)
+        editNotesFrag = EditNotesFragment()
 
         // Fetch notes when switched to this fragment
         fetchNotes()
@@ -73,6 +75,7 @@ class NotesFragment : Fragment() {
         }
     }
 
+
     // FOR FETCHED NOTES
     private fun createNoteCard(parentLayout: LinearLayout, title: String, content: String) {
         // Note card layout
@@ -87,7 +90,7 @@ class NotesFragment : Fragment() {
 
             // Change corner radius
             radius = 30f
-            cardElevation = 14f
+            cardElevation = 16f
 
             // Change the background of the card
             setCardBackgroundColor(resources.getColor(R.color.white, null))
@@ -166,27 +169,15 @@ class NotesFragment : Fragment() {
             // Change text style
             text = "Edit"
             textAlignment = View.TEXT_ALIGNMENT_CENTER
+        }
 
-            // Set click listener to handle fragment transaction to EditNotesFragment
-            setOnClickListener {
-                // Create a bundle to pass data to EditNotesFragment
-                val bundle = Bundle().apply {
-                    putString("note_title", title)
-                    putString("note_content", content)
-                }
+        editButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("title", title)
+            bundle.putString("content", content)
 
-                // Instantiate EditNotesFragment and pass the bundle
-                val editNotesFragment = EditNotesFragment().apply {
-                    arguments = bundle
-                }
-
-                // Perform the fragme   nt transaction
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.notes_container, editNotesFragment) // Replace current fragment
-                    .addToBackStack(null) // Add to back stack to allow back navigation
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // Add transition effect
-                    .commit()
-            }
+            editNotesFrag.arguments = bundle
+            editNotesFragment()
         }
 
         secondLinearLayout.addView(editButton) // Wrap edit button first
@@ -277,11 +268,28 @@ class NotesFragment : Fragment() {
             textAlignment = View.TEXT_ALIGNMENT_CENTER
         }
 
+        editButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("title", "Note Title")
+            bundle.putString("content", "Start typing here...")
+
+            editNotesFrag.arguments = bundle
+            editNotesFragment()
+        }
+
         secondLinearLayout.addView(editButton) // Wrap edit button first
         firstLinearLayout.addView(noteTitle)
         firstLinearLayout.addView(noteDescription)
         firstLinearLayout.addView(secondLinearLayout) // Then wrap it together with the title and description
         noteCardView.addView(firstLinearLayout) // Wrap all of the elements in the card
         parentLayout.addView(noteCardView) // Display the card
+    }
+
+    private fun editNotesFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.notes_container, editNotesFrag) // Replace current fragment
+            .addToBackStack(null) // Add to back stack to allow back navigation
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // Add transition effect
+            .commit()
     }
 }
