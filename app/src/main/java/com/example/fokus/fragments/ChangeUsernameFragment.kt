@@ -50,6 +50,7 @@ class ChangeUsernameFragment : Fragment(R.layout.fragment_changeusername) {
         apiService.changeUser(id, username).enqueue(object: Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful) {
+                    save.saveUsername(requireContext().applicationContext, username)
                     Toast.makeText(requireContext(), "Changed username successfully", Toast.LENGTH_LONG).show()
                 } else {
                     val errorResponse = response.errorBody()?.string()

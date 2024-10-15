@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteBackground"
+    android:background="@color/white"
     tools:context=".activities.MainActivity">
 
     <LinearLayout
@@ -24,13 +24,13 @@
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_marginStart="22dp"
-            android:src="@drawable/logof"/>
+            android:src="@drawable/logo2"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             app:tabSelectedTextColor="@color/DarkPurple"
             app:tabIndicatorColor="@color/DarkPurple">
 
@@ -71,7 +71,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@android:color/white"
         app:itemTextColor="@color/gray"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"

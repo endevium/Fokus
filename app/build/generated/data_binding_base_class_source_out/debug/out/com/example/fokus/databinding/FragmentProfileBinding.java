@@ -4,10 +4,12 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.fokus.R;
@@ -17,20 +19,38 @@ import java.lang.String;
 
 public final class FragmentProfileBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final SwipeRefreshLayout rootView;
 
   @NonNull
-  public final LinearLayout LogoutBtn;
+  public final LinearLayout logoutBtn;
 
-  private FragmentProfileBinding(@NonNull RelativeLayout rootView,
-      @NonNull LinearLayout LogoutBtn) {
+  @NonNull
+  public final ImageView profilePicture;
+
+  @NonNull
+  public final SwipeRefreshLayout swipeRefreshLayout;
+
+  @NonNull
+  public final TextView tvEmail;
+
+  @NonNull
+  public final TextView tvUsername;
+
+  private FragmentProfileBinding(@NonNull SwipeRefreshLayout rootView,
+      @NonNull LinearLayout logoutBtn, @NonNull ImageView profilePicture,
+      @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull TextView tvEmail,
+      @NonNull TextView tvUsername) {
     this.rootView = rootView;
-    this.LogoutBtn = LogoutBtn;
+    this.logoutBtn = logoutBtn;
+    this.profilePicture = profilePicture;
+    this.swipeRefreshLayout = swipeRefreshLayout;
+    this.tvEmail = tvEmail;
+    this.tvUsername = tvUsername;
   }
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public SwipeRefreshLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +75,34 @@ public final class FragmentProfileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.LogoutBtn;
-      LinearLayout LogoutBtn = ViewBindings.findChildViewById(rootView, id);
-      if (LogoutBtn == null) {
+      id = R.id.logoutBtn;
+      LinearLayout logoutBtn = ViewBindings.findChildViewById(rootView, id);
+      if (logoutBtn == null) {
         break missingId;
       }
 
-      return new FragmentProfileBinding((RelativeLayout) rootView, LogoutBtn);
+      id = R.id.profilePicture;
+      ImageView profilePicture = ViewBindings.findChildViewById(rootView, id);
+      if (profilePicture == null) {
+        break missingId;
+      }
+
+      SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) rootView;
+
+      id = R.id.tvEmail;
+      TextView tvEmail = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.tvUsername;
+      TextView tvUsername = ViewBindings.findChildViewById(rootView, id);
+      if (tvUsername == null) {
+        break missingId;
+      }
+
+      return new FragmentProfileBinding((SwipeRefreshLayout) rootView, logoutBtn, profilePicture,
+          swipeRefreshLayout, tvEmail, tvUsername);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

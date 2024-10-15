@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewPagerAndTabs() {
         val adapter = MainViewPagerAdapter(this)
         viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = 5
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {

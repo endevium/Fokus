@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.fokus.R;
@@ -18,24 +18,28 @@ import java.lang.String;
 
 public final class FragmentTaskBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final SwipeRefreshLayout rootView;
 
   @NonNull
   public final ImageButton addTask;
 
   @NonNull
+  public final SwipeRefreshLayout swipeRefreshLayout;
+
+  @NonNull
   public final LinearLayout taskCardContainer;
 
-  private FragmentTaskBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addTask,
-      @NonNull LinearLayout taskCardContainer) {
+  private FragmentTaskBinding(@NonNull SwipeRefreshLayout rootView, @NonNull ImageButton addTask,
+      @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull LinearLayout taskCardContainer) {
     this.rootView = rootView;
     this.addTask = addTask;
+    this.swipeRefreshLayout = swipeRefreshLayout;
     this.taskCardContainer = taskCardContainer;
   }
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public SwipeRefreshLayout getRoot() {
     return rootView;
   }
 
@@ -66,13 +70,16 @@ public final class FragmentTaskBinding implements ViewBinding {
         break missingId;
       }
 
+      SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) rootView;
+
       id = R.id.taskCardContainer;
       LinearLayout taskCardContainer = ViewBindings.findChildViewById(rootView, id);
       if (taskCardContainer == null) {
         break missingId;
       }
 
-      return new FragmentTaskBinding((RelativeLayout) rootView, addTask, taskCardContainer);
+      return new FragmentTaskBinding((SwipeRefreshLayout) rootView, addTask, swipeRefreshLayout,
+          taskCardContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

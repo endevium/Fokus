@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.fokus.*
 import com.example.fokus.api.*
 import com.example.fokus.models.*
@@ -20,6 +21,7 @@ class TaskFragment : Fragment() {
     private lateinit var taskCardContainer: LinearLayout
     private lateinit var addTaskBtn: ImageButton
     private lateinit var apiService: APIService
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +36,7 @@ class TaskFragment : Fragment() {
         taskCardContainer = view.findViewById(R.id.taskCardContainer)
         addTaskBtn = view.findViewById(R.id.addTask)
         apiService = RetrofitClient.create(APIService::class.java)
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
 
         fetchTasks()
 
@@ -41,10 +44,14 @@ class TaskFragment : Fragment() {
         addTaskBtn.setOnClickListener {
             createTask("Task Title")
         }
+
+        swipeRefreshLayout.setOnRefreshListener {
+            refreshTasks()
+        }
     }
 
     private fun fetchTasks() {
-    // Send a request to fetch tasks from the database
+        // Send a request to fetch tasks from the database
         apiService.getTasks().enqueue(object: Callback<List<Task>> {
             override fun onResponse(call: Call<List<Task>>, response: Response<List<Task>>) {
                 if (response.isSuccessful) {
@@ -64,18 +71,27 @@ class TaskFragment : Fragment() {
         })
     }
 
+    private fun refreshTasks() {
+        swipeRefreshLayout.postDelayed({
+            for (i in taskCardContainer.childCount - 1 downTo 0) {
+                val view = taskCardContainer.getChildAt(i)
+                if (view is CardView) {
+                    taskCardContainer.removeViewAt(i)
+                }
+            }
+
+            fetchTasks()
+
+            swipeRefreshLayout.isRefreshing = false
+        }, 1000)
+    }
+
     private fun updateTask(id: Int, taskTitle: String) {
         apiService.updateTask(id, taskTitle).enqueue(object: Callback<TaskResponse> {
             override fun onResponse(call: Call<TaskResponse>, response: Response<TaskResponse>) {
-                if (response.isSuccessful) {
-                    val updateTaskResponse = response.body()!!
-
-                    if (updateTaskResponse != null) {
-                        Toast.makeText(requireContext(), "Task updated successfully", Toast.LENGTH_LONG).show()
-                    }
-                } else {
+                if (!response.isSuccessful) {
                     val errorResponse = response.errorBody()?.string()
-                    Toast.makeText(requireContext(), "Error updating: $errorResponse", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "Error updating task: $errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -100,9 +116,7 @@ class TaskFragment : Fragment() {
                             }
                         }
 
-                        createTaskResponse.task?.let { createTaskCard(taskCardContainer, taskTitle, it.id ) }
                         fetchTasks()
-
                         Toast.makeText(requireContext(), "New task created", Toast.LENGTH_LONG).show()
                     }
                 } else {

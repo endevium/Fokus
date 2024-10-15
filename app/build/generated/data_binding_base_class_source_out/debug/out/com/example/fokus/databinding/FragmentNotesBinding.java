@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.fokus.R;
@@ -18,7 +19,7 @@ import java.lang.String;
 
 public final class FragmentNotesBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final SwipeRefreshLayout rootView;
 
   @NonNull
   public final ImageButton addnoteBtn;
@@ -29,17 +30,22 @@ public final class FragmentNotesBinding implements ViewBinding {
   @NonNull
   public final RelativeLayout notesContainer;
 
-  private FragmentNotesBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton addnoteBtn,
-      @NonNull LinearLayout notesCardLayout, @NonNull RelativeLayout notesContainer) {
+  @NonNull
+  public final SwipeRefreshLayout swipeRefreshLayout;
+
+  private FragmentNotesBinding(@NonNull SwipeRefreshLayout rootView,
+      @NonNull ImageButton addnoteBtn, @NonNull LinearLayout notesCardLayout,
+      @NonNull RelativeLayout notesContainer, @NonNull SwipeRefreshLayout swipeRefreshLayout) {
     this.rootView = rootView;
     this.addnoteBtn = addnoteBtn;
     this.notesCardLayout = notesCardLayout;
     this.notesContainer = notesContainer;
+    this.swipeRefreshLayout = swipeRefreshLayout;
   }
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public SwipeRefreshLayout getRoot() {
     return rootView;
   }
 
@@ -76,10 +82,16 @@ public final class FragmentNotesBinding implements ViewBinding {
         break missingId;
       }
 
-      RelativeLayout notesContainer = (RelativeLayout) rootView;
+      id = R.id.notes_container;
+      RelativeLayout notesContainer = ViewBindings.findChildViewById(rootView, id);
+      if (notesContainer == null) {
+        break missingId;
+      }
 
-      return new FragmentNotesBinding((RelativeLayout) rootView, addnoteBtn, notesCardLayout,
-          notesContainer);
+      SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) rootView;
+
+      return new FragmentNotesBinding((SwipeRefreshLayout) rootView, addnoteBtn, notesCardLayout,
+          notesContainer, swipeRefreshLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

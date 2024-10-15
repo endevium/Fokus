@@ -4,20 +4,54 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.fokus.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentThemesBinding implements ViewBinding {
   @NonNull
   private final RelativeLayout rootView;
 
-  private FragmentThemesBinding(@NonNull RelativeLayout rootView) {
+  @NonNull
+  public final TextView cafeBtn;
+
+  @NonNull
+  public final TextView classicalBtn;
+
+  @NonNull
+  public final TextView defaultBtn;
+
+  @NonNull
+  public final TextView electronicBtn;
+
+  @NonNull
+  public final TextView natureBtn;
+
+  @NonNull
+  public final TextView spaceBtn;
+
+  @NonNull
+  public final LinearLayout themesLL;
+
+  private FragmentThemesBinding(@NonNull RelativeLayout rootView, @NonNull TextView cafeBtn,
+      @NonNull TextView classicalBtn, @NonNull TextView defaultBtn, @NonNull TextView electronicBtn,
+      @NonNull TextView natureBtn, @NonNull TextView spaceBtn, @NonNull LinearLayout themesLL) {
     this.rootView = rootView;
+    this.cafeBtn = cafeBtn;
+    this.classicalBtn = classicalBtn;
+    this.defaultBtn = defaultBtn;
+    this.electronicBtn = electronicBtn;
+    this.natureBtn = natureBtn;
+    this.spaceBtn = spaceBtn;
+    this.themesLL = themesLL;
   }
 
   @Override
@@ -43,10 +77,56 @@ public final class FragmentThemesBinding implements ViewBinding {
 
   @NonNull
   public static FragmentThemesBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.cafeBtn;
+      TextView cafeBtn = ViewBindings.findChildViewById(rootView, id);
+      if (cafeBtn == null) {
+        break missingId;
+      }
 
-    return new FragmentThemesBinding((RelativeLayout) rootView);
+      id = R.id.classicalBtn;
+      TextView classicalBtn = ViewBindings.findChildViewById(rootView, id);
+      if (classicalBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.defaultBtn;
+      TextView defaultBtn = ViewBindings.findChildViewById(rootView, id);
+      if (defaultBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.electronicBtn;
+      TextView electronicBtn = ViewBindings.findChildViewById(rootView, id);
+      if (electronicBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.natureBtn;
+      TextView natureBtn = ViewBindings.findChildViewById(rootView, id);
+      if (natureBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.spaceBtn;
+      TextView spaceBtn = ViewBindings.findChildViewById(rootView, id);
+      if (spaceBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.themesLL;
+      LinearLayout themesLL = ViewBindings.findChildViewById(rootView, id);
+      if (themesLL == null) {
+        break missingId;
+      }
+
+      return new FragmentThemesBinding((RelativeLayout) rootView, cafeBtn, classicalBtn, defaultBtn,
+          electronicBtn, natureBtn, spaceBtn, themesLL);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

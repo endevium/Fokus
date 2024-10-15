@@ -11,7 +11,6 @@ import android.widget.ImageButton
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.pomodoroSettings
-import com.example.fokus.api.shortBreakSettings
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
 

@@ -1,522 +1,514 @@
 [
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_circle.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\circle.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_notes.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_notes.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_timerprogressbar.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/timerprogressbar.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timerbtn_selector2.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timerbtn_selector2.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changepfp.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changepfp.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\raw_fokus_one.mp3.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\raw\\fokus_one.mp3"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_email.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\email.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timerprogressbar.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timerprogressbar.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changeemail.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changeemail.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_next.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\next.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ancontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ancontainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\font_khula.ttf.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\font\\khula.ttf"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ncontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ncontainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_task.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_task.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ic_home_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_email.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\email.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_volume.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\volume.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ttvcontainer2.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ttvcontainer2.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_notes.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_notes.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_settings.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\settings.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_changepfp.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_changepfp.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_vibrate.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\vibrate.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timerprogressbar2.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timerprogressbar2.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timerprogressbar.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timerprogressbar.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_timer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_timer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_show.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\show.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_th13.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/th13.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_logout.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\logout.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_space_th.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\space_th.png"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_bg.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/bg.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_nexbtn.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\nexbtn.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ibcontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ibcontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_themes.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_themes.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_etcontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\etcontainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_arrowback.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\arrowback.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_tbtncontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\tbtncontainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_themes.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_themes.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_backbtn.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\backbtn.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_econtainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\econtainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_th11.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\th11.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\navigation_mobile_navigation.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\navigation\\mobile_navigation.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_button_selector1.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\button_selector1.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_editnotes.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_editnotes.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changepfp.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changepfp.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_settings.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\settings.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timerprogressbar3.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timerprogressbar3.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_th12.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/th12.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_activity_splash_screen.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_splash_screen.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_lscontainer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/lscontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_themes.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_themes.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_stop.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\stop.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timerprogressbar3.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timerprogressbar3.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_bg2.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\bg2.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_profile.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\profile.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_logoutcontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\logoutcontainer.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_activity_signup.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/activity_signup.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_i1.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\i1.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_playarrow.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\playarrow.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_splash_screen.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_splash_screen.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_profile_circle.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/profile_circle.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changepassword.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changepassword.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_second.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_second.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_timer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_timer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ancontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ancontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_th12.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\th12.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timercontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timercontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timebtn_selector.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timebtn_selector.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_logo2.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\logo2.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_i2.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\i2.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timerprogressbar2.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timerprogressbar2.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_th15.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/th15.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_classical_th.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\classical_th.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\menu\\bottom_nav_menu.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ttvcontainer3.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ttvcontainer3.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timercontainer2.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timercontainer2.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_volume.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\volume.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_longbreak.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_longbreak.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_mute.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\mute.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_fourth.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_fourth.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_user.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/user.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_restart.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\restart.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_smallcircle.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\smallcircle.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_settingsbuttons_selector.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\settingsbuttons_selector.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_key.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\key.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changelbtimer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changelbtimer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changeusername.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changeusername.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_task.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_task.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_shortbreak.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_shortbreak.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_editnotes.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_editnotes.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_activity_second.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_second.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ibcontainer2.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ibcontainer2.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_i2.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\i2.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_home.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\home.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_settings.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_settings.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_bg3.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\bg3.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changepassword.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changepassword.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ic_notifications_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer5.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer5.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_profile.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\profile.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer2.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer2.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_arrowback.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\arrowback.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ic_home_black_24dp.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ic_home_black_24dp.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_profile_circle.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\profile_circle.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_activity_login.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/activity_login.xml"
+        "merged": "com.example.fokus.app-debug-49:/layout_activity_main.xml.flat",
+        "source": "com.example.fokus.app-main-51:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_changeemail.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_changeemail.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\raw_fokus_one.mp3.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\raw\\fokus_one.mp3"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_addnotes.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\addnotes.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_pressed_btn.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\pressed_btn.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changeptimer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changeptimer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_add.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\add.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_activity_signup.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_signup.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_third.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_third.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_i4.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\i4.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\xml\\backup_rules.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_arrowdown.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\arrowdown.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_vibrate.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\vibrate.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_logof.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\logof.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer4.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer4.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_th14.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\th14.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_logof.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\logof.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_pressed_btn2.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\pressed_btn2.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_shortbreak.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_shortbreak.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\font_khula.ttf.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\font\\khula.ttf"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_logo2.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/logo2.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_mute.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\mute.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ttvcontainer5.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ttvcontainer5.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_i4.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\i4.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_opencontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\opencontainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_backbtn.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\backbtn.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\font_lexend.ttf.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\font\\lexend.ttf"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_ancontainer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/ancontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_notification.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\notification.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_lock.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\lock.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_th15.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\th15.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_electronic_th.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\electronic_th.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changeemail.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changeemail.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_rtimer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\rtimer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_arrowdown.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\arrowdown.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_econtainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\econtainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_snext.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\snext.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_smallcircle.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\smallcircle.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_timerprogressbar2.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/timerprogressbar2.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_arrowup.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\arrowup.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_stop.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/stop.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_google.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\google.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\navigation\\mobile_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_notification.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\notification.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\font_lexend.ttf.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\font\\lexend.ttf"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_bg.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\bg.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_i3.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\i3.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ttvcontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ttvcontainer.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_logout.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/logout.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changelbtimer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changelbtimer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ibcontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ibcontainer.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_logoutcontainer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/logoutcontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_lock.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\lock.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ncontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ncontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_purplebtn_selector.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\purplebtn_selector.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_changepassword.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_changepassword.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ic_dashboard_black_24dp.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_themescontainer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/themescontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_themescontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\themescontainer.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_playarrow.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/playarrow.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_hide.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\hide.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changesbtimer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changesbtimer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_profile.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_nexbtn.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\nexbtn.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_nature_th.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\nature_th.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_tbtncontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\tbtncontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_next.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\next.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_th16.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\th16.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_restart.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\restart.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ibcontainer2.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ibcontainer2.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_changeusername.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_changeusername.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_lscontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\lscontainer.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_editnotes.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_editnotes.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_playarrow.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\playarrow.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ttvcontainer3.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ttvcontainer3.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_circle.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\circle.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_timer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_timer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_add.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\add.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_i1.png.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\i1.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changeusername.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changeusername.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_cafe_th.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\cafe_th.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_th13.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\th13.png"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_longbreak.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_longbreak.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_user.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\user.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_etcontainer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\etcontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_ttvcontainer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/ttvcontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timercontainer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timercontainer.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_timerprogressbar3.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/timerprogressbar3.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_redbtn_selector.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\redbtn_selector.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_timer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\timer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_th14.png.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/th14.png"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_snext.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\snext.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/drawable_opencontainer.xml.flat",
-        "source": "com.example.fokus.app-main-53:/drawable/opencontainer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_profile.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_profile.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_key.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\key.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_signup.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_signup.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_settings.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_timercontainer2.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\timercontainer2.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_fragment_profile.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/fragment_profile.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_shortbreak.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_shortbreak.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ic_dashboard_black_24dp.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ic_dashboard_black_24dp.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_activity_forgotpassword.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_forgotpassword.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_home.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\home.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_google.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\google.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_rtimer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\rtimer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_i3.png.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\i3.png"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_arrowup.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\arrowup.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_longbreak.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_longbreak.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\layout_fragment_changeptimer.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\layout\\fragment_changeptimer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\layout_fragment_changesbtimer.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changesbtimer.xml"
     },
     {
-        "merged": "com.example.fokus.app-debug-51:/layout_activity_forgotpassword.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/activity_forgotpassword.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_addnotes.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\addnotes.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_show.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\show.xml"
-    },
-    {
-        "merged": "com.example.fokus.app-debug-51:/layout_activity_second.xml.flat",
-        "source": "com.example.fokus.app-main-53:/layout/activity_second.xml"
-    },
-    {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-51:\\drawable_ic_notifications_black_24dp.xml.flat",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-53:\\drawable\\ic_notifications_black_24dp.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-debug-49:\\drawable_ttvcontainer4.xml.flat",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\drawable\\ttvcontainer4.xml"
     }
 ]

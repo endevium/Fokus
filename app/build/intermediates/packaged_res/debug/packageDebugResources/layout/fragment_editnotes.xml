@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="120dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -20,32 +19,37 @@
             android:background="@null"/>
 
         <EditText
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="110dp"
             android:layout_marginTop="10dp"
-            android:hint="Title"
+            android:layout_marginEnd="110dp"
             android:background="@null"
+            android:hint="Title"
+            android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="28sp"/>
+            android:textSize="28sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="50dp"
-        android:gravity="center"
+        android:layout_height="450dp"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/etcontainer">
 
         <EditText
-            android:layout_width="260dp"
-            android:layout_height="380dp"
+            android:id="@+id/content"
+            android:layout_width="270dp"
+            android:layout_height="430dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
             android:background="@null"
+            android:gravity="top|start"
             android:hint="Start typing here..."
-            android:textColorHint="@color/gray"
-            android:gravity="top|start"/>
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightblack" />
 
     </LinearLayout>
 

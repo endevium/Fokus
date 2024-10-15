@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fokus.app-mergeDebugResources-49:/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "com.example.fokus.app-mergeDebugResources-47:/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\PC\\.gradle\\caches\\transforms-4\\1094b4e5e25dafc5918b93bdc602323e\\transformed\\core-1.13.1\\res\\values-fr-rCA\\values-fr-rCA.xml",

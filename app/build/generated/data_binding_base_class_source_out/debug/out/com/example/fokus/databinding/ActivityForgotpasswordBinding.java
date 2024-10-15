@@ -25,6 +25,12 @@ public final class ActivityForgotpasswordBinding implements ViewBinding {
   public final ImageButton backBtn;
 
   @NonNull
+  public final ImageButton hideBtn;
+
+  @NonNull
+  public final ImageButton hideBtn2;
+
+  @NonNull
   public final RelativeLayout main;
 
   @NonNull
@@ -40,10 +46,13 @@ public final class ActivityForgotpasswordBinding implements ViewBinding {
   public final EditText sUser;
 
   private ActivityForgotpasswordBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageButton backBtn, @NonNull RelativeLayout main, @NonNull Button resetBtn,
-      @NonNull EditText sEmail, @NonNull EditText sPass, @NonNull EditText sUser) {
+      @NonNull ImageButton backBtn, @NonNull ImageButton hideBtn, @NonNull ImageButton hideBtn2,
+      @NonNull RelativeLayout main, @NonNull Button resetBtn, @NonNull EditText sEmail,
+      @NonNull EditText sPass, @NonNull EditText sUser) {
     this.rootView = rootView;
     this.backBtn = backBtn;
+    this.hideBtn = hideBtn;
+    this.hideBtn2 = hideBtn2;
     this.main = main;
     this.resetBtn = resetBtn;
     this.sEmail = sEmail;
@@ -84,6 +93,18 @@ public final class ActivityForgotpasswordBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.hideBtn;
+      ImageButton hideBtn = ViewBindings.findChildViewById(rootView, id);
+      if (hideBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.hideBtn2;
+      ImageButton hideBtn2 = ViewBindings.findChildViewById(rootView, id);
+      if (hideBtn2 == null) {
+        break missingId;
+      }
+
       RelativeLayout main = (RelativeLayout) rootView;
 
       id = R.id.resetBtn;
@@ -110,8 +131,8 @@ public final class ActivityForgotpasswordBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityForgotpasswordBinding((RelativeLayout) rootView, backBtn, main, resetBtn,
-          sEmail, sPass, sUser);
+      return new ActivityForgotpasswordBinding((RelativeLayout) rootView, backBtn, hideBtn,
+          hideBtn2, main, resetBtn, sEmail, sPass, sUser);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

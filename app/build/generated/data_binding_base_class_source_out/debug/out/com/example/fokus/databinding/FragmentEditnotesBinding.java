@@ -4,6 +4,7 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
@@ -22,9 +23,18 @@ public final class FragmentEditnotesBinding implements ViewBinding {
   @NonNull
   public final ImageButton backBtn;
 
-  private FragmentEditnotesBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton backBtn) {
+  @NonNull
+  public final EditText content;
+
+  @NonNull
+  public final EditText title;
+
+  private FragmentEditnotesBinding(@NonNull RelativeLayout rootView, @NonNull ImageButton backBtn,
+      @NonNull EditText content, @NonNull EditText title) {
     this.rootView = rootView;
     this.backBtn = backBtn;
+    this.content = content;
+    this.title = title;
   }
 
   @Override
@@ -60,7 +70,19 @@ public final class FragmentEditnotesBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentEditnotesBinding((RelativeLayout) rootView, backBtn);
+      id = R.id.content;
+      EditText content = ViewBindings.findChildViewById(rootView, id);
+      if (content == null) {
+        break missingId;
+      }
+
+      id = R.id.title;
+      EditText title = ViewBindings.findChildViewById(rootView, id);
+      if (title == null) {
+        break missingId;
+      }
+
+      return new FragmentEditnotesBinding((RelativeLayout) rootView, backBtn, content, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

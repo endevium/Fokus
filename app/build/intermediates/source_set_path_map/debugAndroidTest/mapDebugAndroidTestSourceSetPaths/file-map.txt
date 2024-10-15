@@ -1,0 +1,5 @@
+com.example.fokus.test.app-core-1.6.1-0 C:\Users\PC\.gradle\caches\transforms-4\8eaa19f2ff086fbc73a9d74fd14af01c\transformed\core-1.6.1\res
+com.example.fokus.test.app-androidTest-1 C:\Users\PC\AndroidStudioProjects\Fokus\app\build\generated\res\resValues\androidTest\debug
+com.example.fokus.test.app-mergeDebugAndroidTestResources-2 C:\Users\PC\AndroidStudioProjects\Fokus\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.fokus.test.app-mergeDebugAndroidTestResources-3 C:\Users\PC\AndroidStudioProjects\Fokus\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.fokus.test.app-debugAndroidTest-4 C:\Users\PC\AndroidStudioProjects\Fokus\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

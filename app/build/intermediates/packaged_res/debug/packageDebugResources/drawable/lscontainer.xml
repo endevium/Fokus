@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <stroke android:width="0.5dp" android:color="@color/black" />
-    <corners android:radius="25dp" />
-    <solid android:color="@color/yellow"/>
+    <!-- State when the LinearLayout is pressed -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="0.5dp" android:color="@color/black" />
+            <corners android:radius="25dp" />
+            <solid android:color="@color/darkyellow"/> <!-- Change the pressed color -->
+        </shape>
+    </item>
 
-</shape>
+    <!-- Default state (normal) -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="0.5dp" android:color="@color/black" />
+            <corners android:radius="25dp" />
+            <solid android:color="@color/yellow"/> <!-- Default color -->
+        </shape>
+    </item>
+
+</selector>
