@@ -27,6 +27,12 @@ public final class FragmentThemesBinding implements ViewBinding {
   public final TextView classicalBtn;
 
   @NonNull
+  public final TextView defaultBtn;
+
+  @NonNull
+  public final TextView electronicBtn;
+
+  @NonNull
   public final TextView natureBtn;
 
   @NonNull
@@ -36,11 +42,13 @@ public final class FragmentThemesBinding implements ViewBinding {
   public final LinearLayout themesLL;
 
   private FragmentThemesBinding(@NonNull RelativeLayout rootView, @NonNull TextView cafeBtn,
-      @NonNull TextView classicalBtn, @NonNull TextView natureBtn, @NonNull TextView spaceBtn,
-      @NonNull LinearLayout themesLL) {
+      @NonNull TextView classicalBtn, @NonNull TextView defaultBtn, @NonNull TextView electronicBtn,
+      @NonNull TextView natureBtn, @NonNull TextView spaceBtn, @NonNull LinearLayout themesLL) {
     this.rootView = rootView;
     this.cafeBtn = cafeBtn;
     this.classicalBtn = classicalBtn;
+    this.defaultBtn = defaultBtn;
+    this.electronicBtn = electronicBtn;
     this.natureBtn = natureBtn;
     this.spaceBtn = spaceBtn;
     this.themesLL = themesLL;
@@ -85,6 +93,18 @@ public final class FragmentThemesBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.defaultBtn;
+      TextView defaultBtn = ViewBindings.findChildViewById(rootView, id);
+      if (defaultBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.electronicBtn;
+      TextView electronicBtn = ViewBindings.findChildViewById(rootView, id);
+      if (electronicBtn == null) {
+        break missingId;
+      }
+
       id = R.id.natureBtn;
       TextView natureBtn = ViewBindings.findChildViewById(rootView, id);
       if (natureBtn == null) {
@@ -103,8 +123,8 @@ public final class FragmentThemesBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentThemesBinding((RelativeLayout) rootView, cafeBtn, classicalBtn, natureBtn,
-          spaceBtn, themesLL);
+      return new FragmentThemesBinding((RelativeLayout) rootView, cafeBtn, classicalBtn, defaultBtn,
+          electronicBtn, natureBtn, spaceBtn, themesLL);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

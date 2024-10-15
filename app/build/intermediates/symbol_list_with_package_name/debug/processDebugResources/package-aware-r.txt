@@ -1151,6 +1151,7 @@ attr suffixText
 attr suffixTextAppearance
 attr suffixTextColor
 attr suggestionRowLayout
+attr swipeRefreshLayoutProgressSpinnerBackgroundColor
 attr switchMinWidth
 attr switchPadding
 attr switchStyle
@@ -3071,13 +3072,16 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button_selector1
+drawable cafe_th
 drawable circle
+drawable classical_th
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable econtainer
+drawable electronic_th
 drawable email
 drawable etcontainer
 drawable google
@@ -3177,6 +3181,7 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable mute
+drawable nature_th
 drawable navigation_empty_icon
 drawable ncontainer
 drawable nexbtn
@@ -3210,13 +3215,16 @@ drawable settingsbuttons_selector
 drawable show
 drawable smallcircle
 drawable snext
+drawable space_th
 drawable stop
 drawable tbtncontainer
 drawable test_level_drawable
+drawable th11
 drawable th12
 drawable th13
 drawable th14
 drawable th15
+drawable th16
 drawable themescontainer
 drawable timebtn_selector
 drawable timer
@@ -3398,6 +3406,7 @@ id date_picker_actions
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
+id defaultBtn
 id default_activity_button
 id deltaRelative
 id dependency_ordering
@@ -3431,6 +3440,7 @@ id edge
 id edit_query
 id edit_text_id
 id elastic
+id electronicBtn
 id embed
 id end
 id endToStart
@@ -3462,8 +3472,6 @@ id fourthDigit
 id fourthDownBtn
 id fourthUpBtn
 id fragment_container
-id fragment_container2
-id fragment_container3
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3737,6 +3745,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id swipeRefreshLayout
 id tabLayout
 id tabMode
 id tag_accessibility_actions
@@ -5497,6 +5506,7 @@ styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
 styleable StateSet defaultState
+styleable SwipeRefreshLayout swipeRefreshLayoutProgressSpinnerBackgroundColor
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable TabItem android_icon android_layout android_text

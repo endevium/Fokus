@@ -32,8 +32,11 @@ drawable bg
 drawable bg2
 drawable bg3
 drawable button_selector1
+drawable cafe_th
 drawable circle
+drawable classical_th
 drawable econtainer
+drawable electronic_th
 drawable email
 drawable etcontainer
 drawable google
@@ -56,6 +59,7 @@ drawable logout
 drawable logoutcontainer
 drawable lscontainer
 drawable mute
+drawable nature_th
 drawable ncontainer
 drawable nexbtn
 drawable next
@@ -75,12 +79,15 @@ drawable settingsbuttons_selector
 drawable show
 drawable smallcircle
 drawable snext
+drawable space_th
 drawable stop
 drawable tbtncontainer
+drawable th11
 drawable th12
 drawable th13
 drawable th14
 drawable th15
+drawable th16
 drawable themescontainer
 drawable timebtn_selector
 drawable timer
@@ -118,6 +125,8 @@ id changeptimerBtn
 id changesbtimerBtn
 id changeuserBtn
 id classicalBtn
+id defaultBtn
+id electronicBtn
 id firstDigit
 id firstDownBtn
 id firstUpBtn
@@ -126,8 +135,6 @@ id fourthDigit
 id fourthDownBtn
 id fourthUpBtn
 id fragment_container
-id fragment_container2
-id fragment_container3
 id hideBtn
 id hideBtn2
 id i1img
@@ -163,6 +170,7 @@ id signupBtn
 id signupD
 id spaceBtn
 id stopBtn
+id swipeRefreshLayout
 id tabLayout
 id taskCardContainer
 id taskFr

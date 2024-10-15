@@ -1150,6 +1150,7 @@ int attr suffixText 0x7f030426
 int attr suffixTextAppearance 0x7f030427
 int attr suffixTextColor 0x7f030428
 int attr suggestionRowLayout 0x7f030429
+int attr swipeRefreshLayoutProgressSpinnerBackgroundColor 0x7f030505
 int attr switchMinWidth 0x7f03042a
 int attr switchPadding 0x7f03042b
 int attr switchStyle 0x7f03042c
@@ -3070,13 +3071,16 @@ int drawable btn_radio_off_to_on_mtrl_animation 0x7f070089
 int drawable btn_radio_on_mtrl 0x7f07008a
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f07008b
 int drawable button_selector1 0x7f07008c
+int drawable cafe_th 0x7f070133
 int drawable circle 0x7f07008d
+int drawable classical_th 0x7f070134
 int drawable design_fab_background 0x7f07008e
 int drawable design_ic_visibility 0x7f07008f
 int drawable design_ic_visibility_off 0x7f070090
 int drawable design_password_eye 0x7f070091
 int drawable design_snackbar_background 0x7f070092
 int drawable econtainer 0x7f070093
+int drawable electronic_th 0x7f070135
 int drawable email 0x7f070094
 int drawable etcontainer 0x7f070095
 int drawable google 0x7f070096
@@ -3176,6 +3180,7 @@ int drawable mtrl_switch_track 0x7f0700f3
 int drawable mtrl_switch_track_decoration 0x7f0700f4
 int drawable mtrl_tabs_default_indicator 0x7f0700f5
 int drawable mute 0x7f0700f6
+int drawable nature_th 0x7f070136
 int drawable navigation_empty_icon 0x7f0700f7
 int drawable ncontainer 0x7f0700f8
 int drawable nexbtn 0x7f0700f9
@@ -3209,13 +3214,16 @@ int drawable settingsbuttons_selector 0x7f070114
 int drawable show 0x7f070115
 int drawable smallcircle 0x7f070116
 int drawable snext 0x7f070117
+int drawable space_th 0x7f070137
 int drawable stop 0x7f070118
 int drawable tbtncontainer 0x7f070119
 int drawable test_level_drawable 0x7f07011a
+int drawable th11 0x7f070138
 int drawable th12 0x7f07011b
 int drawable th13 0x7f07011c
 int drawable th14 0x7f07011d
 int drawable th15 0x7f07011e
+int drawable th16 0x7f070139
 int drawable themescontainer 0x7f07011f
 int drawable timebtn_selector 0x7f070132
 int drawable timer 0x7f070120
@@ -3397,6 +3405,7 @@ int id date_picker_actions 0x7f09009c
 int id decelerate 0x7f09009d
 int id decelerateAndComplete 0x7f09009e
 int id decor_content_parent 0x7f09009f
+int id defaultBtn 0x7f090248
 int id default_activity_button 0x7f0900a0
 int id deltaRelative 0x7f0900a1
 int id dependency_ordering 0x7f0900a2
@@ -3430,6 +3439,7 @@ int id edge 0x7f0900bd
 int id edit_query 0x7f0900be
 int id edit_text_id 0x7f0900bf
 int id elastic 0x7f0900c0
+int id electronicBtn 0x7f090249
 int id embed 0x7f0900c1
 int id end 0x7f0900c2
 int id endToStart 0x7f0900c3
@@ -3461,8 +3471,6 @@ int id fourthDigit 0x7f0900dc
 int id fourthDownBtn 0x7f0900dd
 int id fourthUpBtn 0x7f0900de
 int id fragment_container 0x7f0900df
-int id fragment_container2 0x7f090246
-int id fragment_container3 0x7f090247
 int id fragment_container_view_tag 0x7f0900e0
 int id frost 0x7f0900e1
 int id fullscreen_header 0x7f0900e2
@@ -3736,6 +3744,7 @@ int id stretch 0x7f0901ed
 int id submenuarrow 0x7f0901ee
 int id submit_area 0x7f0901ef
 int id supportScrollUp 0x7f0901f0
+int id swipeRefreshLayout 0x7f09024a
 int id tabLayout 0x7f0901f1
 int id tabMode 0x7f0901f2
 int id tag_accessibility_actions 0x7f0901f3
@@ -7230,6 +7239,8 @@ int[] styleable StateListDrawableItem { 0x01010199 }
 int styleable StateListDrawableItem_android_drawable 0
 int[] styleable StateSet { 0x7f03017d }
 int styleable StateSet_defaultState 0
+int[] styleable SwipeRefreshLayout { 0x7f030505 }
+int styleable SwipeRefreshLayout_swipeRefreshLayoutProgressSpinnerBackgroundColor 0
 int[] styleable SwitchCompat { 0x01010124, 0x01010125, 0x01010142, 0x7f0303e3, 0x7f0303fc, 0x7f03042a, 0x7f03042b, 0x7f03042d, 0x7f03049d, 0x7f03049e, 0x7f03049f, 0x7f0304ca, 0x7f0304d6, 0x7f0304d7 }
 int styleable SwitchCompat_android_textOn 0
 int styleable SwitchCompat_android_textOff 1
