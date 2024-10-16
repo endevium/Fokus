@@ -43,13 +43,8 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes){
 
                 updateNote(id, updatedTitle, updatedContent)
             }
-            val newNotesFrag = NotesFragment()
 
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.notes_container, newNotesFrag)
-                .addToBackStack(null)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // Add transition effect
-                .commit()
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 

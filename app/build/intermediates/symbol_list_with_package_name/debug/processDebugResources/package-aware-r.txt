@@ -3075,6 +3075,7 @@ drawable button_selector1
 drawable cafe_th
 drawable circle
 drawable classical_th
+drawable close
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3116,6 +3117,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
 drawable ic_search_black_24
+drawable increase
 drawable indeterminate_static
 drawable key
 drawable lock
@@ -3183,6 +3185,9 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable mute
+drawable nature_bg
+drawable nature_test
+drawable nature_test2
 drawable nature_th
 drawable navigation_empty_icon
 drawable ncontainer
@@ -3210,6 +3215,7 @@ drawable profile
 drawable profile_circle
 drawable purplebtn_selector
 drawable redbtn_selector
+drawable reduce
 drawable restart
 drawable rtimer
 drawable settings
@@ -3503,6 +3509,7 @@ id ignoreRequest
 id image
 id immediateStop
 id included
+id increaseBtn
 id indeterminate
 id info
 id invisible
@@ -3666,6 +3673,7 @@ id rMeCb
 id radio
 id ratio
 id rectangles
+id reduceBtn
 id report_drawn
 id resetBtn
 id restartButton
@@ -3728,7 +3736,6 @@ id snackbar_text
 id snap
 id snapMargins
 id south
-id spaceBtn
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -3815,7 +3822,19 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAccountSettings
 id tvEmail
+id tvNotes
+id tvNotesDesc
+id tvPomodoro
+id tvPomodoroDesc
+id tvPomodoroSettings
+id tvProfile
+id tvSettings
+id tvSoundSettings
+id tvTasks
+id tvTasksDesc
+id tvThemes
 id tvUsername
 id unchecked
 id uniform
@@ -3832,6 +3851,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id volumeTt
 id west
 id withText
 id with_icon

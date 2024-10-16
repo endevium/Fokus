@@ -69,7 +69,6 @@ interface APIService {
     ): Call<NotesResponse>
 
     @Headers("Accept: application/json")
-    @FormUrlEncoded
     @DELETE("/api/fokus_notes/{id}")
     fun deleteNote(
         @Path("id") id: Int,

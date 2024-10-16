@@ -1,20 +1,27 @@
 package com.example.fokus.fragments
 
+import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.*
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.fokus.*
 import com.example.fokus.api.*
 import com.example.fokus.models.*
+import org.w3c.dom.Text
 import retrofit2.*
 
 class NotesFragment : Fragment() {
+    private lateinit var tvNotes: TextView
+    private lateinit var tvNotesDesc: TextView
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var notesCardLayout: LinearLayout
     private lateinit var addNoteBtn: ImageButton
@@ -32,14 +39,15 @@ class NotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+
         notesCardLayout = view.findViewById(R.id.notesCardLayout)
         addNoteBtn = view.findViewById(R.id.addnoteBtn)
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
         apiService = RetrofitClient.create(APIService::class.java)
         editNotesFrag = EditNotesFragment()
-
-        // Fetch notes when switched to this fragment
-        fetchNotes()
+        tvNotes = view.findViewById(R.id.tvNotes)
+        tvNotesDesc = view.findViewById(R.id.tvNotesDesc)
 
         addNoteBtn.setOnClickListener {
             // Create an empty note card when add button is clicked
@@ -54,6 +62,12 @@ class NotesFragment : Fragment() {
                 swipeRefreshLayout.isRefreshing = false
             }, 1000)
         }
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvNotes.setTextColor(color)
+            tvNotesDesc.setTextColor(color)
+        })
+
     }
 
     private fun fetchNotes() {
@@ -109,6 +123,24 @@ class NotesFragment : Fragment() {
         })
     }
 
+    private fun deleteNote(id: Int) {
+        apiService.deleteNote(id).enqueue(object: Callback<NotesResponse> {
+            override fun onResponse(call: Call<NotesResponse>, response: Response<NotesResponse>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(requireContext(), "Successfully deleted note", Toast.LENGTH_LONG).show()
+                } else {
+                    val errorResponse = response.errorBody()?.string() ?: "Unknown error"
+                    Toast.makeText(requireContext(), "Failed to delete note: $errorResponse", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<NotesResponse>, t: Throwable) {
+                Toast.makeText(requireContext(), "Deleting note failed: ${t.message}", Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
+
     // FOR FETCHED NOTES
     private fun createNoteCard(parentLayout: LinearLayout, id: Int, title: String, content: String) {
         // Note card layout
@@ -158,14 +190,44 @@ class NotesFragment : Fragment() {
             setTypeface(null, Typeface.BOLD)
         }
 
+        val closeBtn = ImageButton(requireContext()).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                marginStart = 760
+                setMargins(0, -90, 0, 0)
+            }
+
+            setBackgroundColor(Color.TRANSPARENT)
+            setImageResource(R.drawable.close)
+        }
+
+        closeBtn.setOnClickListener {
+            deleteNote(id)
+            fetchNotes()
+        }
+
+        val secondLinearLayout = LinearLayout(requireContext()).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                120
+            ).apply {
+                setMargins(0, 0, 0, 0)
+            }
+
+            orientation = LinearLayout.HORIZONTAL
+
+        }
+
         // Note description layout
         val noteDescription = TextView(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                60
+                ViewGroup.LayoutParams.WRAP_CONTENT
             ).apply {
                 marginStart = 30
-                setMargins(0, 15, 0, 0)
+                setMargins(0, -10, 0, 0)
             }
 
             // Change visual layout
@@ -174,17 +236,17 @@ class NotesFragment : Fragment() {
         }
 
         // Another linear layout for the edit button
-        val secondLinearLayout = LinearLayout(requireContext()).apply {
+        val thirdLinearLayout = LinearLayout(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
                 225,
                 90
             ).apply {
-                // Move layout to the right/end
-                gravity = Gravity.END
-                marginEnd = 30
-                setMargins(0, 160, 0, 0)
+                marginStart = 595
+                marginEnd = 60
+                setMargins(0, 70, 0, 0)
             }
             // Change visual layout
+
             background = ContextCompat.getDrawable(requireContext(), R.drawable.econtainer)
         }
 
@@ -218,11 +280,24 @@ class NotesFragment : Fragment() {
                 .commit()
         }
 
-        secondLinearLayout.addView(editButton) // Wrap edit button first
-        firstLinearLayout.addView(noteTitle)
-        firstLinearLayout.addView(noteDescription)
-        firstLinearLayout.addView(secondLinearLayout) // Then wrap the second linear layout along with the title and description
+
+        firstLinearLayout.addView(noteTitle) // Add note title
+        firstLinearLayout.addView(closeBtn) // Add close button
+        firstLinearLayout.addView(secondLinearLayout) // Add second linear layout for note description
+        secondLinearLayout.addView(noteDescription) // Add note description inside second linear layout
+        thirdLinearLayout.addView(editButton) // Add edit button to the third linear layout
+        firstLinearLayout.addView(thirdLinearLayout) // Finally, add the third layout containing the edit button
         noteCardView.addView(firstLinearLayout) // Wrap all elements in the card
         parentLayout.addView(noteCardView) // Display the card
+    }
+
+    override fun onStart() {
+        super.onStart()
+        fetchNotes()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchNotes()
     }
 }

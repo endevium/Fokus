@@ -1,6 +1,7 @@
 package com.example.fokus.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import android.text.InputType
@@ -11,6 +12,8 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.fokus.*
 import com.example.fokus.api.*
@@ -18,6 +21,8 @@ import com.example.fokus.models.*
 import retrofit2.*
 
 class TaskFragment : Fragment() {
+    private lateinit var tvTask: TextView
+    private lateinit var tvTaskDesc: TextView
     private lateinit var taskCardContainer: LinearLayout
     private lateinit var addTaskBtn: ImageButton
     private lateinit var apiService: APIService
@@ -33,10 +38,14 @@ class TaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+
         taskCardContainer = view.findViewById(R.id.taskCardContainer)
         addTaskBtn = view.findViewById(R.id.addTask)
         apiService = RetrofitClient.create(APIService::class.java)
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
+        tvTask = view.findViewById(R.id.tvTasks)
+        tvTaskDesc = view.findViewById(R.id.tvTasksDesc)
 
         fetchTasks()
 
@@ -48,6 +57,11 @@ class TaskFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener {
             refreshTasks()
         }
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvTask.setTextColor(color)
+            tvTaskDesc.setTextColor(color)
+        })
     }
 
     private fun fetchTasks() {
@@ -186,14 +200,14 @@ class TaskFragment : Fragment() {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             ).apply {
-                setMargins(22, 0, 16, 0)
+                setMargins(-5, 0, 10, 0)
             }
         }
 
         // Task input layout
         val inputField = EditText(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
+                600,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
             // Change visual layout
@@ -213,6 +227,14 @@ class TaskFragment : Fragment() {
             inputType = InputType.TYPE_CLASS_TEXT
         }
 
+        checkbox.setOnCheckedChangeListener{_, isChecked ->
+            if (isChecked) {
+                inputField.paintFlags = inputField.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            } else {
+                inputField.paintFlags = inputField.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+
         inputField.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE ||
                 (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
@@ -228,17 +250,24 @@ class TaskFragment : Fragment() {
             }
         }
 
-        // Strikethrough when checkbox is clicked
-        checkbox.setOnCheckedChangeListener{_, isChecked ->
-            if (isChecked) {
-                // inputField.paintFlags =
-                deleteTask(id)
-                parentLayout.removeView(taskCardView)
-            }
+        val deleteBtn = ImageButton(requireContext()).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+
+            setBackgroundColor(Color.TRANSPARENT)
+            setImageResource(R.drawable.close)
+        }
+
+        deleteBtn.setOnClickListener {
+            deleteTask(id)
+            parentLayout.removeView(taskCardView)
         }
 
         linearLayout.addView(checkbox)
         linearLayout.addView(inputField)
+        linearLayout.addView(deleteBtn)
         taskCardView.addView(linearLayout) // Wrap all elements
         parentLayout.addView(taskCardView, 0) // Display task at the top of the add task button
     }

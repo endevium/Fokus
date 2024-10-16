@@ -14,29 +14,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/tvTasks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tasks List"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:textSize="20sp"
+                android:text="Tasks List"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/tvTasksDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="30dp"
-                android:textColor="@color/black"
-                android:text="Create your to-do list for the current session."/>
+                android:layout_marginTop="5dp"
+                android:text="Create your to-do list for the current session."
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="95dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="95dp">
 
             <LinearLayout
                 android:id="@+id/taskCardContainer"

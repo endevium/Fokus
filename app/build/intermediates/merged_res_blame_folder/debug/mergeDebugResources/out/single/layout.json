@@ -24,24 +24,20 @@
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_editnotes.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_changeemail.xml",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changeemail.xml"
-    },
-    {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_shortbreak.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_shortbreak.xml"
     },
     {
-        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_changelbtimer.xml",
-        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changelbtimer.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_changeemail.xml",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changeemail.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_notes.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_notes.xml"
     },
     {
-        "merged": "com.example.fokus.app-mergeDebugResources-48:/layout/activity_main.xml",
-        "source": "com.example.fokus.app-main-51:/layout/activity_main.xml"
+        "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_changelbtimer.xml",
+        "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\fragment_changelbtimer.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\activity_signup.xml",
@@ -54,6 +50,10 @@
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\activity_splash_screen.xml",
         "source": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-main-51:\\layout\\activity_splash_screen.xml"
+    },
+    {
+        "merged": "com.example.fokus.app-mergeDebugResources-48:/layout/fragment_profile.xml",
+        "source": "com.example.fokus.app-main-51:/layout/fragment_profile.xml"
     },
     {
         "merged": "C:\\Users\\PC\\.gradle\\daemon\\8.7\\com.example.fokus.app-mergeDebugResources-48:\\layout\\fragment_profile.xml",

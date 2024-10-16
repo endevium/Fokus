@@ -5,9 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.fokus.fragments.SharedViewModel
 
 class SettingsFragment : Fragment() {
+    private lateinit var tvSettings: TextView
+    private lateinit var tvAccountSettings: TextView
+    private lateinit var tvPomodoroSettings: TextView
+    private lateinit var tvSoundSettings: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +27,9 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+
+
         val changeUsernameLayout: LinearLayout = view.findViewById(R.id.changeuserBtn)
         val changePasswordLayout: LinearLayout = view.findViewById(R.id.changepassBtn)
         val changeEmailLayout: LinearLayout = view.findViewById(R.id.changeemailBtn)
@@ -26,6 +37,11 @@ class SettingsFragment : Fragment() {
         val changePTimerFragment: LinearLayout = view.findViewById(R.id.changeptimerBtn)
         val changeSBTimerFragment: LinearLayout = view.findViewById(R.id.changesbtimerBtn)
         val changeLBTimerFragment: LinearLayout = view.findViewById(R.id.changelbtimerBtn)
+
+        tvSettings = view.findViewById(R.id.tvSettings)
+        tvAccountSettings = view.findViewById(R.id.tvAccountSettings)
+        tvPomodoroSettings = view.findViewById(R.id.tvPomodoroSettings)
+        tvSoundSettings = view.findViewById(R.id.tvSoundSettings)
 
         changeUsernameLayout.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -70,5 +86,12 @@ class SettingsFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvSettings.setTextColor(color)
+            tvAccountSettings.setTextColor(color)
+            tvPomodoroSettings.setTextColor(color)
+            tvSoundSettings.setTextColor(color)
+        })
     }
 }

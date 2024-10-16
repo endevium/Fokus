@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.longBreakSettings
@@ -18,7 +21,10 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
     private lateinit var playButton: ImageButton
     private lateinit var restartButton: ImageButton
     private lateinit var nextButton: ImageButton
+    private lateinit var stopBtn: ImageButton
     private lateinit var timerFragment: TimerFragment
+    private lateinit var tvPomodoro: TextView
+    private lateinit var tvPomodoroDesc: TextView
     private val lngbrk = longBreakSettings()
     private var timer: CountDownTimer? = null
     private var timeLeft: Long = 15 * 60 * 1000
@@ -36,10 +42,15 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
         super.onViewCreated(view, savedInstanceState)
 
         // Assign values to element variables
+        val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+
         timerTextView = view.findViewById(R.id.timerTextView)
         playButton = view.findViewById(R.id.playButton)
         restartButton = view.findViewById(R.id.restartButton)
         nextButton = view.findViewById(R.id.sbnxtBtn)
+        stopBtn = view.findViewById(R.id.stopBtn)
+        tvPomodoro = view.findViewById(R.id.tvPomodoro)
+        tvPomodoroDesc = view.findViewById(R.id.tvPomodoroDesc)
         timerFragment = TimerFragment()
 
         if (lngbrk.longbreakMinutes(requireContext()) != null && lngbrk.longbreakSeconds(requireContext()) != null) {
@@ -98,6 +109,23 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
             timerFragment.arguments = bundle
             timerFragment()
         }
+
+        stopBtn.setOnClickListener {
+            if (phase > 0) {
+                phase = 0
+
+                val bundle = Bundle()
+                bundle.putInt("phase", phase)
+                timerFragment.arguments = bundle
+                timerFragment()
+                Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvPomodoro.setTextColor(color)
+            tvPomodoroDesc.setTextColor(color)
+        })
     }
 
     private fun startTimer() {
