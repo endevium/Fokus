@@ -68,6 +68,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun changeMusic(track: Int) {
+        musicPlayer?.release()
+        musicPlayer = MediaPlayer.create(this, track)
+    }
+
     private fun setupViewPagerAndTabs() {
         val adapter = MainViewPagerAdapter(this)
         viewPager.adapter = adapter

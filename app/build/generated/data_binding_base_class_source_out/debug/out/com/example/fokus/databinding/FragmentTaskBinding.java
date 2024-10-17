@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -29,12 +30,21 @@ public final class FragmentTaskBinding implements ViewBinding {
   @NonNull
   public final LinearLayout taskCardContainer;
 
+  @NonNull
+  public final TextView tvTasks;
+
+  @NonNull
+  public final TextView tvTasksDesc;
+
   private FragmentTaskBinding(@NonNull SwipeRefreshLayout rootView, @NonNull ImageButton addTask,
-      @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull LinearLayout taskCardContainer) {
+      @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull LinearLayout taskCardContainer,
+      @NonNull TextView tvTasks, @NonNull TextView tvTasksDesc) {
     this.rootView = rootView;
     this.addTask = addTask;
     this.swipeRefreshLayout = swipeRefreshLayout;
     this.taskCardContainer = taskCardContainer;
+    this.tvTasks = tvTasks;
+    this.tvTasksDesc = tvTasksDesc;
   }
 
   @Override
@@ -78,8 +88,20 @@ public final class FragmentTaskBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvTasks;
+      TextView tvTasks = ViewBindings.findChildViewById(rootView, id);
+      if (tvTasks == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTasksDesc;
+      TextView tvTasksDesc = ViewBindings.findChildViewById(rootView, id);
+      if (tvTasksDesc == null) {
+        break missingId;
+      }
+
       return new FragmentTaskBinding((SwipeRefreshLayout) rootView, addTask, swipeRefreshLayout,
-          taskCardContainer);
+          taskCardContainer, tvTasks, tvTasksDesc);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

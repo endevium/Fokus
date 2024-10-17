@@ -4,8 +4,10 @@ package com.example.fokus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -44,11 +46,35 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final LinearLayout changeuserBtn;
 
+  @NonNull
+  public final ImageButton increaseBtn;
+
+  @NonNull
+  public final ImageButton reduceBtn;
+
+  @NonNull
+  public final TextView tvAccountSettings;
+
+  @NonNull
+  public final TextView tvPomodoroSettings;
+
+  @NonNull
+  public final TextView tvSettings;
+
+  @NonNull
+  public final TextView tvSoundSettings;
+
+  @NonNull
+  public final TextView volumeTt;
+
   private FragmentSettingsBinding(@NonNull RelativeLayout rootView,
       @NonNull BottomNavigationView bottomNavigation, @NonNull LinearLayout changeemailBtn,
       @NonNull LinearLayout changelbtimerBtn, @NonNull LinearLayout changepassBtn,
       @NonNull LinearLayout changepfpBtn, @NonNull LinearLayout changeptimerBtn,
-      @NonNull LinearLayout changesbtimerBtn, @NonNull LinearLayout changeuserBtn) {
+      @NonNull LinearLayout changesbtimerBtn, @NonNull LinearLayout changeuserBtn,
+      @NonNull ImageButton increaseBtn, @NonNull ImageButton reduceBtn,
+      @NonNull TextView tvAccountSettings, @NonNull TextView tvPomodoroSettings,
+      @NonNull TextView tvSettings, @NonNull TextView tvSoundSettings, @NonNull TextView volumeTt) {
     this.rootView = rootView;
     this.bottomNavigation = bottomNavigation;
     this.changeemailBtn = changeemailBtn;
@@ -58,6 +84,13 @@ public final class FragmentSettingsBinding implements ViewBinding {
     this.changeptimerBtn = changeptimerBtn;
     this.changesbtimerBtn = changesbtimerBtn;
     this.changeuserBtn = changeuserBtn;
+    this.increaseBtn = increaseBtn;
+    this.reduceBtn = reduceBtn;
+    this.tvAccountSettings = tvAccountSettings;
+    this.tvPomodoroSettings = tvPomodoroSettings;
+    this.tvSettings = tvSettings;
+    this.tvSoundSettings = tvSoundSettings;
+    this.volumeTt = volumeTt;
   }
 
   @Override
@@ -135,9 +168,52 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.increaseBtn;
+      ImageButton increaseBtn = ViewBindings.findChildViewById(rootView, id);
+      if (increaseBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.reduceBtn;
+      ImageButton reduceBtn = ViewBindings.findChildViewById(rootView, id);
+      if (reduceBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.tvAccountSettings;
+      TextView tvAccountSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tvAccountSettings == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPomodoroSettings;
+      TextView tvPomodoroSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tvPomodoroSettings == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSettings;
+      TextView tvSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tvSettings == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSoundSettings;
+      TextView tvSoundSettings = ViewBindings.findChildViewById(rootView, id);
+      if (tvSoundSettings == null) {
+        break missingId;
+      }
+
+      id = R.id.volumeTt;
+      TextView volumeTt = ViewBindings.findChildViewById(rootView, id);
+      if (volumeTt == null) {
+        break missingId;
+      }
+
       return new FragmentSettingsBinding((RelativeLayout) rootView, bottomNavigation,
           changeemailBtn, changelbtimerBtn, changepassBtn, changepfpBtn, changeptimerBtn,
-          changesbtimerBtn, changeuserBtn);
+          changesbtimerBtn, changeuserBtn, increaseBtn, reduceBtn, tvAccountSettings,
+          tvPomodoroSettings, tvSettings, tvSoundSettings, volumeTt);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

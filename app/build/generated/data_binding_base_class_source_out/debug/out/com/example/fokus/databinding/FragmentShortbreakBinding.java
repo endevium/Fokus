@@ -42,11 +42,17 @@ public final class FragmentShortbreakBinding implements ViewBinding {
   @NonNull
   public final TextView timerTextView;
 
+  @NonNull
+  public final TextView tvPomodoro;
+
+  @NonNull
+  public final TextView tvPomodoroDesc;
+
   private FragmentShortbreakBinding(@NonNull RelativeLayout rootView,
       @NonNull RelativeLayout fragmentContainer, @NonNull LinearLayout linearTimer,
       @NonNull ImageButton playButton, @NonNull ImageButton restartButton,
-      @NonNull ImageButton sbnxtBtn, @NonNull ImageButton stopBtn,
-      @NonNull TextView timerTextView) {
+      @NonNull ImageButton sbnxtBtn, @NonNull ImageButton stopBtn, @NonNull TextView timerTextView,
+      @NonNull TextView tvPomodoro, @NonNull TextView tvPomodoroDesc) {
     this.rootView = rootView;
     this.fragmentContainer = fragmentContainer;
     this.linearTimer = linearTimer;
@@ -55,6 +61,8 @@ public final class FragmentShortbreakBinding implements ViewBinding {
     this.sbnxtBtn = sbnxtBtn;
     this.stopBtn = stopBtn;
     this.timerTextView = timerTextView;
+    this.tvPomodoro = tvPomodoro;
+    this.tvPomodoroDesc = tvPomodoroDesc;
   }
 
   @Override
@@ -122,8 +130,21 @@ public final class FragmentShortbreakBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvPomodoro;
+      TextView tvPomodoro = ViewBindings.findChildViewById(rootView, id);
+      if (tvPomodoro == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPomodoroDesc;
+      TextView tvPomodoroDesc = ViewBindings.findChildViewById(rootView, id);
+      if (tvPomodoroDesc == null) {
+        break missingId;
+      }
+
       return new FragmentShortbreakBinding((RelativeLayout) rootView, fragmentContainer,
-          linearTimer, playButton, restartButton, sbnxtBtn, stopBtn, timerTextView);
+          linearTimer, playButton, restartButton, sbnxtBtn, stopBtn, timerTextView, tvPomodoro,
+          tvPomodoroDesc);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

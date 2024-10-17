@@ -36,22 +36,22 @@ public final class FragmentThemesBinding implements ViewBinding {
   public final TextView natureBtn;
 
   @NonNull
-  public final TextView spaceBtn;
+  public final LinearLayout themesLL;
 
   @NonNull
-  public final LinearLayout themesLL;
+  public final TextView tvThemes;
 
   private FragmentThemesBinding(@NonNull RelativeLayout rootView, @NonNull TextView cafeBtn,
       @NonNull TextView classicalBtn, @NonNull TextView defaultBtn, @NonNull TextView electronicBtn,
-      @NonNull TextView natureBtn, @NonNull TextView spaceBtn, @NonNull LinearLayout themesLL) {
+      @NonNull TextView natureBtn, @NonNull LinearLayout themesLL, @NonNull TextView tvThemes) {
     this.rootView = rootView;
     this.cafeBtn = cafeBtn;
     this.classicalBtn = classicalBtn;
     this.defaultBtn = defaultBtn;
     this.electronicBtn = electronicBtn;
     this.natureBtn = natureBtn;
-    this.spaceBtn = spaceBtn;
     this.themesLL = themesLL;
+    this.tvThemes = tvThemes;
   }
 
   @Override
@@ -111,20 +111,20 @@ public final class FragmentThemesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.spaceBtn;
-      TextView spaceBtn = ViewBindings.findChildViewById(rootView, id);
-      if (spaceBtn == null) {
-        break missingId;
-      }
-
       id = R.id.themesLL;
       LinearLayout themesLL = ViewBindings.findChildViewById(rootView, id);
       if (themesLL == null) {
         break missingId;
       }
 
+      id = R.id.tvThemes;
+      TextView tvThemes = ViewBindings.findChildViewById(rootView, id);
+      if (tvThemes == null) {
+        break missingId;
+      }
+
       return new FragmentThemesBinding((RelativeLayout) rootView, cafeBtn, classicalBtn, defaultBtn,
-          electronicBtn, natureBtn, spaceBtn, themesLL);
+          electronicBtn, natureBtn, themesLL, tvThemes);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -33,14 +34,23 @@ public final class FragmentNotesBinding implements ViewBinding {
   @NonNull
   public final SwipeRefreshLayout swipeRefreshLayout;
 
+  @NonNull
+  public final TextView tvNotes;
+
+  @NonNull
+  public final TextView tvNotesDesc;
+
   private FragmentNotesBinding(@NonNull SwipeRefreshLayout rootView,
       @NonNull ImageButton addnoteBtn, @NonNull LinearLayout notesCardLayout,
-      @NonNull RelativeLayout notesContainer, @NonNull SwipeRefreshLayout swipeRefreshLayout) {
+      @NonNull RelativeLayout notesContainer, @NonNull SwipeRefreshLayout swipeRefreshLayout,
+      @NonNull TextView tvNotes, @NonNull TextView tvNotesDesc) {
     this.rootView = rootView;
     this.addnoteBtn = addnoteBtn;
     this.notesCardLayout = notesCardLayout;
     this.notesContainer = notesContainer;
     this.swipeRefreshLayout = swipeRefreshLayout;
+    this.tvNotes = tvNotes;
+    this.tvNotesDesc = tvNotesDesc;
   }
 
   @Override
@@ -90,8 +100,20 @@ public final class FragmentNotesBinding implements ViewBinding {
 
       SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) rootView;
 
+      id = R.id.tvNotes;
+      TextView tvNotes = ViewBindings.findChildViewById(rootView, id);
+      if (tvNotes == null) {
+        break missingId;
+      }
+
+      id = R.id.tvNotesDesc;
+      TextView tvNotesDesc = ViewBindings.findChildViewById(rootView, id);
+      if (tvNotesDesc == null) {
+        break missingId;
+      }
+
       return new FragmentNotesBinding((SwipeRefreshLayout) rootView, addnoteBtn, notesCardLayout,
-          notesContainer, swipeRefreshLayout);
+          notesContainer, swipeRefreshLayout, tvNotes, tvNotesDesc);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

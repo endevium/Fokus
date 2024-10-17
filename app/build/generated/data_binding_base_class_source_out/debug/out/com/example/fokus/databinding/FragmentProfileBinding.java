@@ -34,17 +34,21 @@ public final class FragmentProfileBinding implements ViewBinding {
   public final TextView tvEmail;
 
   @NonNull
+  public final TextView tvProfile;
+
+  @NonNull
   public final TextView tvUsername;
 
   private FragmentProfileBinding(@NonNull SwipeRefreshLayout rootView,
       @NonNull LinearLayout logoutBtn, @NonNull ImageView profilePicture,
       @NonNull SwipeRefreshLayout swipeRefreshLayout, @NonNull TextView tvEmail,
-      @NonNull TextView tvUsername) {
+      @NonNull TextView tvProfile, @NonNull TextView tvUsername) {
     this.rootView = rootView;
     this.logoutBtn = logoutBtn;
     this.profilePicture = profilePicture;
     this.swipeRefreshLayout = swipeRefreshLayout;
     this.tvEmail = tvEmail;
+    this.tvProfile = tvProfile;
     this.tvUsername = tvUsername;
   }
 
@@ -95,6 +99,12 @@ public final class FragmentProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvProfile;
+      TextView tvProfile = ViewBindings.findChildViewById(rootView, id);
+      if (tvProfile == null) {
+        break missingId;
+      }
+
       id = R.id.tvUsername;
       TextView tvUsername = ViewBindings.findChildViewById(rootView, id);
       if (tvUsername == null) {
@@ -102,7 +112,7 @@ public final class FragmentProfileBinding implements ViewBinding {
       }
 
       return new FragmentProfileBinding((SwipeRefreshLayout) rootView, logoutBtn, profilePicture,
-          swipeRefreshLayout, tvEmail, tvUsername);
+          swipeRefreshLayout, tvEmail, tvProfile, tvUsername);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
