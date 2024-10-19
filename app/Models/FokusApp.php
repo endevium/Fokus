@@ -22,6 +22,10 @@ class FokusApp extends Authenticatable
         return $this->hasMany(NotesModel::class);
 
     }
+    public function save(array $options = [])
+    { 
+        parent::save($options);
+    }
 
     // Optionally, you can define hidden attributes for the model
     protected $hidden = [

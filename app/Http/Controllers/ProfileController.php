@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Models\FokusApp;
 
 class ProfileController extends Controller
@@ -11,13 +12,13 @@ class ProfileController extends Controller
     public function uploadProfilePicture(Request $request)
     {
         // Check if the user is authenticated
-        $user = auth()->user();
+        $user = Auth::user();
         
         if (!$user) {
             return response()->json([
                 'success' => false,
                 'message' => 'User not authenticated.'
-            ], 401); // Unauthorized
+            ], 401);    
         }
 
         $request->validate([
@@ -44,5 +45,22 @@ class ProfileController extends Controller
             'success' => false,
             'message' => 'Failed to upload profile picture.'
         ], 400);
+    }
+
+    // Method to get profile picture by user_id
+    public function getProfilePicture($userId)
+    {
+        // Find user by user_id
+        $user = FokusApp::find($userId);
+    
+        if (!$user || !$user->profile_picture) {
+            return response()->json(['message' => 'Profile picture not found'], 404);
+        }
+    
+        // Return profile picture URL
+        return response()->json([
+            'success' => true,
+            'profile_picture_url' => asset('storage/' . $user->profile_picture)
+        ]);
     }
 }

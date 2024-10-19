@@ -26,9 +26,28 @@ class FokusController extends Controller
 
         // Validate incoming request data
         $request->validate([
-            'username' => 'required|string|max:255|unique:fokus_app',
-            'password' => 'required|string|max:50',
-            'email' => 'required|string|email|max:255|unique:fokus_app',
+            'username' => [
+                'required',
+                'string',
+                'max:255',
+                'unique:fokus_app',
+                'regex:/^[A-Za-z0-9][A-Za-z0-9!@#$%^&*()_+=-]*$/', // Username must not contain spaces or multiple special characters
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'max:50',
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-].*[!@#$%^&*()_+=-]).*$/', // Password must not contain spaces or multiple special characters
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:fokus_app',
+                'regex:/^[a-zA-Z0-9._%+-]+@\.com$/'
+            ],
         ], $messages);
 
         // Create a new user and hash the password
@@ -64,9 +83,35 @@ class FokusController extends Controller
         }
 
         $request->validate([
-            'username' => 'sometimes|required|string|max:255|unique:fokus_app,username,' . $fokusApp->id,
-            'password' => 'sometimes|required|string|',
-            'email' => 'sometimes|required|string|email|max:255|unique:fokus_app,email,' . $fokusApp->id,
+            'username' => [
+                'sometimes',
+                'required',
+                'string',
+                'max:255',
+                'unique:fokus_app,username,' . $fokusApp->id,
+                'regex:/^[A-Za-z0-9][A-Za-z0-9!@#$%^&*()_+=-]*$/', // Username must not contain spaces or multiple special characters
+            ],
+            'password' => [
+                'sometimes',
+                'required',
+                'string',
+                'min:8',
+                'max:50',
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-].*[!@#$%^&*()_+=-]).*$/'
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:fokus_app,email,' . $fokusApp->id,
+                'regex:/^[a-zA-Z0-9._%+-]+@\.com$/'
+
+            ],
+        ], [
+            'password.regex' => 'The password must contain no spaces and at most one special character.',
+            'username.regex' => 'The username must not contain spaces or multiple special characters.',
+            'email.regex' => 'Must be a valid email.',
         ]);
 
         // Update the fields only if they are present in the request
@@ -74,10 +119,16 @@ class FokusController extends Controller
             // Hash the new password and update it
             $fokusApp->password = Hash::make($request->password);
         }
-        
+
         if ($request->has('username')) {
+            // Check if the new username is the same as the current username
+            if ($request->username === $fokusApp->username) {
+                return response()->json(['message' => 'New username must be different from the current username'], 400);
+            }
+            
             $fokusApp->username = $request->username;
         }
+
         if ($request->has('email')) {
             $fokusApp->email = $request->email;
         }
@@ -118,30 +169,34 @@ class FokusController extends Controller
         }
     }
 
+    // CHANGE PASSWORD
+    public function changePassword(Request $request)
+    {
+        // Validate incoming request data
+        $request->validate([
+            'email' => 'required|string|email',
+            'new_password' => 'required|string|min:16',
+        ]);
 
-        //CHANGE PASSWORD
-        public function changePassword(Request $request)
-        {
-            // Validate incoming request data
-            $request->validate([
-                'email' => 'required|string|email',
-                'new_password' => 'required|string',
-            ]);
-        
-            // Find user by email
-            $user = FokusApp::where('email', $request->email)->first();
-        
-            if (!$user) {
-                return response()->json(['message' => 'Email not found'], 404);
-            }
-        
-            // Hash new password and update it
-            $user->password = Hash::make($request->new_password);
-            $user->save();
-        
-            return response()->json(['message' => 'Password changed successfully!'], 200);
+        // Find user by email
+        $user = FokusApp::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'Email not found'], 404);
         }
-        
+
+        // Check if the new password is the same as the current password
+        if (Hash::check($request->new_password, $user->password)) {
+            return response()->json(['message' => 'New password must be different from the current password'], 400);
+        }
+
+        // Hash new password and update it
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json(['message' => 'Password changed successfully!'], 200);
+    }
+
     // TASK METHOD
     public function completeTask(Request $request, $id)
     {

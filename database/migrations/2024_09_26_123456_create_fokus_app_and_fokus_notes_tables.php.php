@@ -15,7 +15,6 @@ class CreateFokusAppAndFokusNotesTables extends Migration
             Schema::create('fokus_app', function (Blueprint $table) {
                 $table->id();
                 $table->string('username')->unique();
-                $table->string('fullname')->nullable();
                 $table->string('password');
                 $table->string('email')->unique();
                 $table->string('profile_picture')->nullable();

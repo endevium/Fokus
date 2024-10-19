@@ -16,7 +16,7 @@ Route::post('/register', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
 
 //CHANGE PASSWORD
-Route::post('/new_password', [FokusController::class, 'changePassword']);
+Route::post('/change_password', [FokusController::class, 'changePassword']);
 
 // TOKEN ROUTE
 Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'showCookie']);
@@ -38,7 +38,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/task/{id}/complete', [FokusController::class, 'completeTask']);
     Route::get('/task/{id}/status', [FokusController::class, 'checkTaskCompletion']);
 
-
+    // Route for updating username
+    Route::put('/FokusApp/{id}/username', [FokusController::class, 'update']);
 
     Route::get('/user_id', function (Request $request) {
         return $request->user(); // Returns authenticated user info
@@ -46,6 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // USER PROFILE
     Route::post('/profile', [ProfileController::class, 'uploadProfilePicture'])->name('upload.profile.picture');
+    Route::get('/profile/picture/{id}', [ProfileController::class, 'getProfilePicture'])->name('get.profile.picture');
+
 });
 
 // FOKUS APP ROUTES
@@ -54,8 +57,6 @@ Route::get('/FokusApp', [FokusController::class, 'index']);
 Route::get('/FokusApp/{id}', [FokusController::class, 'show']);  
 Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
 Route::delete('/FokusApp/{id}', [FokusController::class, 'destroy']);
-
-    
 
 // Test route
 Route::get('/test', function () {
