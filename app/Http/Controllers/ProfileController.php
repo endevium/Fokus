@@ -30,7 +30,7 @@ class ProfileController extends Controller
             $file = $request->file('profile_picture');
             $path = $file->store('profiles', 'public');
     
-            // Assign the profile picture path to the authenticated user
+            // Assign profile picture path to the authenticated user
             $user->profile_picture = $path;
             $user->save();
     
@@ -47,7 +47,7 @@ class ProfileController extends Controller
         ], 400);
     }
 
-    // Method to get profile picture by user_id
+    // Method get profile picture by user_id
     public function getProfilePicture($userId)
     {
         // Find user by user_id

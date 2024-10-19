@@ -28,6 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('fokus_notes', NotesController::class);
     
     // Task routes (RESTful API routes)
+    Route::middleware('auth:api')->post('/tasks', [TaskController::class, 'store']);
+    
     Route::apiResource('task', TaskController::class); 
     
     Route::post('/task', [TaskController::class, 'store']);  

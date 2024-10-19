@@ -42,6 +42,16 @@ class CreateFokusAppAndFokusNotesTables extends Migration
                 $table->timestamps();
             });
         }
+        if (!Schema::create('task_history', function (Blueprint $table) {
+            $table->id(); 
+            $table->foreignId('task_id')->constrained('fokus_task')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('fokus_app')->onDelete('cascade'); 
+            $table->string('status');
+            $table->text('description')->nullable();
+            $table->timestamps();
+        })) {
+            
+        }
     }
 
     /**
@@ -50,7 +60,9 @@ class CreateFokusAppAndFokusNotesTables extends Migration
     public function down(): void
     {
         Schema::dropIfExists('fokus_task');
+        Schema::dropIfExists('task_history');
         Schema::dropIfExists('fokus_notes');
         Schema::dropIfExists('fokus_app');
+        
     }
 }

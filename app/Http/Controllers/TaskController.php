@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TaskModel; // Assuming you have a TaskModel for the tasks
+use App\Models\TaskModel;
+use App\Models\TaskHistory; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,7 @@ class TaskController extends Controller
         return response()->json($tasks);
     }
 
-    // Store a new task
+    // Store  new task
     public function store(Request $request)
     {
         $request->validate([
@@ -23,13 +24,13 @@ class TaskController extends Controller
         ]);
 
         // Generate a token (you can customize this logic)
-        $token = bin2hex(random_bytes(16)); // Generates a random token
+        $token = bin2hex(random_bytes(16));
 
         // Create a new task and associate it with the logged-in user
         $task = new TaskModel();
         $task->task_title = $request->task_title;
-        $task->token = $token; // Save the generated token with the task
-        $task->fokus_app_id = Auth::id(); // Associate with logged-in user
+        $task->token = $token;
+        $task->fokus_app_id = Auth::id();
 
         try {
             $task->save();
@@ -62,6 +63,14 @@ class TaskController extends Controller
 
         // Update the task with validated data
         $task->update($request->only(['task_title']));
+
+        // Log the task status change in history
+        TaskHistory::create([
+            'task_id' => $task->id,
+            'user_id' => Auth::id(),
+            'status' => 'Updated',
+            'description' => 'Updated the task to:  ' . $task->task_title,
+        ]);
 
         return response()->json(['message' => 'Task updated successfully!', 'data' => $task]);
     }
