@@ -10,6 +10,7 @@
     android:padding="16dp"
     tools:context=".activities.SignupActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,16 +18,19 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-100dp">
+
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="180dp"
                 android:src="@drawable/logof" />
         </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,11 +44,13 @@
             android:shadowDy="2"
             android:shadowDx="2"/>
 
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="start">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,6 +59,7 @@
                 android:textColor="@color/black"
                 android:text="Username"
                 android:textStyle="bold"/>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -77,6 +84,8 @@
             </androidx.cardview.widget.CardView>
 
 
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,12 +94,14 @@
                 android:text="Email Address"
                 android:textStyle="bold"/>
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="@color/white" >
+
 
                 <EditText
                     android:id="@+id/sEmail"
@@ -107,7 +118,9 @@
                     android:background="@drawable/etcontainer"
                     android:padding="14dp"/>
 
+
             </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,6 +130,7 @@
                 android:text="Password"
                 android:textStyle="bold"/>
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,38 +138,65 @@
                 app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="@color/white">
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/etcontainer"
                     android:orientation="horizontal">
 
+
                     <EditText
                         android:id="@+id/sPass"
                         android:layout_width="275dp"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:ems="10"
-                        android:hint=" Create Password"
                         android:drawableStart="@drawable/lock"
                         android:drawablePadding="5dp"
-                        android:textColorHint="@color/lightgray"
-                        android:textColor="@color/lightblack"
+                        android:ems="10"
+                        android:hint=" Create Password"
                         android:inputType="textPassword"
-                        android:padding="14dp" />
+                        android:padding="14dp"
+                        android:textColor="@color/lightblack"
+                        android:textColorHint="@color/lightgray" />
 
-                    <ImageButton
-                        android:id="@+id/hideBtn"
+
+                    <!-- Layout that holds 2 images -->
+
+
+                    <FrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/show"
-                        android:background="@null"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center">
+
+
+                        <ImageButton
+                            android:id="@+id/showBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/show"
+                            android:background="@null" />
+
+
+                        <ImageButton
+                            android:id="@+id/hideBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/hide"
+                            android:background="@null"
+                            android:visibility="gone"/>
+
+
+                    </FrameLayout>
+
 
                 </LinearLayout>
 
 
+
+
             </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -164,7 +205,10 @@
                 app:cardCornerRadius="8dp">
 
 
+
+
             </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -173,9 +217,13 @@
                 app:cardElevation="8dp">
 
 
+
+
             </androidx.cardview.widget.CardView>
 
+
         </LinearLayout>
+
 
         <Button
             android:id="@+id/sBtn"
@@ -193,6 +241,8 @@
             android:shadowDx="2" />
 
 
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -200,11 +250,13 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Already have an account?"
                 android:textColor="@color/black" />
+
 
             <TextView
                 android:id="@+id/loginD"
@@ -214,8 +266,8 @@
                 android:textColor="@color/DarkPurple"
                 android:textStyle="bold" />
 
-        </LinearLayout>
 
+        </LinearLayout>
 
     </LinearLayout>
 

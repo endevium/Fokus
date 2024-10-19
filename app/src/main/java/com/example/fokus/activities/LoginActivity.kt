@@ -2,8 +2,11 @@ package com.example.fokus.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginBtn: Button
     private lateinit var signUp: TextView
     private lateinit var rememberMe: CheckBox
+    private lateinit var showPassBtn: ImageButton
+    private lateinit var hidePassBtn: ImageButton
     private lateinit var apiService: APIService
     private lateinit var forgotPasswordLayout: LinearLayout
     private val save = saveUser()
@@ -38,6 +43,8 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.lBtn)
         signUp = findViewById(R.id.signupD)
         rememberMe = findViewById(R.id.rMeCb)
+        showPassBtn = findViewById(R.id.showBtn)
+        hidePassBtn = findViewById(R.id.hideBtn)
         forgotPasswordLayout = findViewById(R.id.forgotpassBtn)
 
         // Instantly retrieve and load data from sharedPref
@@ -70,6 +77,35 @@ class LoginActivity : AppCompatActivity() {
         signUp.setOnClickListener {
             signUpClick()
         }
+
+        //Show and Hide button transaction
+        showPassBtn.setOnClickListener{
+            val currentTypeface = lPass.typeface
+            val currentSelection = lPass.selectionStart
+
+
+            lPass.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            lPass.transformationMethod = null  // Ensure the password is shown in plain text
+            lPass.typeface = currentTypeface
+            lPass.setSelection(currentSelection) // Keep cursor at the end
+            showPassBtn.visibility = View.GONE
+            hidePassBtn.visibility = View.VISIBLE
+        }
+
+
+        hidePassBtn.setOnClickListener{
+            val currentTypeface = lPass.typeface
+            val currentSelection = lPass.selectionStart
+
+
+            lPass.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            lPass.transformationMethod = PasswordTransformationMethod.getInstance()  // Make sure the password is hidden
+            lPass.typeface = currentTypeface
+            lPass.setSelection(currentSelection) // Keep cursor at the end
+            hidePassBtn.visibility = View.GONE
+            showPassBtn.visibility = View.VISIBLE
+        }
+
 
         forgotPasswordLayout.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)

@@ -7,8 +7,11 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.fokus.api.*
 import com.example.fokus.fragments.NotesFragment
+import com.example.fokus.fragments.SharedViewModel
 import com.example.fokus.models.NotesResponse
 import retrofit2.*
 
@@ -32,6 +35,7 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes){
         val id = args?.getInt("id")
         val fetchedTitle = args?.getString("title")
         val fetchedContent = args?.getString("content")
+        val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
 
         if (fetchedTitle != "Note Title") title.setText(fetchedTitle) else title.text = null
         if (fetchedContent != "Note Description") content.setText(fetchedContent) else content.text = null

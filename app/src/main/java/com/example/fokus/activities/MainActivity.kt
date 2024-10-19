@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import androidx.activity.addCallback
-import com.example.fokus.api.clearToken
+import com.example.fokus.api.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tabLayout: TabLayout
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var musicPlayer: MediaPlayer
+    private val settings = saveSettings()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         musicPlayer = MediaPlayer.create(this, R.raw.fokus_one)
         musicPlayer.isLooping = true
+
+        val volumeLevel = settings.getVolume(applicationContext)
+        val volume = volumeLevel?.div(100f)
+        if (volume != null) {
+            musicPlayer.setVolume(volume, volume)
+        }
 
         setupViewPagerAndTabs()
 
@@ -71,6 +78,12 @@ class MainActivity : AppCompatActivity() {
     fun changeMusic(track: Int) {
         musicPlayer?.release()
         musicPlayer = MediaPlayer.create(this, track)
+    }
+
+    fun changeVolume(volume: Int) {
+        val clamped = volume.coerceIn(0, 100)
+        val actualVolume = clamped / 100f
+        musicPlayer?.setVolume(actualVolume, actualVolume)
     }
 
     private fun setupViewPagerAndTabs() {
@@ -121,7 +134,6 @@ class MainActivity : AppCompatActivity() {
         builder.setMessage("Are you sure you want to close the application?")
         builder.setCancelable(false)
         builder.setPositiveButton("Yes") { _, _ ->
-            clearToken(applicationContext)
             finishAffinity()
         }
         builder.setNegativeButton("No") { dialog, _ ->

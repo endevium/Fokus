@@ -27,6 +27,7 @@ class NotesFragment : Fragment() {
     private lateinit var addNoteBtn: ImageButton
     private lateinit var apiService: APIService
     private lateinit var editNotesFrag: EditNotesFragment
+    private lateinit var notes_container: RelativeLayout
     private val notesList: MutableList<Notes> = mutableListOf()
 
     override fun onCreateView(
@@ -48,6 +49,7 @@ class NotesFragment : Fragment() {
         editNotesFrag = EditNotesFragment()
         tvNotes = view.findViewById(R.id.tvNotes)
         tvNotesDesc = view.findViewById(R.id.tvNotesDesc)
+        notes_container = view.findViewById(R.id.notes_container)
 
         addNoteBtn.setOnClickListener {
             // Create an empty note card when add button is clicked

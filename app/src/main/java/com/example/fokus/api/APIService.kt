@@ -2,6 +2,7 @@ package com.example.fokus.api
 
 import android.provider.ContactsContract.CommonDataKinds.Note
 import com.example.fokus.models.*
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -22,6 +23,12 @@ interface APIService {
         @Field("password") password: String,
         @Field("email") email: String
     ): Call<SignupResponse> // Sends a request with sign up response body
+
+    @Multipart
+    @POST("/api/profile")
+    fun uploadProfile(
+        @Part profile_picture: MultipartBody.Part
+    ): Call<ProfilePictureResponse>
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
@@ -45,7 +52,15 @@ interface APIService {
     fun changePassword(
         @Path("id") id: Int,
         @Field("password") password: String
-    ): Call<UserResponse> // Sends a request
+    ): Call<UserResponse> // Sends an edit request
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @POST("/api/new_password")
+    fun resetPassword(
+        @Field("email") email: String,
+        @Field("new_password") new_password: String
+    ): Call<ChangePasswordResponse> // Sends a request
 
     // NOTES ROUTES
     @GET("/api/fokus_notes")

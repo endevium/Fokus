@@ -2,8 +2,11 @@ package com.example.fokus.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +25,8 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var signUpBtn: Button
     private lateinit var loginBtnT: TextView
     private lateinit var apiService: APIService
+    private lateinit var showPassBtn: ImageButton
+    private lateinit var hidePassBtn: ImageButton
     private val save = saveUser()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +40,8 @@ class SignupActivity : AppCompatActivity() {
         sPass = findViewById(R.id.sPass)
         signUpBtn = findViewById(R.id.sBtn)
         loginBtnT = findViewById(R.id.loginD)
+        showPassBtn = findViewById(R.id.showBtn)
+        hidePassBtn = findViewById(R.id.hideBtn)
 
         // Validate input if signUp button is clicked
         signUpBtn.setOnClickListener {
@@ -50,6 +57,32 @@ class SignupActivity : AppCompatActivity() {
         // Move to login activity if clicked
         loginBtnT.setOnClickListener{
             logInClick()
+        }
+
+        //Show and Hide button transaction
+        showPassBtn.setOnClickListener{
+            val currentTypeface = sPass.typeface
+            val currentSelection = sPass.selectionStart
+
+
+            sPass.inputType =  InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            sPass.transformationMethod = null  // Ensure the password is shown in plain text
+            sPass.typeface = currentTypeface
+            sPass.setSelection(currentSelection) // Keep cursor at the end
+            showPassBtn.visibility = View.GONE
+            hidePassBtn.visibility = View.VISIBLE
+        }
+        hidePassBtn.setOnClickListener{
+            val currentTypeface = sPass.typeface
+            val currentSelection = sPass.selectionStart
+
+
+            sPass.inputType =  InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            sPass.transformationMethod = PasswordTransformationMethod.getInstance()  // Make sure the password is hidden
+            sPass.typeface = currentTypeface
+            sPass.setSelection(currentSelection) // Keep cursor at the end
+            hidePassBtn.visibility = View.GONE
+            showPassBtn.visibility = View.VISIBLE
         }
 
     }

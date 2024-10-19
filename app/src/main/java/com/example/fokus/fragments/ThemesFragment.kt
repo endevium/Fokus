@@ -114,7 +114,7 @@ class ThemesFragment : Fragment() {
 
             tabLayout.setTabTextColors(
                 unselectedColor,
-                ContextCompat.getColor(requireContext(), R.color.DarkPurple)
+                ContextCompat.getColor(requireContext(), R.color.white)
             )
 
             tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(requireContext(), R.color.white))

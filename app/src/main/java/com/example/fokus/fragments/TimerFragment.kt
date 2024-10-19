@@ -1,7 +1,13 @@
 package com.example.fokus.fragments
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +15,23 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.pomodoroSettings
+import com.example.fokus.api.saveSettings
 import org.w3c.dom.Text
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
-
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
+    private val CHANNEL_ID = "fokus_notification_channel"
     private lateinit var timerTextView: TextView
     private lateinit var tvPomodoro: TextView
     private lateinit var tvPomodoroDesc: TextView
@@ -29,10 +42,12 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private lateinit var shortBreakFrag: ShortBreakFragment
     private lateinit var longBreakFrag: LongBreakFragment
     private var pmdr = pomodoroSettings()
+    private val settings = saveSettings()
     private var timer: CountDownTimer? = null
     private var timeLeft: Long = 25 * 60 * 1000
     private var isTimerRunning: Boolean = false
     private var phase: Int = 0
+    private val notificationID = 101
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +72,18 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         shortBreakFrag = ShortBreakFragment()
         longBreakFrag = LongBreakFragment()
 
+        createNotificationChannel()
+        requestPermissionLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                // Permission granted, show the notification
+                timerNotification()
+            } else {
+                // Permission denied, notify user using Toast
+                Toast.makeText(requireContext(), "Permission denied to send notifications", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         if (pmdr.pomodoroMinutes(requireContext()) != null && pmdr.pomodoroSeconds(requireContext()) != null) {
             val minutes = pmdr.pomodoroMinutes(requireContext()) ?: 25
@@ -119,16 +146,58 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         }
 
         stopBtn.setOnClickListener {
-            if (phase > 0) {
-                phase = 0
-                Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
-            }
+            phase = 0
+            Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
+            resetTimer()
         }
 
         viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
             tvPomodoro.setTextColor(color)
             tvPomodoroDesc.setTextColor(color)
         })
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "fokus_notification"
+            val descriptionText = "fokus_notification_description"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            var vibrationPattern = longArrayOf(0, 600, 600, 600)
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+                val state = settings.getVibration(requireContext().applicationContext)
+                enableVibration(state ?: true)
+                vibrationPattern = vibrationPattern
+            }
+
+            val notificationManager: NotificationManager =
+                requireContext().getSystemService(NotificationManager::class.java)
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun timerNotification() {
+        // Create notification builder
+        val builder = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle("Fokus")
+            .setContentText("Pomodoro timer is over! Take a short break now.")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            return
+        }
+
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(notificationID, builder.build())
+        }
     }
 
     private fun startTimer() {
@@ -164,6 +233,16 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                     longBreakFrag.arguments = bundle
                     longBreakFragment()
                 }
+
+                if (ActivityCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.POST_NOTIFICATIONS
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                } else {
+                    timerNotification()
+                }
             }
         }.start()
         isTimerRunning = true
@@ -191,7 +270,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
     // Redirect to ShortBreakFragment
     private fun shortBreakFragment() {
-        parentFragmentManager.beginTransaction()
+        childFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, shortBreakFrag)
             .setReorderingAllowed(true)
             .addToBackStack(null)
@@ -200,7 +279,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
 
     // Redirect to LongBreakFragment
     private fun longBreakFragment() {
-        parentFragmentManager.beginTransaction()
+        childFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, longBreakFrag)
             .setReorderingAllowed(true)
             .addToBackStack(null)

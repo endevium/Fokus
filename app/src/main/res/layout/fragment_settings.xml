@@ -70,11 +70,6 @@
                 app:cardElevation="8dp"
                 app:cardBackgroundColor="@color/white">
 
-
-
-
-
-
             </androidx.cardview.widget.CardView>
 
 
@@ -341,7 +336,7 @@
 
             <LinearLayout
                 android:layout_width="300dp"
-                android:layout_height="150dp"
+                android:layout_height="80dp"
                 android:background="@drawable/etcontainer"
                 android:gravity="start"
                 android:orientation="vertical">
@@ -360,13 +355,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:drawableStart="@drawable/mute"
-                        android:text="  Silent mode"
+                        android:text="  Silent"
                         android:textColor="@color/lightblack"
                         android:textSize="16sp">
                     </TextView>
 
 
                     <Switch
+                        android:id="@+id/silentModeBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="false"
@@ -376,61 +372,6 @@
 
                 </LinearLayout>
 
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="7dp"
-                    android:gravity="start">
-
-
-                    <TextView
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:drawableStart="@drawable/vibrate"
-                        android:text="  Vibration"
-                        android:textSize="16sp"
-                        android:textColor="@color/lightblack">
-                    </TextView>
-
-
-                    <Switch
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:orientation="horizontal"
-                    android:gravity="start">
-
-
-                    <TextView
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:drawableStart="@drawable/notification"
-                        android:text="  Sound Notifications"
-                        android:textColor="@color/lightblack"
-                        android:textSize="16sp">
-                    </TextView>
-
-
-                    <Switch
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end" />
-
-
-                </LinearLayout>
 
 
                 <LinearLayout
