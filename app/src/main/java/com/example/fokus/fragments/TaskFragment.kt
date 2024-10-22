@@ -62,6 +62,7 @@ class TaskFragment : Fragment() {
             tvTask.setTextColor(color)
             tvTaskDesc.setTextColor(color)
         })
+
     }
 
     private fun fetchTasks() {

@@ -20,6 +20,7 @@ class SplashScreen : AppCompatActivity() {
             // Move to second activity after delay time
             if (getToken(applicationContext) == null) {
                 startActivity(Intent(this, SecondActivity::class.java))
+
                 finish()
             } else {
                 getToken(applicationContext)?.let { RetrofitClient.setToken(it) }

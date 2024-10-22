@@ -28,7 +28,6 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
     private lateinit var apiService: APIService
     private val save = saveUser()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -85,7 +84,7 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
             if (oldPasswordText.isNotEmpty() && newPasswordText.isNotEmpty()) {
                 if (oldPasswordText.length >= 8 && newPasswordText.length >= 8) {
                     if (oldPasswordText == save.getPassword(requireContext().applicationContext)) {
-                        if (id != null) {
+                        if (id != null && newPasswordText != save.getPassword(requireContext().applicationContext)) {
                             changePassword(id, newPasswordText)
                         }
                     } else {
@@ -138,7 +137,6 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
                     Toast.makeText(requireContext(), "$errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
-
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "${t.message}", Toast.LENGTH_LONG).show()

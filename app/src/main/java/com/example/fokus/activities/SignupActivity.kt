@@ -45,12 +45,18 @@ class SignupActivity : AppCompatActivity() {
 
         // Validate input if signUp button is clicked
         signUpBtn.setOnClickListener {
+            signUpBtn.isEnabled = false
+            signUpBtn.text = "Loading..."
             val username = sUser.text.toString().trim()
             val email = sEmail.text.toString().trim()
             val password = sPass.text.toString().trim()
+
             // Create account if credentials are valid
             if (validateUser() && validateEmail() && validatePass()) {
                 createAccount(username, password, email)
+            } else {
+                signUpBtn.isEnabled = true
+                signUpBtn.text = "Sign Up"
             }
         }
 
@@ -161,11 +167,15 @@ class SignupActivity : AppCompatActivity() {
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(this@SignupActivity, "Signup Failed: $errorResponse", Toast.LENGTH_SHORT).show()
+                    signUpBtn.isEnabled = true
+                    signUpBtn.text = "Sign Up"
                 }
             }
 
             override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
                 Toast.makeText(this@SignupActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                signUpBtn.isEnabled = true
+                signUpBtn.text = "Sign Up"
             }
         })
     }

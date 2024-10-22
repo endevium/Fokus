@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,15 +8,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/tvProfile"
@@ -28,6 +32,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+
             <ImageView
                 android:id="@+id/profilePicture"
                 android:layout_width="255dp"
@@ -35,6 +40,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/profile_circle" />
+
 
             <TextView
                 android:id="@+id/tvUsername"
@@ -46,6 +52,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
+
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
@@ -53,7 +60,10 @@
                 android:layout_gravity="center"
                 android:text="joco.paner.up@phinmaed.com" />
 
+
         </LinearLayout>
+
+
 
 
         <LinearLayout
@@ -62,21 +72,24 @@
             android:layout_alignParentBottom="true"
             android:gravity="center">
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="55dp"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
+                app:cardElevation="16dp"
                 app:cardBackgroundColor="@color/white">
+
 
                 <LinearLayout
                     android:id="@+id/logoutBtn"
-                    android:layout_width="300dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/etcontainer"
+                    android:layout_width="275dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/logout_selector"
                     android:layout_alignParentBottom="true"
                     android:gravity="center">
+
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -88,14 +101,22 @@
                         android:textSize="16dp"
                         android:layout_marginEnd="150dp"/>
 
+
                 </LinearLayout>
 
+
             </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
 
 
+
+
     </RelativeLayout>
 
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 

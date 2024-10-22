@@ -1,13 +1,16 @@
 package com.example.fokus
 
+
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.fokus.api.loadPomodoroSettings
 import com.example.fokus.api.pomodoroSettings
+
 
 class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
     private lateinit var firstUpBtn: ImageButton
@@ -27,34 +30,42 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
     private lateinit var saveBtn: TextView
     private val pmdr = pomodoroSettings()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         firstUpBtn = view.findViewById(R.id.firstUpBtn)
         secondUpBtn = view.findViewById(R.id.secondUpBtn)
         thirdUpBtn = view.findViewById(R.id.thirdUpBtn)
         fourthUpBtn = view.findViewById(R.id.fourthUpBtn)
 
+
         firstDigit = view.findViewById(R.id.firstDigit)
         secondDigit = view.findViewById(R.id.secondDigit)
         thirdDigit = view.findViewById(R.id.thirdDigit)
         fourthDigit = view.findViewById(R.id.fourthDigit)
+
 
         firstDownBtn = view.findViewById(R.id.firstDownBtn)
         secondDownBtn = view.findViewById(R.id.secondDownBtn)
         thirdDownBtn = view.findViewById(R.id.thirdDownBtn)
         fourthDownBtn = view.findViewById(R.id.fourthDownBtn)
 
+
         resetBtn = view.findViewById(R.id.resetBtn)
         backBtn = view.findViewById(R.id.backBtn)
         saveBtn = view.findViewById(R.id.saveBtn)
 
+
         val settings = loadPomodoroSettings()
+
 
         if (settings.loadFirstDigit(requireContext()) != null &&
             settings.loadSecondDigit(requireContext()) != null &&
             settings.loadThirdDigit(requireContext()) != null &&
             settings.loadFourthDigit(requireContext()) != null) {
+
 
             firstDigit.text = settings.loadFirstDigit(requireContext())
             secondDigit.text = settings.loadSecondDigit(requireContext())
@@ -62,37 +73,46 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
             fourthDigit.text = settings.loadFourthDigit(requireContext())
         }
 
+
         firstUpBtn.setOnClickListener {
             addDigit(firstDigit)
         }
+
 
         firstDownBtn.setOnClickListener {
             subtractDigit(firstDigit)
         }
 
+
         secondUpBtn.setOnClickListener {
             addDigit(secondDigit)
         }
+
 
         secondDownBtn.setOnClickListener {
             subtractDigit(secondDigit)
         }
 
+
         thirdUpBtn.setOnClickListener {
             addDigit(thirdDigit)
         }
+
 
         thirdDownBtn.setOnClickListener {
             subtractDigit(thirdDigit)
         }
 
+
         fourthUpBtn.setOnClickListener {
             addDigit(fourthDigit)
         }
 
+
         fourthDownBtn.setOnClickListener {
             subtractDigit(fourthDigit)
         }
+
 
         resetBtn.setOnClickListener {
             firstDigit.text = "2"
@@ -101,14 +121,17 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
             fourthDigit.text = "0"
         }
 
+
         saveBtn.setOnClickListener {
             saveSettings()
         }
+
 
         backBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
     }
+
 
     private fun addDigit(digit: TextView) {
         var currentDigit: Int = digit.text.toString().toInt()
@@ -125,6 +148,7 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
         }
     }
 
+
     private fun subtractDigit(digit: TextView) {
         val currentDigit: Int = digit.text.toString().toInt()
         if (currentDigit > 0) {
@@ -133,16 +157,21 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
         }
     }
 
+
     private fun saveSettings() {
         val firstNum = firstDigit.text.toString()
         val secondNum = secondDigit.text.toString()
         val minutesStr = "$firstNum$secondNum"
 
+
         val thirdNum = thirdDigit.text.toString()
         val fourthNum = fourthDigit.text.toString()
         val secondsStr = "$thirdNum$fourthNum"
 
+
         pmdr.savePomodoro(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
-        secondNum, thirdNum, fourthNum)
+            secondNum, thirdNum, fourthNum)
+        Toast.makeText(requireContext(), "Reset timer to see changes", Toast.LENGTH_LONG).show()
     }
 }
+

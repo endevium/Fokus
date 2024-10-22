@@ -53,6 +53,8 @@ class LoginActivity : AppCompatActivity() {
         rememberMe.isChecked = sharedPref.getBoolean("isRemembered", false)
 
         loginBtn.setOnClickListener {
+            loginBtn.isEnabled = false
+            loginBtn.text = "Loading..."
             val email = lEmail.text.toString().trim()
             val password = lPass.text.toString().trim()
             val isRemembered = rememberMe.isChecked
@@ -70,6 +72,9 @@ class LoginActivity : AppCompatActivity() {
             // Do login function if email and password are valid
             if (validateEmail() && validatePass()) {
                 login(email, password)
+            } else {
+                loginBtn.isEnabled = true
+                loginBtn.text = "Log In"
             }
         }
 
@@ -82,7 +87,6 @@ class LoginActivity : AppCompatActivity() {
         showPassBtn.setOnClickListener{
             val currentTypeface = lPass.typeface
             val currentSelection = lPass.selectionStart
-
 
             lPass.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             lPass.transformationMethod = null  // Ensure the password is shown in plain text
@@ -97,7 +101,6 @@ class LoginActivity : AppCompatActivity() {
             val currentTypeface = lPass.typeface
             val currentSelection = lPass.selectionStart
 
-
             lPass.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             lPass.transformationMethod = PasswordTransformationMethod.getInstance()  // Make sure the password is hidden
             lPass.typeface = currentTypeface
@@ -105,7 +108,6 @@ class LoginActivity : AppCompatActivity() {
             hidePassBtn.visibility = View.GONE
             showPassBtn.visibility = View.VISIBLE
         }
-
 
         forgotPasswordLayout.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
@@ -171,11 +173,15 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(this@LoginActivity, "Login failed: $errorResponse", Toast.LENGTH_SHORT).show()
+                    loginBtn.isEnabled = true
+                    loginBtn.text = "Log In"
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                loginBtn.isEnabled = true
+                loginBtn.text = "Log In"
             }
         })
     }

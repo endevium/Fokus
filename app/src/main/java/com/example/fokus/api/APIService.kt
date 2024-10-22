@@ -30,6 +30,11 @@ interface APIService {
         @Part profile_picture: MultipartBody.Part
     ): Call<ProfilePictureResponse>
 
+    @GET("/api/profile/picture/{id}")
+    fun getProfile(
+        @Path("id") id: Int
+    ): Call<ProfilePictureResponse>
+
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @PUT("/api/FokusApp/{id}")

@@ -2,7 +2,10 @@ package com.example.fokus
 
 import android.media.Image
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -44,6 +47,9 @@ class SettingsFragment : Fragment() {
         val changePTimerFragment: LinearLayout = view.findViewById(R.id.changeptimerBtn)
         val changeSBTimerFragment: LinearLayout = view.findViewById(R.id.changesbtimerBtn)
         val changeLBTimerFragment: LinearLayout = view.findViewById(R.id.changelbtimerBtn)
+        val handler = Handler(Looper.getMainLooper())
+        var isIncreasing = false
+        var isDecreasing = false
 
         tvSettings = view.findViewById(R.id.tvSettings)
         tvAccountSettings = view.findViewById(R.id.tvAccountSettings)
@@ -126,6 +132,41 @@ class SettingsFragment : Fragment() {
             }
         }
 
+        val increaseVolume = object : Runnable {
+            override fun run() {
+                val currentVolume = volume.text.toString().toInt()
+                if (silentBtn.isChecked && isIncreasing) {
+                    silentBtn.isChecked = false
+                }
+
+                if (currentVolume < 100 && isIncreasing) {
+                    val newVolume = currentVolume + 1
+                    volume.text = newVolume.toString()
+
+                    (requireActivity() as MainActivity).changeVolume(newVolume)
+                    save.saveSilent(requireContext().applicationContext, false)
+                    save.saveVolume(requireContext().applicationContext, newVolume)
+
+                    handler.postDelayed(this, 100)
+                }
+            }
+        }
+
+        val decreaseVolume = object : Runnable {
+            override fun run() {
+                val currentVolume = volume.text.toString().toInt()
+                if (currentVolume > 0 && isDecreasing) {
+                    val newVolume = currentVolume - 1
+                    volume.text = newVolume.toString()
+
+                    (requireActivity() as MainActivity).changeVolume(newVolume)
+                    save.saveVolume(requireContext().applicationContext, newVolume)
+
+                    handler.postDelayed(this, 100)
+                }
+            }
+        }
+
         increase.setOnClickListener {
             val currentVolume = volume.text.toString().toInt()
             if (currentVolume < 100) {
@@ -141,6 +182,19 @@ class SettingsFragment : Fragment() {
             }
         }
 
+        increase.setOnLongClickListener {
+            isIncreasing = true
+            handler.post(increaseVolume)
+            true
+        }
+
+        increase.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isIncreasing = false
+            }
+            false
+        }
+
         decrease.setOnClickListener {
             val currentVolume = volume.text.toString().toInt()
             if (currentVolume > 0) {
@@ -151,7 +205,18 @@ class SettingsFragment : Fragment() {
                 save.saveVolume(requireContext().applicationContext, newVolume)
             }
         }
+
+        decrease.setOnLongClickListener {
+            isDecreasing = true
+            handler.post(decreaseVolume)
+            true
+        }
+
+        decrease.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isDecreasing = false
+            }
+            false
+        }
     }
-
-
 }

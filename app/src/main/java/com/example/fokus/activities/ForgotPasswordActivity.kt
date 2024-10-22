@@ -9,9 +9,11 @@ import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.fokus.R
 import com.example.fokus.api.APIService
 import com.example.fokus.api.RetrofitClient
+import com.example.fokus.api.saveUser
 import com.example.fokus.models.ChangePasswordResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,20 +26,17 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private lateinit var sConfirmPass: EditText
     private lateinit var showPassBtn: ImageButton
     private lateinit var hidePassBtn: ImageButton
+    private lateinit var backBtn: ImageButton
     private lateinit var showConfirmPassBtn: ImageButton
     private lateinit var hideConfirmPassBtn: ImageButton
     private lateinit var resetBtn: Button
     private lateinit var apiService: APIService
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgotpassword)
 
-
-        val backBtn = findViewById<ImageButton>(R.id.backBtn)
-
-
+        backBtn = findViewById(R.id.backBtn)
         sUser = findViewById(R.id.sUser)
         sPass = findViewById(R.id.sPass)
         sConfirmPass = findViewById(R.id.sConfirmPass)
@@ -72,6 +71,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
         }
 
         resetBtn.setOnClickListener {
+            resetBtn.isEnabled = false
+            resetBtn.text = "Loading..."
             val email = sUser.text.toString()
             val newPass = sPass.text.toString()
             val confirmPass = sConfirmPass.text.toString()
@@ -83,15 +84,23 @@ class ForgotPasswordActivity : AppCompatActivity() {
                             resetPassword(email, newPass)
                         } else {
                             Toast.makeText(applicationContext, "Confirm password does not match", Toast.LENGTH_LONG).show()
+                            resetBtn.isEnabled = true
+                            resetBtn.text = "Reset Password"
                         }
                     } else {
                         Toast.makeText(applicationContext, "Password must be at least 8 characters length", Toast.LENGTH_LONG).show()
+                        resetBtn.isEnabled = true
+                        resetBtn.text = "Reset Password"
                     }
                 } else {
                     Toast.makeText(applicationContext, "Invalid e-mail address", Toast.LENGTH_LONG).show()
+                    resetBtn.isEnabled = true
+                    resetBtn.text = "Reset Password"
                 }
             } else {
                 Toast.makeText(applicationContext, "Please enter your e-mail address and a new password", Toast.LENGTH_LONG).show()
+                resetBtn.isEnabled = true
+                resetBtn.text = "Reset Password"
             }
         }
     }
@@ -104,11 +113,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(applicationContext, "Error: $errorResponse", Toast.LENGTH_LONG).show()
+                    resetBtn.isEnabled = true
+                    resetBtn.text = "Reset Password"
                 }
             }
 
             override fun onFailure(call: Call<ChangePasswordResponse>, t: Throwable) {
                 Toast.makeText(applicationContext, "${t.message}", Toast.LENGTH_LONG).show()
+                resetBtn.isEnabled = true
+                resetBtn.text = "Reset Password"
             }
 
         })

@@ -3,11 +3,11 @@ package com.example.fokus.fragments
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
@@ -16,7 +16,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.fokus.*
 import com.example.fokus.api.*
 import com.example.fokus.models.*
-import org.w3c.dom.Text
 import retrofit2.*
 
 class NotesFragment : Fragment() {
@@ -24,7 +23,7 @@ class NotesFragment : Fragment() {
     private lateinit var tvNotesDesc: TextView
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var notesCardLayout: LinearLayout
-    private lateinit var addNoteBtn: ImageButton
+    private lateinit var addNoteBtn: LinearLayout
     private lateinit var apiService: APIService
     private lateinit var editNotesFrag: EditNotesFragment
     private lateinit var notes_container: RelativeLayout
@@ -50,6 +49,18 @@ class NotesFragment : Fragment() {
         tvNotes = view.findViewById(R.id.tvNotes)
         tvNotesDesc = view.findViewById(R.id.tvNotesDesc)
         notes_container = view.findViewById(R.id.notes_container)
+
+        fetchNotes()
+
+        parentFragmentManager.setFragmentResultListener("noteUpdated", viewLifecycleOwner) { _, _ ->
+            notesCardLayout.removeAllViews()
+            fetchNotes()
+
+            tvNotes.visibility = View.VISIBLE
+            tvNotesDesc.visibility = View.VISIBLE
+            notesCardLayout.visibility = View.VISIBLE
+            addNoteBtn.visibility = View.VISIBLE
+        }
 
         addNoteBtn.setOnClickListener {
             // Create an empty note card when add button is clicked
@@ -80,7 +91,6 @@ class NotesFragment : Fragment() {
                 if (response.isSuccessful) {
                     notesList.clear()
                     notesList.addAll(response.body()!!)
-                    // Display all fetched notes from the hashmap
                     displayNotes()
                 } else {
                     Toast.makeText(requireContext(), "Fetching notes failed", Toast.LENGTH_SHORT).show()
@@ -268,6 +278,11 @@ class NotesFragment : Fragment() {
         }
 
         editButton.setOnClickListener {
+            tvNotes.visibility = View.GONE
+            tvNotesDesc.visibility = View.GONE
+            notesCardLayout.visibility = View.GONE
+            addNoteBtn.visibility = View.GONE
+
             val newEditNotesFrag = EditNotesFragment()
             newEditNotesFrag.arguments = Bundle().apply {
                 putInt("id", id)
@@ -281,7 +296,6 @@ class NotesFragment : Fragment() {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // Add transition effect
                 .commit()
         }
-
 
         firstLinearLayout.addView(noteTitle) // Add note title
         firstLinearLayout.addView(closeBtn) // Add close button

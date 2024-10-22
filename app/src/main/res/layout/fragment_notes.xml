@@ -57,6 +57,7 @@
         </ScrollView>
 
         <LinearLayout
+            android:id="@+id/addnoteBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="275dp"
@@ -64,7 +65,6 @@
             android:background="@drawable/ancontainer">
 
             <ImageButton
-                android:id="@+id/addnoteBtn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/addnotes"

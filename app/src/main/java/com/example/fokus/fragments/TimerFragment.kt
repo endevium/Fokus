@@ -1,5 +1,6 @@
 package com.example.fokus.fragments
 
+
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -22,12 +23,10 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.pomodoroSettings
 import com.example.fokus.api.saveSettings
-import org.w3c.dom.Text
 
 class TimerFragment : Fragment(R.layout.fragment_timer) {
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
@@ -36,6 +35,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private lateinit var tvPomodoro: TextView
     private lateinit var tvPomodoroDesc: TextView
     private lateinit var playButton: ImageButton
+    private lateinit var pauseButton: ImageButton
     private lateinit var restartButton: ImageButton
     private lateinit var nextButton: ImageButton
     private lateinit var stopBtn: ImageButton
@@ -49,6 +49,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private var phase: Int = 0
     private val notificationID = 101
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,14 +57,18 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         return inflater.inflate(R.layout.fragment_timer, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         // Assign values to element variables
         val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
 
+
         timerTextView = view.findViewById(R.id.timerTextView)
         playButton = view.findViewById(R.id.playButton)
+        pauseButton = view.findViewById(R.id.pauseButton)
         restartButton = view.findViewById(R.id.restartButton)
         nextButton = view.findViewById(R.id.tnxtBtn)
         stopBtn = view.findViewById(R.id.stopBtn)
@@ -71,6 +76,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         tvPomodoroDesc = view.findViewById(R.id.tvPomodoroDesc)
         shortBreakFrag = ShortBreakFragment()
         longBreakFrag = LongBreakFragment()
+
 
         createNotificationChannel()
         requestPermissionLauncher = registerForActivityResult(
@@ -96,18 +102,34 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         val fetchedPhase = args?.getInt("phase")
         val fetchedAutoStart = args?.getBoolean("autoStart")
 
+
         // Start automatically if fetchedAutoStart exists and is true
         if (fetchedAutoStart != null && fetchedAutoStart) {
             startTimer()
         }
+
 
         // Fetch passed phase argument if it exists
         if (fetchedPhase != null) {
             phase = fetchedPhase
         }
 
+
         // Start/pause timer if clicked
         playButton.setOnClickListener {
+            playButton.visibility = View.GONE
+            pauseButton.visibility = View.VISIBLE
+            (activity as? MainActivity)?.toggleMusic()
+            if (!isTimerRunning) {
+                startTimer()
+            } else if (isTimerRunning) {
+                isTimerRunning = false
+                timer?.cancel()
+            }
+        }
+        pauseButton.setOnClickListener {
+            playButton.visibility = View.VISIBLE
+            pauseButton.visibility = View.GONE
             (activity as? MainActivity)?.toggleMusic()
             if (!isTimerRunning) {
                 startTimer()
@@ -117,13 +139,28 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             }
         }
 
+
         // Reset timer if clicked
         restartButton.setOnClickListener {
+            (requireActivity() as MainActivity).stopMusic()
+
+            if (pauseButton.visibility == View.VISIBLE) {
+                pauseButton.visibility = View.GONE
+                playButton.visibility = View.VISIBLE
+            }
+
             resetTimer()
         }
 
         // Increment and pass pomodoro phase args and move to the next phase
         nextButton.setOnClickListener {
+            (requireActivity() as MainActivity).stopMusic()
+
+            if (pauseButton.visibility == View.VISIBLE) {
+                pauseButton.visibility = View.GONE
+                playButton.visibility = View.VISIBLE
+            }
+
             val bundle = Bundle()
             phase += 1
             bundle.putInt("phase", phase)
@@ -145,7 +182,15 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             }
         }
 
+
         stopBtn.setOnClickListener {
+            (requireActivity() as MainActivity).stopMusic()
+
+            if (pauseButton.visibility == View.VISIBLE) {
+                pauseButton.visibility = View.GONE
+                playButton.visibility = View.VISIBLE
+            }
+
             phase = 0
             Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
             resetTimer()
@@ -170,6 +215,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                 vibrationPattern = vibrationPattern
             }
 
+
             val notificationManager: NotificationManager =
                 requireContext().getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel)
@@ -186,6 +232,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             .setAutoCancel(true)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
 
+
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.POST_NOTIFICATIONS
@@ -195,9 +242,14 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             return
         }
 
+
         with(NotificationManagerCompat.from(requireContext())) {
             notify(notificationID, builder.build())
         }
+    }
+
+    fun testFunction() {
+
     }
 
     private fun startTimer() {
@@ -208,15 +260,18 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                 updateTimer()
             }
 
+
             // Increment phase and move to the next phase if timer hits 0
             override fun onFinish() {
                 timerTextView.text = "00:00"
                 isTimerRunning = false
 
+
                 val bundle = Bundle()
                 phase += 1
                 bundle.putInt("phase", phase)
                 bundle.putBoolean("autoStart", true)
+
 
                 /*
                     Phases:
@@ -226,6 +281,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                     3 -> Long Break
                 */
 
+
                 if (phase == 1) {
                     shortBreakFrag.arguments = bundle
                     shortBreakFragment()
@@ -233,6 +289,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                     longBreakFrag.arguments = bundle
                     longBreakFragment()
                 }
+
 
                 if (ActivityCompat.checkSelfPermission(
                         requireContext(),
@@ -248,8 +305,9 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         isTimerRunning = true
     }
 
+
     // Reset timer
-    private fun resetTimer() {
+    fun resetTimer() {
         timer?.cancel()
         if (pmdr.pomodoroMinutes(requireContext()) != null && pmdr.pomodoroSeconds(requireContext()) != null) {
             val minutes = pmdr.pomodoroMinutes(requireContext()) ?: 25
@@ -258,8 +316,10 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             updateTimer()
         }
 
+
         isTimerRunning = false
     }
+
 
     // Update timerTextView
     private fun updateTimer() {
@@ -267,6 +327,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
         val minutes = (timeLeft / 1000) / 60
         timerTextView.text = String.format("%02d:%02d", minutes, seconds)
     }
+
 
     // Redirect to ShortBreakFragment
     private fun shortBreakFragment() {
@@ -277,6 +338,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             .commit()
     }
 
+
     // Redirect to LongBreakFragment
     private fun longBreakFragment() {
         childFragmentManager.beginTransaction()
@@ -286,9 +348,11 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
             .commit()
     }
 
+
     // Cancel countdown on destroy
     override fun onDestroy() {
         super.onDestroy()
         timer?.cancel()
     }
 }
+

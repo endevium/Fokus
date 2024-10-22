@@ -80,6 +80,12 @@ class MainActivity : AppCompatActivity() {
         musicPlayer = MediaPlayer.create(this, track)
     }
 
+    fun stopMusic() {
+        if (musicPlayer.isPlaying) {
+            musicPlayer.pause()
+        }
+    }
+
     fun changeVolume(volume: Int) {
         val clamped = volume.coerceIn(0, 100)
         val actualVolume = clamped / 100f
@@ -89,7 +95,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewPagerAndTabs() {
         val adapter = MainViewPagerAdapter(this)
         viewPager.adapter = adapter
-        viewPager.offscreenPageLimit = 5
+        viewPager.offscreenPageLimit = 6
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {

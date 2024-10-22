@@ -40,10 +40,16 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes){
         if (fetchedTitle != "Note Title") title.setText(fetchedTitle) else title.text = null
         if (fetchedContent != "Note Description") content.setText(fetchedContent) else content.text = null
 
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            title.setTextColor(color)
+        })
+
         backBtn.setOnClickListener {
             if (id != null) {
                 val updatedTitle = if (title.text.isNotEmpty()) title.text.toString() else "Note Title"
                 val updatedContent = if (content.text.isNotEmpty()) content.text.toString() else "Note Description"
+
+                parentFragmentManager.setFragmentResult("noteUpdated", Bundle())
 
                 updateNote(id, updatedTitle, updatedContent)
             }
@@ -67,4 +73,14 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes){
 
         })
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Manually trigger onResume actions in NotesFragment when returning to it
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragment = fragmentManager.findFragmentByTag("NotesFragment") as? NotesFragment
+        fragment?.onResume() // This forces the onResume behavior
+    }
 }
+

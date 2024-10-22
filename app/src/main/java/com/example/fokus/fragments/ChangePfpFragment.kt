@@ -19,6 +19,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import okhttp3.MultipartBody
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.InputStream
 import retrofit2.*
 import java.io.File
@@ -46,6 +47,7 @@ class ChangePfpFragment : Fragment(R.layout.fragment_changepfp) {
         apiService = RetrofitClient.create(APIService::class.java)
 
         username.text = save.getUsername(requireContext().applicationContext)
+        save.getId(requireContext().applicationContext)?.let { getImage(it) }
 
         backBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -54,6 +56,8 @@ class ChangePfpFragment : Fragment(R.layout.fragment_changepfp) {
         cancelBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+
+
 
         editProfile.setOnClickListener {
             ImagePicker.with(this)
@@ -85,7 +89,52 @@ class ChangePfpFragment : Fragment(R.layout.fragment_changepfp) {
         }
     }
 
-    private fun uploadImage(url: Uri?) {
-        //
+    private fun uploadImage(imageUri: Uri?) {
+        // Convert URI to file
+        val file = File(imageUri?.path)
+
+        // Create RequestBody and MultipartBody.Part for file
+        val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
+        val body = MultipartBody.Part.createFormData("profile_picture", file.name, requestFile)
+
+        // Call the API using Retrofit
+        apiService.uploadProfile(body)
+            .enqueue(object : Callback<ProfilePictureResponse> {
+                override fun onResponse(call: Call<ProfilePictureResponse>, response: Response<ProfilePictureResponse>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(requireContext(), "Upload successful!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(requireContext(), "Upload failed: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfilePictureResponse>, t: Throwable) {
+                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
+
+    private fun getImage(id: Int) {
+        apiService.getProfile(id).enqueue(object: Callback<ProfilePictureResponse> {
+            override fun onResponse(call: Call<ProfilePictureResponse>, response: Response<ProfilePictureResponse>) {
+                if (response.isSuccessful) {
+                    val profilePictureUrl = response.body()?.profile_picture_url
+                    profilePictureUrl?.let {
+                        // Load the image into the ImageView using Glide
+                        Glide.with(requireContext())
+                            .load(it)
+                            .circleCrop()
+                            .into(profilePicture)
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "Failed to load profile picture", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ProfilePictureResponse>, t: Throwable) {
+                Toast.makeText(requireContext(), "Failed to load profile picture", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }
