@@ -9,6 +9,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ProfileController;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
+
 // Registration route
 Route::post('/register', [AuthController::class, 'signup']);
 
@@ -39,6 +40,11 @@ Route::middleware('auth:sanctum')->group(function () {
     //TASK COMPLETION ROUTES
     Route::put('/task/{id}/complete', [FokusController::class, 'completeTask']);
     Route::get('/task/{id}/status', [FokusController::class, 'checkTaskCompletion']);
+
+    //TASK HISTORY ROUTES
+    Route::get('/task/{task_id}/history', [TaskController::class, 'getTaskHistory']);
+    Route::get('/task-history', [TaskController::class, 'getAllTaskHistory']);
+
 
     // Route for updating username
     Route::put('/FokusApp/{id}/username', [FokusController::class, 'update']);

@@ -14,7 +14,17 @@ class TaskController extends Controller
     {
         $tasks = TaskModel::where('fokus_app_id', Auth::id())->get(); // Retrieve tasks for the logged-in user
         return response()->json($tasks);
+
     }
+    public function getAllTaskHistory()//FETCH ALL THE TASK HISTORY
+    {
+        $taskHistory = TaskHistory::all();
+
+        return response()->json([
+            'task_history' => $taskHistory
+        ], 200);
+    }
+
 
     // Store  new task
     public function store(Request $request)

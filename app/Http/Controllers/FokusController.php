@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\FokusApp;
 use App\Models\TaskModel;
+use App\Models\TaskHistory; // Add TaskHistory model if required
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class FokusController extends Controller
 {
     public function index()
     {
-        // Fetch all users from the FokusApp model
         $users = FokusApp::all();
-
         return response()->json($users);
     }
 
@@ -22,35 +22,34 @@ class FokusController extends Controller
         $messages = [
             'username.unique' => 'The username has already been taken.',
             'email.unique' => 'The email has already been registered.',
+            'password.regex' => 'The password must contain no spaces and at most one special character.',
+            'username.regex' => 'The username must not contain spaces or multiple special characters.',
         ];
 
-        // Validate incoming request data
         $request->validate([
             'username' => [
                 'required',
                 'string',
                 'max:255',
                 'unique:fokus_app',
-                'regex:/^[A-Za-z0-9][A-Za-z0-9!@#$%^&*()_+=-]*$/', // Username must not contain spaces or multiple special characters
+                'regex:/^[A-Za-z0-9]+(?:[!@#$%^&*()_+=-]{0,1}[A-Za-z0-9]+)*$/'
             ],
             'password' => [
                 'required',
                 'string',
                 'min:8',
                 'max:50',
-                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-].*[!@#$%^&*()_+=-]).*$/', // Password must not contain spaces or multiple special characters
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
             ],
             'email' => [
                 'required',
                 'string',
-                'email',
+                'email:rfc,dns',
                 'max:255',
                 'unique:fokus_app',
-                'regex:/^[a-zA-Z0-9._%+-]+@\.com$/'
             ],
         ], $messages);
 
-        // Create a new user and hash the password
         $fokusApp = new FokusApp([
             'username' => $request->username,
             'password' => Hash::make($request->password),
@@ -64,7 +63,6 @@ class FokusController extends Controller
 
     public function show($id)
     {
-        // Fetch a specific user by ID
         $fokusApp = FokusApp::find($id);
 
         if (!$fokusApp) {
@@ -89,7 +87,7 @@ class FokusController extends Controller
                 'string',
                 'max:255',
                 'unique:fokus_app,username,' . $fokusApp->id,
-                'regex:/^[A-Za-z0-9][A-Za-z0-9!@#$%^&*()_+=-]*$/', // Username must not contain spaces or multiple special characters
+                'regex:/^[A-Za-z0-9]+(?:[!@#$%^&*()_+=-]{0,1}[A-Za-z0-9]+)*$/'
             ],
             'password' => [
                 'sometimes',
@@ -97,16 +95,15 @@ class FokusController extends Controller
                 'string',
                 'min:8',
                 'max:50',
-                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-].*[!@#$%^&*()_+=-]).*$/'
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
             ],
             'email' => [
                 'required',
                 'string',
-                'email',
+                'email:rfc,dns',
                 'max:255',
                 'unique:fokus_app,email,' . $fokusApp->id,
-                'regex:/^[a-zA-Z0-9._%+-]+@\.com$/'
-
+                'regex:/^.+@mail\.com$/'
             ],
         ], [
             'password.regex' => 'The password must contain no spaces and at most one special character.',
@@ -114,23 +111,11 @@ class FokusController extends Controller
             'email.regex' => 'Must be a valid email.',
         ]);
 
-        // Update the fields only if they are present in the request
+        $fokusApp->username = $request->username ?? $fokusApp->username;
+        $fokusApp->email = $request->email ?? $fokusApp->email;
+
         if ($request->has('password')) {
-            // Hash the new password and update it
             $fokusApp->password = Hash::make($request->password);
-        }
-
-        if ($request->has('username')) {
-            // Check if the new username is the same as the current username
-            if ($request->username === $fokusApp->username) {
-                return response()->json(['message' => 'New username must be different from the current username'], 400);
-            }
-            
-            $fokusApp->username = $request->username;
-        }
-
-        if ($request->has('email')) {
-            $fokusApp->email = $request->email;
         }
 
         $fokusApp->save();
@@ -169,51 +154,50 @@ class FokusController extends Controller
         }
     }
 
-    // CHANGE PASSWORD
     public function changePassword(Request $request)
     {
-        // Validate incoming request data
         $request->validate([
-            'email' => 'required|string|email',
+            'email' => 'required|string|email:rfc,dns',
             'new_password' => 'required|string|min:16',
         ]);
 
-        // Find user by email
         $user = FokusApp::where('email', $request->email)->first();
 
         if (!$user) {
             return response()->json(['message' => 'Email not found'], 404);
         }
 
-        // Check if the new password is the same as the current password
         if (Hash::check($request->new_password, $user->password)) {
             return response()->json(['message' => 'New password must be different from the current password'], 400);
         }
 
-        // Hash new password and update it
         $user->password = Hash::make($request->new_password);
         $user->save();
 
         return response()->json(['message' => 'Password changed successfully!'], 200);
     }
 
-    // TASK METHOD
     public function completeTask(Request $request, $id)
     {
         $request->validate([
             'is_completed' => 'required|boolean',
         ]);
 
-        // Find the task by ID
         $task = TaskModel::find($id);
 
         if (!$task) {
             return response()->json(['message' => 'Task not found'], 404);
         }
 
-        // Update task completion status
-        $task->is_completed = $request->is_completed; // true or false based on request
+        $task->is_completed = $request->is_completed;
         $task->save(); 
+
+        TaskHistory::create([
+            'task_id' => $task->id,
+            'user_id' => Auth::id(),
+            'status' => 'Completed',
+            'description' => 'Marked the task "' . $task->task_title . '" as ' . ($task->is_completed ? 'completed' : 'incomplete'),
+        ]);
 
         return response()->json(['message' => 'Task completion status updated successfully!', 'task' => $task], 200);
     }
@@ -226,7 +210,7 @@ class FokusController extends Controller
             return response()->json(['message' => 'Task not found'], 404);
         }
 
-        $status = $task->is_completed ? 'complete' : 'incomplete';
-        return response()->json(['message' => 'Task is ' . $status, 'task' => $task], 200);
+        $status = $task->is_completed ? 'Task is already completed' : 'Task is not completed yet';
+        return response()->json(['message' => $status], 200);
     }
 }

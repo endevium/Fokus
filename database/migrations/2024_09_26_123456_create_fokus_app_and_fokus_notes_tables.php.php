@@ -22,6 +22,7 @@ class CreateFokusAppAndFokusNotesTables extends Migration
             });
         }
 
+        
         if (!Schema::hasTable('fokus_notes')) {
             Schema::create('fokus_notes', function (Blueprint $table) {
                 $table->id();
@@ -38,19 +39,21 @@ class CreateFokusAppAndFokusNotesTables extends Migration
                 $table->foreignId('fokus_app_id')->constrained('fokus_app')->onDelete('cascade');
                 $table->string('token')->unique();
                 $table->string('task_title');
-                $table->boolean('is_completed')->default(false); //task Field
+                $table->boolean('is_completed')->default(false);
                 $table->timestamps();
             });
         }
-        if (!Schema::create('task_history', function (Blueprint $table) {
-            $table->id(); 
-            $table->foreignId('task_id')->constrained('fokus_task')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('fokus_app')->onDelete('cascade'); 
-            $table->string('status');
-            $table->text('description')->nullable();
-            $table->timestamps();
-        })) {
-            
+
+       
+        if (!Schema::hasTable('task_history')) {
+            Schema::create('task_history', function (Blueprint $table) {
+                $table->id(); 
+                $table->foreignId('task_id')->constrained('fokus_task')->onDelete('cascade');
+                $table->foreignId('user_id')->constrained('fokus_app')->onDelete('cascade'); 
+                $table->string('status');
+                $table->text('description')->nullable();
+                $table->timestamps();
+            });
         }
     }
 
@@ -59,10 +62,9 @@ class CreateFokusAppAndFokusNotesTables extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fokus_task');
         Schema::dropIfExists('task_history');
+        Schema::dropIfExists('fokus_task');
         Schema::dropIfExists('fokus_notes');
         Schema::dropIfExists('fokus_app');
-        
     }
 }

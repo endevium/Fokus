@@ -4,35 +4,60 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash; // For hashing passwords
+use Illuminate\Support\Facades\Hash;
 use App\Models\FokusApp;
-use App\Models\NotesModel; 
-use App\Models\TaskModel; 
+use App\Models\NotesModel;
+use App\Models\TaskModel;
 use Laravel\Sanctum\HasApiTokens;
 
 class AuthController extends Controller
 {
-    use HasApiTokens; // Use HasApiTokens trait for token functionalities
+    use HasApiTokens;
 
     public function signup(Request $request)
     {
+        $messages = [
+            'username.required' => 'Username is required.',
+            'username.unique' => 'The username has already been taken.',
+            'username.regex' => 'Username must start with an alphanumeric character, allow specific special characters, and contain no spaces.',
+            'email.required' => 'Email is required.',
+            'email.unique' => 'The email has already been registered.',
+            'email.regex' => 'Email must be valid email.',
+            'password.required' => 'Password is required.',
+            'password.regex' => 'Password must be at least 8 characters, contain no spaces, and only one special character.',
+        ];
         $request->validate([
-            'username' => 'required|string|unique:fokus_app,username',
-            'email' => 'required|string|email|unique:fokus_app,email',
-            'password' => 'required|string|min:8',
-        ]);
+            'username' => [
+                'required',
+                'string',
+                'unique:fokus_app,username',
+                'regex:/^[A-Za-z0-9][A-Za-z0-9!@#$%^&*()_+=-]*$/', // Starts with alphanumeric, allows specific special characters, no spaces
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email:rfc,dns',
+                'max:255', // Length check
+                'unique:fokus_app,email',
 
-        // Create user and hash the password
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/', // No spaces, prevents repeated special characters
+            ],
+        ], $messages);
+
         $user = FokusApp::create([
             'username' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // Hashing the password
+            'password' => Hash::make($request->password),
         ]);
 
         if ($user->id) {
-            $token = $user->createToken('FokusApp')->plainTextToken; // Create token
+            $token = $user->createToken('FokusApp')->plainTextToken;
 
-            // Manual login for user
             Auth::login($user);
 
             if ($request->has('title') && $request->has('content')) {
@@ -44,7 +69,6 @@ class AuthController extends Controller
             }
 
             if ($request->has('task_name') && $request->has('is_completed')) {
-               
                 TaskModel::create([
                     'fokus_app_id' => $user->id,
                     'task_title' => $request->task_name, 
@@ -52,7 +76,6 @@ class AuthController extends Controller
                 ]);
             }
 
-            // Return the response with the user object and token
             return response()->json([
                 'message' => 'Account created successfully!', 
                 'token' => $token, 
@@ -60,39 +83,40 @@ class AuthController extends Controller
             ], 201);
         }
 
-        // If user creation fails, return error
         return response()->json(['message' => 'Account creation failed.'], 400);
     }
 
     public function login(Request $request)
     {
-        // Validate the login request data
         $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
+            'email' => [
+                'required',
+                'string',
+                'email:rfc,dns',
+                'max:255',
+            ],
+            'password' => [
+                'required',
+                'string',
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/' // No spaces, no repeating special characters
+            ],
         ]);
 
-        // Attempt to log in the user
         $credentials = $request->only('email', 'password');
         $user = FokusApp::where('email', $credentials['email'])->first();
 
         if ($user && Hash::check($credentials['password'], $user->password)) {
-            // Authentication passed, generate token
-            $token = $user->createToken('FokusApp')->plainTextToken; //TOKEN CREATION
+            $token = $user->createToken('FokusApp')->plainTextToken;
 
-            // Manual login
             Auth::login($user);
 
-            
             $loggedin = [
                 'id' => $user->id,
                 'username' => $user->username,
                 'email' => $user->email
             ];
 
-            
             if ($request->has('title') && $request->has('content')) {
-                // Insert a note
                 NotesModel::create([
                     'fokus_app_id' => $user->id,
                     'title' => $request->title, 
@@ -101,7 +125,6 @@ class AuthController extends Controller
             }
 
             if ($request->has('task_name') && $request->has('is_completed')) {
-               
                 TaskModel::create([
                     'fokus_app_id' => $user->id,
                     'task_title' => $request->task_name, 
@@ -109,7 +132,11 @@ class AuthController extends Controller
                 ]);
             }
 
-            return response()->json(['message' => 'Login successful', 'token' => $token, 'data' => $loggedin], 200);
+            return response()->json([
+                'message' => 'Login successful', 
+                'token' => $token, 
+                'data' => $loggedin
+            ], 200);
         }
 
         return response()->json(['message' => 'Invalid credentials'], 401);
