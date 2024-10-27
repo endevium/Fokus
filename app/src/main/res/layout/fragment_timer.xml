@@ -45,12 +45,12 @@
             android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="25:00"
             android:background="@drawable/timercontainer"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:gravity="center"
-            android:textSize="50sp" />
+            android:text="25:00"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textStyle="bold" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,35 +59,38 @@
 
 
             <TextView
+                android:id="@+id/pomodoroBar"
                 android:layout_width="85dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="25dp"
                 android:background="@drawable/ttvcontainer"
+                android:gravity="center"
                 android:text="Pomodoro"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
 
             <TextView
+                android:id="@+id/shortBreakBar"
                 android:layout_width="85dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="25dp"
                 android:background="@drawable/ttvcontainer3"
+                android:gravity="center"
                 android:text="Short Break"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="@color/lightblack" />
 
 
             <TextView
+                android:id="@+id/longBreakBar"
                 android:layout_width="85dp"
                 android:layout_height="30dp"
                 android:background="@drawable/ttvcontainer3"
+                android:gravity="center"
                 android:text="Long Break"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="@color/lightblack" />
 
 

@@ -65,10 +65,11 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         // Assign values to element variables
         val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
-
+        val args = this.arguments
+        val fetchedPhase = args?.getInt("phase")
+        val fetchedAutoStart = args?.getBoolean("autoStart")
 
         timerTextView = view.findViewById(R.id.timerTextView)
         playButton = view.findViewById(R.id.playButton)
@@ -79,7 +80,6 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         tvPomodoro = view.findViewById(R.id.tvPomodoro)
         tvPomodoroDesc = view.findViewById(R.id.tvPomodoroDesc)
         timerFragment = TimerFragment()
-
 
         createNotificationChannel()
         requestPermissionLauncher = registerForActivityResult(
@@ -94,6 +94,20 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             }
         }
 
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvPomodoro.setTextColor(color)
+            tvPomodoroDesc.setTextColor(color)
+        })
+
+        viewModel.resetTimerEvent.observe(viewLifecycleOwner, Observer { reset ->
+            if (reset) {
+                resetTimer()
+                if (pauseButton.visibility == View.VISIBLE) {
+                    playButton.visibility = View.VISIBLE
+                    pauseButton.visibility = View.GONE
+                }
+            }
+        })
 
         if (shrtbrk.shortbreakMinutes(requireContext()) != null && shrtbrk.shortbreakSeconds(requireContext()) != null) {
             val minutes = shrtbrk.shortbreakMinutes(requireContext()) ?: 5
@@ -102,23 +116,15 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             updateTimer()
         }
 
-
-        val args = this.arguments
-        val fetchedPhase = args?.getInt("phase")
-        val fetchedAutoStart = args?.getBoolean("autoStart")
-
-
         // Start automatically if fetchedAutoStart exists and is true
         if (fetchedAutoStart != null && fetchedAutoStart) {
             startTimer()
         }
 
-
         // Fetch passed phase args if it exists
         if (fetchedPhase != null) {
             phase = fetchedPhase
         }
-
 
         // Start/pause timer if clicked
         playButton.setOnClickListener {
@@ -144,12 +150,10 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             }
         }
 
-
         // Reset timer if clicked
         restartButton.setOnClickListener {
             resetTimer()
         }
-
 
         // Increment and pass pomodoro phase args and redirect back to TimerFragment
         nextButton.setOnClickListener {
@@ -173,13 +177,11 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
                 3 -> Long Break
              */
 
-
             if (phase == 2) {
                 timerFragment.arguments = bundle
                 timerFragment()
             }
         }
-
 
         stopBtn.setOnClickListener {
             (requireActivity() as MainActivity).stopMusic()
@@ -200,11 +202,6 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             }
         }
 
-
-        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
-            tvPomodoro.setTextColor(color)
-            tvPomodoroDesc.setTextColor(color)
-        })
     }
 
 
@@ -325,9 +322,9 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
     // Redirect back to TimerFragment
     private fun timerFragment() {
         childFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, timerFragment)
-            .addToBackStack(null)
-            .commit()
+            .replace(R.id.fragment_container, timerFragment, "TimerFragment")
+            .setReorderingAllowed(true)
+            .commitAllowingStateLoss()
     }
 
 

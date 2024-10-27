@@ -15,7 +15,7 @@ import com.example.fokus.fragments.SharedViewModel
 import com.example.fokus.models.NotesResponse
 import retrofit2.*
 
-class EditNotesFragment : Fragment (R.layout.fragment_editnotes){
+class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
     private lateinit var backBtn: ImageButton
     private lateinit var title: EditText
     private lateinit var content: EditText
@@ -42,6 +42,10 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes){
 
         viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
             title.setTextColor(color)
+        })
+
+        viewModel.backColor.observe(viewLifecycleOwner, Observer { drawable ->
+            backBtn.setImageResource(drawable)
         })
 
         backBtn.setOnClickListener {

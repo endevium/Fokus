@@ -5,6 +5,13 @@ import android.content.SharedPreferences
 import android.util.Log
 
 class saveSettings {
+    fun saveTheme(context: Context, theme: String) {
+        val sharedPref: SharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        val sharedPrefEditor = sharedPref.edit()
+        sharedPrefEditor.putString("theme", theme)
+        sharedPrefEditor.apply()
+    }
+
     fun saveSilent(context: Context, state: Boolean) {
         val sharedPref: SharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         val sharedPrefEditor = sharedPref.edit()
@@ -15,7 +22,6 @@ class saveSettings {
     fun saveVibration(context: Context, state: Boolean) {
         val sharedPref: SharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         val sharedPrefEditor = sharedPref.edit()
-        Log.d("SaveSettings", "Vibration state: $state")
         sharedPrefEditor.putBoolean("vibration", state)
         sharedPrefEditor.apply()
     }
@@ -25,6 +31,11 @@ class saveSettings {
         val sharedPrefEditor = sharedPref.edit()
         sharedPrefEditor.putInt("volume", volume)
         sharedPrefEditor.apply()
+    }
+
+    fun getTheme(context: Context): String? {
+        val sharedPref: SharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        return sharedPref.getString("theme", "default")
     }
 
     fun getSilent(context: Context): Boolean? {

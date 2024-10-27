@@ -200,8 +200,8 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:text="Reset"
-                android:textColor="@color/white"
-                android:background="@drawable/redbtn_selector"/>
+                android:textColor="@color/black"
+                android:background="@drawable/cancelbtn_selector"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -225,5 +225,5 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-    
+
 </RelativeLayout>

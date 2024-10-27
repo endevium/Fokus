@@ -12,6 +12,7 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -24,8 +25,12 @@ class TaskFragment : Fragment() {
     private lateinit var tvTask: TextView
     private lateinit var tvTaskDesc: TextView
     private lateinit var taskCardContainer: LinearLayout
+    private lateinit var task_container: RelativeLayout
     private lateinit var addTaskBtn: ImageButton
+    private lateinit var addTaskContainer: LinearLayout
+    private lateinit var taskHistoryContainer: LinearLayout
     private lateinit var apiService: APIService
+    private lateinit var taskHistoryBtn: ImageButton
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(
@@ -41,27 +46,66 @@ class TaskFragment : Fragment() {
         val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
 
         taskCardContainer = view.findViewById(R.id.taskCardContainer)
+        task_container = view.findViewById(R.id.task_container)
+        taskHistoryContainer = view.findViewById(R.id.taskHistoryButton)
         addTaskBtn = view.findViewById(R.id.addTask)
+        addTaskContainer = view.findViewById(R.id.addTaskContainer)
         apiService = RetrofitClient.create(APIService::class.java)
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
         tvTask = view.findViewById(R.id.tvTasks)
         tvTaskDesc = view.findViewById(R.id.tvTasksDesc)
+        taskHistoryBtn = view.findViewById(R.id.taskHistory)
 
         fetchTasks()
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvTask.setTextColor(color)
+            tvTaskDesc.setTextColor(color)
+        })
+
+        viewModel.addColor.observe(viewLifecycleOwner, Observer { drawable ->
+            addTaskBtn.setImageResource(drawable)
+        })
 
         // Create a new task card if clicked
         addTaskBtn.setOnClickListener {
             createTask("Task Title")
         }
 
-        swipeRefreshLayout.setOnRefreshListener {
-            refreshTasks()
+        parentFragmentManager.setFragmentResultListener("exitButtonClicked", viewLifecycleOwner) { _, _ ->
+            swipeRefreshLayout.isRefreshing = true
+            swipeRefreshLayout.postDelayed({
+                refreshTasks()
+
+                swipeRefreshLayout.isRefreshing = false
+            }, 1000)
+
+            tvTask.visibility = View.VISIBLE
+            tvTaskDesc.visibility = View.VISIBLE
+            taskCardContainer.visibility = View.VISIBLE
         }
 
-        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
-            tvTask.setTextColor(color)
-            tvTaskDesc.setTextColor(color)
-        })
+        taskHistoryBtn.setOnClickListener {
+            tvTask.visibility = View.GONE
+            tvTaskDesc.visibility = View.GONE
+            taskCardContainer.visibility = View.GONE
+
+            val taskHistoryFragment = TaskHistoryFragment()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.task_container, taskHistoryFragment)
+                .addToBackStack(null)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit()
+        }
+
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.postDelayed({
+                refreshTasks()
+
+                swipeRefreshLayout.isRefreshing = false
+            }, 1000)
+        }
+
 
     }
 

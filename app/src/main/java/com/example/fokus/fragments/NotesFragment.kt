@@ -24,6 +24,7 @@ class NotesFragment : Fragment() {
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var notesCardLayout: LinearLayout
     private lateinit var addNoteBtn: LinearLayout
+    private lateinit var addNote: ImageButton
     private lateinit var apiService: APIService
     private lateinit var editNotesFrag: EditNotesFragment
     private lateinit var notes_container: RelativeLayout
@@ -43,6 +44,7 @@ class NotesFragment : Fragment() {
 
         notesCardLayout = view.findViewById(R.id.notesCardLayout)
         addNoteBtn = view.findViewById(R.id.addnoteBtn)
+        addNote = view.findViewById(R.id.addNote)
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
         apiService = RetrofitClient.create(APIService::class.java)
         editNotesFrag = EditNotesFragment()
@@ -52,9 +54,19 @@ class NotesFragment : Fragment() {
 
         fetchNotes()
 
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvNotes.setTextColor(color)
+            tvNotesDesc.setTextColor(color)
+        })
+
         parentFragmentManager.setFragmentResultListener("noteUpdated", viewLifecycleOwner) { _, _ ->
-            notesCardLayout.removeAllViews()
-            fetchNotes()
+            swipeRefreshLayout.isRefreshing = true
+            swipeRefreshLayout.postDelayed({
+                notesCardLayout.removeAllViews()
+                fetchNotes()
+
+                swipeRefreshLayout.isRefreshing = false
+            }, 1000)
 
             tvNotes.visibility = View.VISIBLE
             tvNotesDesc.visibility = View.VISIBLE
@@ -63,6 +75,11 @@ class NotesFragment : Fragment() {
         }
 
         addNoteBtn.setOnClickListener {
+            // Create an empty note card when add button is clicked
+            createNote("Note Title", "Note Description")
+        }
+
+        addNote.setOnClickListener {
             // Create an empty note card when add button is clicked
             createNote("Note Title", "Note Description")
         }
@@ -76,10 +93,8 @@ class NotesFragment : Fragment() {
             }, 1000)
         }
 
-        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
-            tvNotes.setTextColor(color)
-            tvNotesDesc.setTextColor(color)
-        })
+
+
 
     }
 

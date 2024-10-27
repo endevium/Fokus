@@ -10,6 +10,10 @@
 
 
 
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,13 +23,21 @@
 
 
 
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="-60dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="25dp"
             android:gravity="center" >
+
+
+
+
 
 
 
@@ -42,7 +54,15 @@
 
 
 
+
+
+
+
         </LinearLayout>
+
+
+
+
 
 
 
@@ -55,11 +75,19 @@
 
 
 
+
+
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp">
+
+
+
+
 
 
 
@@ -76,7 +104,15 @@
 
 
 
+
+
+
+
             </LinearLayout>
+
+
+
+
 
 
 
@@ -89,7 +125,13 @@
                 app:cardBackgroundColor="@color/white">
 
 
+
+
             </androidx.cardview.widget.CardView>
+
+
+
+
 
 
 
@@ -104,6 +146,10 @@
 
 
 
+
+
+
+
                 <LinearLayout
                     android:id="@+id/changepfpBtn"
                     android:layout_width="300dp"
@@ -113,6 +159,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -131,7 +181,15 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
 
 
 
@@ -144,6 +202,10 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="5dp"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -162,7 +224,15 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
 
 
 
@@ -175,6 +245,10 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -193,7 +267,15 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
 
 
 
@@ -205,6 +287,10 @@
                     android:background="@drawable/settingsbuttons_selector"
                     android:orientation="horizontal"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -223,7 +309,19 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
+
+
+
+
 
 
 
@@ -237,7 +335,15 @@
 
 
 
+
+
+
+
         </LinearLayout>
+
+
+
+
 
 
 
@@ -250,12 +356,20 @@
 
 
 
+
+
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="15dp">
+
+
+
+
 
 
 
@@ -273,7 +387,15 @@
 
 
 
+
+
+
+
             </LinearLayout>
+
+
+
+
 
 
 
@@ -288,6 +410,10 @@
 
 
 
+
+
+
+
                 <LinearLayout
                     android:id="@+id/changeptimerBtn"
                     android:layout_width="300dp"
@@ -297,6 +423,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="7dp"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -315,7 +445,15 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
 
 
 
@@ -328,6 +466,10 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="7dp"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -346,7 +488,15 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
 
 
 
@@ -358,6 +508,10 @@
                     android:background="@drawable/settingsbuttons_selector"
                     android:orientation="horizontal"
                     android:gravity="start">
+
+
+
+
 
 
 
@@ -376,7 +530,15 @@
 
 
 
+
+
+
+
                 </LinearLayout>
+
+
+
+
 
 
 
@@ -386,7 +548,15 @@
 
 
 
+
+
+
+
         </LinearLayout>
+
+
+
+
 
 
 
@@ -397,16 +567,12 @@
             android:orientation="vertical">
 
 
-
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="15dp">
-
-
 
 
                 <TextView
@@ -420,8 +586,6 @@
                     android:textStyle="bold" />
 
 
-
-
             </LinearLayout>
 
 
@@ -433,8 +597,6 @@
                 android:background="@drawable/etcontainer"
                 android:gravity="start"
                 android:orientation="vertical">
-
-
 
 
                 <LinearLayout
@@ -469,13 +631,7 @@
                         tools:checked="false" />
 
 
-
-
                 </LinearLayout>
-
-
-
-
 
 
                 <LinearLayout
@@ -483,8 +639,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="start">
-
-
 
 
                     <TextView
@@ -497,9 +651,6 @@
                         android:textSize="16sp">
                     </TextView>
 
-
-
-
                     <ImageButton
                         android:id="@+id/reduceBtn"
                         android:layout_width="wrap_content"
@@ -510,8 +661,6 @@
                         android:background="@android:color/transparent"/>
 
 
-
-
                     <TextView
                         android:id="@+id/volumeTt"
                         android:layout_width="30dp"
@@ -520,8 +669,6 @@
                         android:gravity="center"
                         android:text="100"
                         android:textColor="@color/black"/>
-
-
 
 
                     <ImageButton
@@ -536,6 +683,106 @@
 
 
 
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp">
+
+
+                <TextView
+                    android:id="@+id/tvGuides"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Guides and Tips"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:background="@drawable/etcontainer"
+                android:orientation="vertical"
+                android:gravity="start">
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/guideBtn"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/settingsbuttons_selector"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center">
+
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/lightblack"
+                        android:layout_marginStart="10dp"
+                        android:drawableStart="@drawable/guide"
+                        android:drawableEnd="@drawable/snext"
+                        android:textSize="16sp"
+                        android:text="   Guides and Tips"/>
+
+
+
+
+                </LinearLayout>
+
+
+
+
             </LinearLayout>
 
 
@@ -544,9 +791,15 @@
         </LinearLayout>
 
 
-
-
     </LinearLayout>
+
+
+
+
+
+
+
+
 
 
 
@@ -567,7 +820,15 @@
 
 
 
+
+
+
+
 </RelativeLayout>
+
+
+
+
 
 
 

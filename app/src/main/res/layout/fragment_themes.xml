@@ -87,7 +87,7 @@
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="140dp"
-                    android:background="@drawable/th12"
+                    android:background="@drawable/nature_bg"
                     android:orientation="vertical">
 
                     <TextView
@@ -96,7 +96,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
                         android:text="Nature"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="140dp"
-                    android:background="@drawable/th13"
+                    android:background="@drawable/cafe_bg"
                     android:orientation="vertical">
 
                     <TextView
@@ -171,7 +171,7 @@
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="140dp"
-                    android:background="@drawable/th14"
+                    android:background="@drawable/classical_bg"
                     android:orientation="vertical">
 
                     <TextView
@@ -213,7 +213,7 @@
                 <LinearLayout
                     android:layout_width="300dp"
                     android:layout_height="140dp"
-                    android:background="@drawable/th16"
+                    android:background="@drawable/electronic_bg"
                     android:orientation="vertical">
 
                     <TextView

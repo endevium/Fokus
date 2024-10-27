@@ -46,12 +46,12 @@
             android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15:00"
             android:background="@drawable/timercontainer2"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:gravity="center"
-            android:textSize="50sp" />
+            android:text="15:00"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textStyle="bold" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

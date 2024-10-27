@@ -2,6 +2,9 @@ package com.example.fokus
 
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
@@ -27,6 +30,7 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
     private lateinit var backBtn: ImageButton
     private lateinit var resetBtn: TextView
     private lateinit var saveBtn: TextView
+    private lateinit var currentDigitTextView: TextView
     private val lngbrk = longBreakSettings()
 
 
@@ -65,53 +69,183 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
             settings.loadThirdDigit(requireContext()) != null &&
             settings.loadFourthDigit(requireContext()) != null) {
 
-
             firstDigit.text = settings.loadFirstDigit(requireContext())
             secondDigit.text = settings.loadSecondDigit(requireContext())
             thirdDigit.text = settings.loadThirdDigit(requireContext())
             fourthDigit.text = settings.loadFourthDigit(requireContext())
         }
 
+        val handler = Handler(Looper.getMainLooper())
+        var isIncreasing = false
+        var isDecreasing = false
+
+        val increaseDigitRunnable = object : Runnable {
+            override fun run() {
+                if (isIncreasing) {
+                    addDigit(currentDigitTextView)
+                    handler.postDelayed(this, 100)
+                }
+            }
+        }
+
+        val decreaseDigitRunnable = object : Runnable {
+            override fun run() {
+                if (isDecreasing) {
+                    subtractDigit(currentDigitTextView)
+                    handler.postDelayed(this, 100)
+                }
+            }
+        }
 
         firstUpBtn.setOnClickListener {
             addDigit(firstDigit)
         }
 
+        firstUpBtn.setOnLongClickListener {
+            currentDigitTextView = firstDigit
+            isIncreasing = true
+            handler.post(increaseDigitRunnable)
+            true
+        }
+
+        firstUpBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isIncreasing = false
+            }
+            false
+        }
 
         firstDownBtn.setOnClickListener {
             subtractDigit(firstDigit)
         }
+
+        firstDownBtn.setOnLongClickListener {
+            currentDigitTextView = firstDigit
+            isDecreasing = true
+            handler.post(decreaseDigitRunnable)
+            true
+        }
+
+        firstDownBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isDecreasing = false
+            }
+            false
+        }
+
 
 
         secondUpBtn.setOnClickListener {
             addDigit(secondDigit)
         }
 
+        secondUpBtn.setOnLongClickListener {
+            currentDigitTextView = secondDigit
+            isIncreasing = true
+            handler.post(increaseDigitRunnable)
+            true
+        }
+
+        secondUpBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isIncreasing = false
+            }
+            false
+        }
 
         secondDownBtn.setOnClickListener {
             subtractDigit(secondDigit)
         }
+
+        secondDownBtn.setOnLongClickListener {
+            currentDigitTextView = secondDigit
+            isDecreasing = true
+            handler.post(decreaseDigitRunnable)
+            true
+        }
+
+        secondDownBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isDecreasing = false
+            }
+            false
+        }
+
 
 
         thirdUpBtn.setOnClickListener {
             addDigit(thirdDigit)
         }
 
+        thirdUpBtn.setOnLongClickListener {
+            currentDigitTextView = thirdDigit
+            isIncreasing = true
+            handler.post(increaseDigitRunnable)
+            true
+        }
+
+        thirdUpBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isIncreasing = false
+            }
+            false
+        }
 
         thirdDownBtn.setOnClickListener {
             subtractDigit(thirdDigit)
         }
+
+        thirdDownBtn.setOnLongClickListener {
+            currentDigitTextView = thirdDigit
+            isDecreasing = true
+            handler.post(decreaseDigitRunnable)
+            true
+        }
+
+        thirdDownBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isDecreasing = false
+            }
+            false
+        }
+
 
 
         fourthUpBtn.setOnClickListener {
             addDigit(fourthDigit)
         }
 
+        fourthUpBtn.setOnLongClickListener {
+            currentDigitTextView = fourthDigit
+            isIncreasing = true
+            handler.post(increaseDigitRunnable)
+            true
+        }
+
+        fourthUpBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isIncreasing = false
+            }
+            false
+        }
 
         fourthDownBtn.setOnClickListener {
             subtractDigit(fourthDigit)
         }
 
+        fourthDownBtn.setOnLongClickListener {
+            currentDigitTextView = fourthDigit
+            isDecreasing = true
+            handler.post(decreaseDigitRunnable)
+            true
+        }
+
+        fourthDownBtn.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                isDecreasing = false
+            }
+            false
+        }
 
         resetBtn.setOnClickListener {
             firstDigit.text = "1"
@@ -133,15 +267,15 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
 
 
     private fun addDigit(digit: TextView) {
-        var currentDigit: Int = digit.text.toString().toInt()
+        val currentDigit: Int = digit.text.toString().toInt()
         if (digit.id == R.id.firstDigit || digit.id == R.id.thirdDigit) {
             if (currentDigit < 5) {
-                var newDigit = currentDigit + 1
+                val newDigit = currentDigit + 1
                 digit.text = newDigit.toString()
             }
         } else if (digit.id == R.id.secondDigit || digit.id == R.id.fourthDigit) {
             if (currentDigit < 9) {
-                var newDigit = currentDigit + 1
+                val newDigit = currentDigit + 1
                 digit.text = newDigit.toString()
             }
         }
@@ -149,9 +283,9 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
 
 
     private fun subtractDigit(digit: TextView) {
-        var currentDigit: Int = digit.text.toString().toInt()
+        val currentDigit: Int = digit.text.toString().toInt()
         if (currentDigit > 0) {
-            var newDigit = currentDigit - 1
+            val newDigit = currentDigit - 1
             digit.text = newDigit.toString()
         }
     }
@@ -162,15 +296,22 @@ class ChangeLBTimerFragment : Fragment(R.layout.fragment_changelbtimer) {
         val secondNum = secondDigit.text.toString()
         val minutesStr = "$firstNum$secondNum"
 
-
         val thirdNum = thirdDigit.text.toString()
         val fourthNum = fourthDigit.text.toString()
         val secondsStr = "$thirdNum$fourthNum"
 
+        val minutes = minutesStr.toLong()
+        val seconds = secondsStr.toLong()
 
-        lngbrk.saveLongbreak(requireContext(), minutesStr.toLong(), secondsStr.toLong(), firstNum,
-            secondNum, thirdNum, fourthNum)
-        Toast.makeText(requireContext(), "Reset timer to see changes", Toast.LENGTH_LONG).show()
+        if (minutes > 0 || seconds > 0) {
+            lngbrk.saveLongbreak(
+                requireContext(), minutes, seconds, firstNum,
+                secondNum, thirdNum, fourthNum
+            )
+            Toast.makeText(requireContext(), "Reset timer to see changes", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(requireContext(), "Please enter valid minutes and seconds", Toast.LENGTH_LONG).show()
+        }
     }
 }
 

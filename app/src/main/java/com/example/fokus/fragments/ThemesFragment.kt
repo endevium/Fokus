@@ -3,6 +3,7 @@ package com.example.fokus.fragments
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.fokus.R
 import com.example.fokus.SettingsFragment
 import com.example.fokus.activities.MainActivity
+import com.example.fokus.api.saveSettings
 import com.google.android.material.tabs.TabLayout
 import kotlin.concurrent.timer
 
@@ -25,9 +27,7 @@ class ThemesFragment : Fragment() {
     private lateinit var cafeBtn: TextView
     private lateinit var classicalBtn: TextView
     private lateinit var electronicBtn: TextView
-    private lateinit var timerFragment: TimerFragment
-    private lateinit var shortBreakFragment: ShortBreakFragment
-    private lateinit var longBreakFragment: LongBreakFragment
+    private val save = saveSettings()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,35 +47,53 @@ class ThemesFragment : Fragment() {
         tvThemes = view.findViewById(R.id.tvThemes)
 
         val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        val savedTheme = save.getTheme(requireContext().applicationContext)
 
         viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
             tvThemes.setTextColor(color)
         })
 
-        defaultBtn.isEnabled = false
-        defaultBtn.text = "Selected"
+        when (savedTheme) {
+            "default" -> {
+                changeTheme("default", defaultBtn, R.color.white, Color.BLACK, R.color.DarkPurple, R.raw.fokus_one, R.drawable.add, R.drawable.arrowback)
+                defaultBtn.isEnabled = false
+                defaultBtn.text = "Selected"
+            }
+            "nature" -> changeTheme("nature", natureBtn, R.drawable.nature_bg, Color.WHITE, R.color.white, R.raw.fokus_nature, R.drawable.add_white, R.drawable.arrowback_white)
+            "cafe" -> changeTheme("cafe", cafeBtn, R.drawable.cafe_th, Color.WHITE, R.color.white, R.raw.fokus_cafe, R.drawable.add_white, R.drawable.arrowback_white)
+            "classical" -> changeTheme("classical", classicalBtn, R.drawable.classical_th, Color.WHITE, R.color.white, R.raw.fokus_classical, R.drawable.add_white, R.drawable.arrowback_white)
+            "electronic" -> changeTheme("electronic", electronicBtn, R.drawable.electronic_th, Color.WHITE, R.color.white, R.raw.fokus_electronic, R.drawable.add_white, R.drawable.arrowback_white)
+        }
+
         defaultBtn.setOnClickListener {
-            changeTheme(defaultBtn, R.color.white, Color.BLACK, R.color.DarkPurple, R.raw.fokus_one)
+            changeTheme("default", defaultBtn, R.color.white, Color.BLACK, R.color.DarkPurple, R.raw.fokus_one, R.drawable.add, R.drawable.arrowback)
+            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         natureBtn.setOnClickListener {
-            changeTheme(natureBtn, R.drawable.nature_bg, Color.WHITE, R.color.white, R.raw.fokus_nature)
+            changeTheme("nature", natureBtn, R.drawable.nature_bg, Color.WHITE, R.color.white, R.raw.fokus_nature, R.drawable.add_white, R.drawable.arrowback_white)
+            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         cafeBtn.setOnClickListener {
-            changeTheme(cafeBtn, R.drawable.cafe_th, Color.WHITE, R.color.white, R.raw.fokus_cafe)
+            changeTheme("cafe", cafeBtn, R.drawable.cafe_th, Color.WHITE, R.color.white, R.raw.fokus_cafe, R.drawable.add_white, R.drawable.arrowback_white)
+            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         classicalBtn.setOnClickListener {
-            changeTheme(classicalBtn, R.drawable.classical_th, Color.WHITE, R.color.white, R.raw.fokus_classical)
+            changeTheme("classical", classicalBtn, R.drawable.classical_th, Color.WHITE, R.color.white, R.raw.fokus_classical, R.drawable.add_white, R.drawable.arrowback_white)
+            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         electronicBtn.setOnClickListener {
-            changeTheme(electronicBtn, R.drawable.electronic_th, Color.WHITE, R.color.white, R.raw.fokus_electronic)
+            changeTheme("electronic", electronicBtn, R.drawable.electronic_th, Color.WHITE, R.color.white, R.raw.fokus_electronic, R.drawable.add_white, R.drawable.arrowback_white)
+            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun changeTheme(button: TextView, background: Int, color: Int, colorTwo: Int, music: Int) {
+    private fun changeTheme(theme: String, button: TextView,
+                            background: Int, color: Int, colorTwo: Int,
+                            music: Int, addColor: Int, backColor: Int) {
         val buttons = listOf(defaultBtn, natureBtn, cafeBtn, classicalBtn, electronicBtn)
 
         for (btn in buttons) {
@@ -99,6 +117,9 @@ class ThemesFragment : Fragment() {
 
         mainActivity.setBackgroundResource(background)
         viewModel.setTextColor(color)
+        viewModel.setAddColor(addColor)
+        viewModel.setBackColor(backColor)
+        viewModel.resetTimer()
 
         tabLayout.setTabTextColors(
             unselectedColor,
@@ -107,5 +128,6 @@ class ThemesFragment : Fragment() {
 
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(requireContext(), colorTwo))
         (requireActivity() as MainActivity).changeMusic(music)
+        save.saveTheme(requireContext().applicationContext, theme)
     }
 }

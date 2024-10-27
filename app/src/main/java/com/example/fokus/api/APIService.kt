@@ -118,4 +118,7 @@ interface APIService {
     fun deleteTask(
         @Path("id") id: Int
     ): Call<TaskDeleteResponse>
+
+    @GET("/api/task-history")
+    fun getTaskHistory(): Call<TaskHistoryResponse>
 }

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="600dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/etcontainer">
+
+
+            <ImageButton
+                android:id="@+id/exitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close"
+                android:background="@android:color/transparent"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"/>
+
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+
+                    <TextView
+                        android:layout_width="325dp"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="POMODORO TECHNIQUE"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="- A study technique that can help you manage your time in studying or reviewing."
+                        android:textSize="16sp"
+                        android:textColor="@color/black"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="25dp"
+                        android:text="Tips:"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="1. Start your session by 25 minutes with full focus, avoid any distractions and take 5 minutes break after the session."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="2. When you’re done with 2 sessions, take a longer break (30 minutes) then iterate."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="3. After the long break increase your interval every iteration ( 5 - 10 minutes is the ideal)."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="4. You can create tasks and notes to help your study be more productive and efficient."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="5. Once you’re satisfied you can click the reset button."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="25dp"
+                        android:text="Guide:"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="1. Press the button start, wait until it reached the time limit and you can click the next button to change into short break."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="2. After 2 consecutive sessions you can take a longer break by clicking the next button (long break)."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="3. Ending the long break you can adjust the timer by going to settings, click (pomodoro timer) and adjust your chosen time."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+                    <TextView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:text="4. Adjust your timer only if you want to extend the time of your session in studying, and after you adjust—click the reset button to change the timer by your chosen duration."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
