@@ -53,9 +53,11 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
                 val updatedTitle = if (title.text.isNotEmpty()) title.text.toString() else "Note Title"
                 val updatedContent = if (content.text.isNotEmpty()) content.text.toString() else "Note Description"
 
-                parentFragmentManager.setFragmentResult("noteUpdated", Bundle())
+                parentFragmentManager.setFragmentResult("backButtonClicked", Bundle())
 
-                updateNote(id, updatedTitle, updatedContent)
+                if (updatedTitle != fetchedTitle || updatedContent != fetchedContent) {
+                    updateNote(id, updatedTitle, updatedContent)
+                }
             }
 
             requireActivity().supportFragmentManager.popBackStack()
@@ -65,14 +67,18 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
     private fun updateNote(id: Int, title: String, content: String) {
         apiService.updateNote(id, title, content).enqueue(object: Callback<NotesResponse> {
             override fun onResponse(call: Call<NotesResponse>, response: Response<NotesResponse>) {
-                if (!response.isSuccessful) {
+                if (response.isSuccessful) {
+                    parentFragmentManager.setFragmentResult("noteUpdated", Bundle())
+                } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "Error updating: $errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<NotesResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Fatal error: ${t.message}", Toast.LENGTH_LONG).show()
+                if (isAdded) { // Check if the fragment is still added to the activity
+                    Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
+                }
             }
 
         })

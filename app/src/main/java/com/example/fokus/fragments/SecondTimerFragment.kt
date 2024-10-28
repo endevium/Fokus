@@ -1,6 +1,5 @@
 package com.example.fokus.fragments
 
-
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,7 +7,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,36 +24,33 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
+import com.example.fokus.api.pomodoroSettings
 import com.example.fokus.api.saveSettings
-import com.example.fokus.api.shortBreakSettings
 
-
-class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
-
-
+class SecondTimerFragment : Fragment(R.layout.fragment_timersecond) {
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private lateinit var timerTextView: TextView
+    private lateinit var tvPomodoro: TextView
+    private lateinit var tvPomodoroDesc: TextView
     private lateinit var playButton: ImageButton
     private lateinit var pauseButton: ImageButton
     private lateinit var restartButton: ImageButton
     private lateinit var nextButton: ImageButton
     private lateinit var stopBtn: ImageButton
-    private lateinit var secondTimerFragment: SecondTimerFragment
-    private lateinit var tvPomodoro: TextView
-    private lateinit var tvPomodoroDesc: TextView
+    private lateinit var longBreakFragment: LongBreakFragment
     private val CHANNEL_ID = "fokus_notification_channel"
-    private val shrtbrk = shortBreakSettings()
     private val settings = saveSettings()
-    private var isTimerRunning: Boolean = false
-    private var timeLeft: Long = 5 * 60 * 1000
+    private val notificationID = 101
+    private var pmdr = pomodoroSettings()
     private var timer: CountDownTimer? = null
-    private val notificationID = 102
+    private var timeLeft: Long = 25 * 60 * 1000
+    private var isTimerRunning: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_shortbreak, container, false)
+        return inflater.inflate(R.layout.fragment_timersecond, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,11 +63,16 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         playButton = view.findViewById(R.id.playButton)
         pauseButton = view.findViewById(R.id.pauseButton)
         restartButton = view.findViewById(R.id.restartButton)
-        nextButton = view.findViewById(R.id.sbnxtBtn)
+        nextButton = view.findViewById(R.id.tnxtBtn)
         stopBtn = view.findViewById(R.id.stopBtn)
         tvPomodoro = view.findViewById(R.id.tvPomodoro)
         tvPomodoroDesc = view.findViewById(R.id.tvPomodoroDesc)
-        secondTimerFragment = SecondTimerFragment()
+        longBreakFragment = LongBreakFragment()
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvPomodoro.setTextColor(color)
+            tvPomodoroDesc.setTextColor(color)
+        })
 
         createNotificationChannel()
         requestPermissionLauncher = registerForActivityResult(
@@ -87,9 +87,9 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             }
         }
 
-        if (shrtbrk.shortbreakMinutes(requireContext()) != null && shrtbrk.shortbreakSeconds(requireContext()) != null) {
-            val minutes = shrtbrk.shortbreakMinutes(requireContext()) ?: 5
-            val seconds = shrtbrk.shortbreakSeconds(requireContext()) ?: 0
+        if (pmdr.pomodoroMinutes(requireContext()) != null && pmdr.pomodoroSeconds(requireContext()) != null) {
+            val minutes = pmdr.pomodoroMinutes(requireContext()) ?: 25
+            val seconds = pmdr.pomodoroSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }
@@ -143,7 +143,7 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             resetTimer()
         }
 
-        // Increment and pass pomodoro phase args and redirect back to TimerFragment
+        // Increment and pass pomodoro phase args and move to the next phase
         nextButton.setOnClickListener {
             (requireActivity() as MainActivity).stopMusic()
 
@@ -154,8 +154,8 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
 
             val bundle = Bundle()
             bundle.putBoolean("autoStart", false)
-            secondTimerFragment.arguments = bundle
-            secondTimerFragment()
+            longBreakFragment.arguments = bundle
+            longBreakFragment()
         }
 
         stopBtn.setOnClickListener {
@@ -170,11 +170,6 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             parentFragmentManager.setFragmentResult("poppedFragments", Bundle())
             popAllFragments()
         }
-
-        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
-            tvPomodoro.setTextColor(color)
-            tvPomodoroDesc.setTextColor(color)
-        })
     }
 
     private fun createNotificationChannel() {
@@ -186,11 +181,9 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText
                 val state = settings.getVibration(requireContext().applicationContext)
-                Log.d("Vibration", "State: $state")
-                if (state != null) { enableVibration(state) }
+                enableVibration(state ?: true)
                 vibrationPattern = vibrationPattern
             }
-
 
             val notificationManager: NotificationManager =
                 requireContext().getSystemService(NotificationManager::class.java)
@@ -208,6 +201,7 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             .setAutoCancel(true)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
 
+
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.POST_NOTIFICATIONS
@@ -216,6 +210,7 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
             requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             return
         }
+
 
         with(NotificationManagerCompat.from(requireContext())) {
             notify(notificationID, builder.build())
@@ -230,6 +225,7 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
                 updateTimer()
             }
 
+
             // Increment phase and move to the next phase if timer hits 0
             override fun onFinish() {
                 timerTextView.text = "00:00"
@@ -238,8 +234,8 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
                 val bundle = Bundle()
                 bundle.putBoolean("autoStart", true)
 
-                secondTimerFragment.arguments = bundle
-                secondTimerFragment()
+                longBreakFragment.arguments = bundle
+                longBreakFragment()
 
                 if (ActivityCompat.checkSelfPermission(
                         requireContext(),
@@ -255,12 +251,13 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         isTimerRunning = true
     }
 
+
     // Reset timer
     private fun resetTimer() {
         timer?.cancel()
-        if (shrtbrk.shortbreakMinutes(requireContext()) != null && shrtbrk.shortbreakSeconds(requireContext()) != null) {
-            val minutes = shrtbrk.shortbreakMinutes(requireContext()) ?: 5
-            val seconds = shrtbrk.shortbreakSeconds(requireContext()) ?: 0
+        if (pmdr.pomodoroMinutes(requireContext()) != null && pmdr.pomodoroSeconds(requireContext()) != null) {
+            val minutes = pmdr.pomodoroMinutes(requireContext()) ?: 25
+            val seconds = pmdr.pomodoroSeconds(requireContext()) ?: 0
             timeLeft = (minutes * 60 * 1000) + (seconds * 1000)
             updateTimer()
         }
@@ -275,10 +272,11 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         timerTextView.text = String.format("%02d:%02d", minutes, seconds)
     }
 
-    // Redirect back to TimerFragment
-    private fun secondTimerFragment() {
+    // Redirect to LongBreakFragment
+    private fun longBreakFragment() {
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, secondTimerFragment)
+            .replace(R.id.fragment_container, longBreakFragment)
+            .setReorderingAllowed(true)
             .addToBackStack(null)
             .commit()
     }
@@ -292,6 +290,5 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
         super.onDestroy()
         timer?.cancel()
     }
-
-
 }
+

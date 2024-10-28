@@ -126,13 +126,11 @@ class ChangePfpFragment : Fragment(R.layout.fragment_changepfp) {
                             .circleCrop()
                             .into(profilePicture)
                     }
-                } else {
-                    Toast.makeText(requireContext(), "Failed to load profile picture", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ProfilePictureResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Failed to load profile picture", Toast.LENGTH_SHORT).show()
+                //
             }
 
         })

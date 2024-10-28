@@ -59,7 +59,7 @@ class NotesFragment : Fragment() {
             tvNotesDesc.setTextColor(color)
         })
 
-        parentFragmentManager.setFragmentResultListener("noteUpdated", viewLifecycleOwner) { _, _ ->
+        parentFragmentManager.setFragmentResultListener("backButtonClicked", viewLifecycleOwner) { _, _ ->
             swipeRefreshLayout.isRefreshing = true
             swipeRefreshLayout.postDelayed({
                 notesCardLayout.removeAllViews()
@@ -72,6 +72,10 @@ class NotesFragment : Fragment() {
             tvNotesDesc.visibility = View.VISIBLE
             notesCardLayout.visibility = View.VISIBLE
             addNoteBtn.visibility = View.VISIBLE
+        }
+
+        parentFragmentManager.setFragmentResultListener("noteUpdated", viewLifecycleOwner) { _, _ ->
+            Toast.makeText(requireContext(), "Note updated", Toast.LENGTH_LONG).show()
         }
 
         addNoteBtn.setOnClickListener {
@@ -92,10 +96,6 @@ class NotesFragment : Fragment() {
                 swipeRefreshLayout.isRefreshing = false
             }, 1000)
         }
-
-
-
-
     }
 
     private fun fetchNotes() {

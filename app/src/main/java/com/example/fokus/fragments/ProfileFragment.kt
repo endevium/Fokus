@@ -89,7 +89,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun getImage(id: Int) {
         apiService.getProfile(id).enqueue(object: Callback<ProfilePictureResponse> {
             override fun onResponse(call: Call<ProfilePictureResponse>, response: Response<ProfilePictureResponse>) {
-                if (response.isSuccessful) {
+                if (response.isSuccessful && isAdded) {
                     val profilePictureUrl = response.body()?.profile_picture_url
                     profilePictureUrl?.let {
                         // Load the image into the ImageView using Glide
@@ -98,13 +98,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                             .circleCrop()
                             .into(profilePicture)
                     }
-                } else {
-                    Toast.makeText(requireContext(), "Failed to load profile picture", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ProfilePictureResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Failed to load profile picture", Toast.LENGTH_SHORT).show()
+                //
             }
 
         })

@@ -61,7 +61,7 @@ interface APIService {
 
     @Headers("Accept: application/json")
     @FormUrlEncoded
-    @POST("/api/new_password")
+    @POST("/api/change_password")
     fun resetPassword(
         @Field("email") email: String,
         @Field("new_password") new_password: String
@@ -112,6 +112,14 @@ interface APIService {
         @Path("id") id: Int,
         @Field("task_title") task_title: String,
     ): Call<TaskResponse>
+
+    @Headers("Accept: application/json")
+    @FormUrlEncoded
+    @PUT("/api/task/{id}/complete")
+    fun updateTaskCompletion(
+        @Path("id") id: Int,
+        @Field("is_completed") is_completed: Int
+    ): Call<Void>
 
     @Headers("Accept: application/json")
     @DELETE("/api/task/{id}")
