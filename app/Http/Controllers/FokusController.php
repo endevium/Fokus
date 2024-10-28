@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FokusApp;
 use App\Models\TaskModel;
-use App\Models\TaskHistory; // Add TaskHistory model if required
+use App\Models\TaskHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -39,15 +39,11 @@ class FokusController extends Controller
                 'string',
                 'min:8',
                 'max:50',
-                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-])(?=^[^\s]{8,50}$)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
             ],
             'email' => [
-                'required',
-                'string',
-                'email:rfc,dns',
-                'max:255',
-                'unique:fokus_app',
-            ],
+                'required', 'string', 'email:rfc,dns', 'max:255', 'unique:fokus_app',
+            ]
         ], $messages);
 
         $fokusApp = new FokusApp([
@@ -85,7 +81,7 @@ class FokusController extends Controller
                 'sometimes',
                 'required',
                 'string',
-                'max:255',
+                'max:50',
                 'unique:fokus_app,username,' . $fokusApp->id,
                 'regex:/^[A-Za-z0-9]+(?:[!@#$%^&*()_+=-]{0,1}[A-Za-z0-9]+)*$/'
             ],
@@ -95,15 +91,14 @@ class FokusController extends Controller
                 'string',
                 'min:8',
                 'max:50',
-                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-])(?=^[^\s]{8,50}$)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
             ],
             'email' => [
-                'required',
+                'sometimes',
                 'string',
                 'email:rfc,dns',
                 'max:255',
                 'unique:fokus_app,email,' . $fokusApp->id,
-                'regex:/^.+@mail\.com$/'
             ],
         ], [
             'password.regex' => 'The password must contain no spaces and at most one special character.',
@@ -154,28 +149,38 @@ class FokusController extends Controller
         }
     }
 
+    // CHANGE PASSWORD
     public function changePassword(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|string|email:rfc,dns',
-            'new_password' => 'required|string|min:16',
-        ]);
+{
+    $request->validate([
+        'email' => 'required|string|email',
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'max:128',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-])(?=^[^\s]{8,50}$)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
+        ],
+    ], [
+        'password.regex' => 'The new password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long without spaces.',
+    ]);
 
-        $user = FokusApp::where('email', $request->email)->first();
+    $user = FokusApp::where('email', $request->email)->first();
 
-        if (!$user) {
-            return response()->json(['message' => 'Email not found'], 404);
-        }
-
-        if (Hash::check($request->new_password, $user->password)) {
-            return response()->json(['message' => 'New password must be different from the current password'], 400);
-        }
-
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        return response()->json(['message' => 'Password changed successfully!'], 200);
+    if (!$user) {
+        return response()->json(['message' => 'Email not found'], 404);
     }
+
+    if (Hash::check($request->new_password, $user->password)) {
+        return response()->json(['message' => 'New password must be different from the current password'], 400);
+    }
+
+    $user->password = Hash::make($request->new_password);
+    $user->save();
+
+    return response()->json(['message' => 'Password changed successfully!'], 200);
+}
+
 
     public function completeTask(Request $request, $id)
     {

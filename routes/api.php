@@ -47,7 +47,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
     // Route for updating username
-    Route::put('/FokusApp/{id}/username', [FokusController::class, 'update']);
+    Route::put('/FokusApp/{id}', [FokusController::class, 'update']);
 
     Route::get('/user_id', function (Request $request) {
         return $request->user(); // Returns authenticated user info
