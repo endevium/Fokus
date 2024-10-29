@@ -202,7 +202,7 @@ class FokusController extends Controller
         TaskHistory::create([
             'task_id' => $task->id,
             'user_id' => Auth::id(),
-            'status' => 'Completed',
+            'status' => 'Status Updated',
             'description' => 'Marked the task "' . $task->task_title . '" as ' . ($task->is_completed ? 'completed' : 'incomplete'),
         ]);
 
