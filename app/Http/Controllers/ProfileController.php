@@ -22,11 +22,11 @@ class ProfileController extends Controller
         }
 
         $request->validate([
-            'profile_picture' => 'required|image|mimes:jpg,jpeg,png|max:5120', // Max size 5MB
+            'profile_picture' => 'required|image|mimes:png,jpg|max:8192', // Max size 25MB and MIME MEANING = Multipurpose Internet Mail Extensions
         ]);
     
         // Handle the upload
-        if ($request->hasFile('profile_picture')) {
+        if ($request->hasFile('profile_picture')) { 
             $file = $request->file('profile_picture');
             $path = $file->store('profiles', 'public');
     

@@ -31,7 +31,7 @@ class AuthController extends Controller
                 'required',
                 'string',
                 'unique:fokus_app,username',
-                'regex:/^[A-Za-z0-9][A-Za-z0-9!@#$%^&*()_+=-]*$/', // Starts with alphanumeric, allows specific special characters, no spaces
+                'regex:/^(?=.*[a-z])[^\\s!@#$%^&*()_+=-]*(?:[!@#$%^&*()_+=-]?[^\\s!@#$%^&*()_+=-]*)*$/' //no rules in characters and no spamming special characters, no spaces
             ],
             'email' => [
                 'required',
@@ -116,6 +116,8 @@ class AuthController extends Controller
                 'email' => $user->email
             ];
 
+
+                //FOKUS_NOTES CREATION
             if ($request->has('title') && $request->has('content')) {
                 NotesModel::create([
                     'fokus_app_id' => $user->id,

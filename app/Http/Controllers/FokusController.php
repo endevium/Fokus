@@ -32,14 +32,14 @@ class FokusController extends Controller
                 'string',
                 'max:255',
                 'unique:fokus_app',
-                'regex:/^[A-Za-z0-9]+(?:[!@#$%^&*()_+=-]{0,1}[A-Za-z0-9]+)*$/'
+                'regex:/^(?=.*[a-z])[^\\s!@#$%^&*()_+=-]*(?:[!@#$%^&*()_+=-]?[^\\s!@#$%^&*()_+=-]*)*$/' //no rules in characters and no spamming special characters
             ],
             'password' => [
                 'required',
                 'string',
                 'min:8',
                 'max:50',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-])(?=^[^\s]{8,50}$)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/' //no rules in characters and no spamming special characters
             ],
             'email' => [
                 'required', 'string', 'email:rfc,dns', 'max:255', 'unique:fokus_app',
@@ -83,7 +83,7 @@ class FokusController extends Controller
                 'string',
                 'max:50',
                 'unique:fokus_app,username,' . $fokusApp->id,
-                'regex:/^[A-Za-z0-9]+(?:[!@#$%^&*()_+=-]{0,1}[A-Za-z0-9]+)*$/'
+                'regex:/^(?=.*[a-z])[^\\s!@#$%^&*()_+=-]*(?:[!@#$%^&*()_+=-]?[^\\s!@#$%^&*()_+=-]*)*$/' //no rules in characters and no spamming special characters
             ],
             'password' => [
                 'sometimes',
@@ -91,7 +91,7 @@ class FokusController extends Controller
                 'string',
                 'min:8',
                 'max:50',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-])(?=^[^\s]{8,50}$)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
+                'regex:/^(?!.*\s)(?!.*[!@#$%^&*()_+=-]{2}).*$/' //no rules in characters and no spamming special characters
             ],
             'email' => [
                 'sometimes',
@@ -101,7 +101,7 @@ class FokusController extends Controller
                 'unique:fokus_app,email,' . $fokusApp->id,
             ],
         ], [
-            'password.regex' => 'The password must contain no spaces and at most one special character.',
+            'password.regex' => 'The password must contain no spaces or multiple special characters.',
             'username.regex' => 'The username must not contain spaces or multiple special characters.',
             'email.regex' => 'Must be a valid email.',
         ]);
@@ -159,10 +159,10 @@ class FokusController extends Controller
             'string',
             'min:8',
             'max:128',
-            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=-])(?=^[^\s]{8,50}$)(?!.*[!@#$%^&*()_+=-]{2}).*$/'
+            'regex:/^(?=.*[a-z])[^\\s!@#$%^&*()_+=-]*(?:[!@#$%^&*()_+=-]?[^\\s!@#$%^&*()_+=-]*)*$/' //no rules in characters and no spamming special characters
         ],
     ], [
-        'password.regex' => 'The new password must contain at least one uppercase letter, one lowercase letter, one digit, one special character, and be at least 8 characters long without spaces.',
+        'password.regex' => 'The new password must be at least 8 characters.',
     ]);
 
     $user = FokusApp::where('email', $request->email)->first();
@@ -182,6 +182,8 @@ class FokusController extends Controller
 }
 
 
+
+//TASK COMPLETION FUNCTIONS
     public function completeTask(Request $request, $id)
     {
         $request->validate([
