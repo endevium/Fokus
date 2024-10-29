@@ -69,27 +69,27 @@ class ThemesFragment : Fragment() {
 
         defaultBtn.setOnClickListener {
             changeTheme("default", defaultBtn, R.color.white, Color.BLACK, R.color.DarkPurple, R.raw.fokus_one, R.drawable.add, R.drawable.arrowback)
-            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext().applicationContext, "Theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         natureBtn.setOnClickListener {
             changeTheme("nature", natureBtn, R.drawable.nature_bg, Color.WHITE, R.color.white, R.raw.fokus_nature, R.drawable.add_white, R.drawable.arrowback_white)
-            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext().applicationContext, "Theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         cafeBtn.setOnClickListener {
             changeTheme("cafe", cafeBtn, R.drawable.cafe_th, Color.WHITE, R.color.white, R.raw.fokus_cafe, R.drawable.add_white, R.drawable.arrowback_white)
-            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext().applicationContext, "Theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         classicalBtn.setOnClickListener {
             changeTheme("classical", classicalBtn, R.drawable.classical_th, Color.WHITE, R.color.white, R.raw.fokus_classical, R.drawable.add_white, R.drawable.arrowback_white)
-            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext().applicationContext, "Theme changed successfully.", Toast.LENGTH_LONG).show()
         }
 
         electronicBtn.setOnClickListener {
             changeTheme("electronic", electronicBtn, R.drawable.electronic_th, Color.WHITE, R.color.white, R.raw.fokus_electronic, R.drawable.add_white, R.drawable.arrowback_white)
-            Toast.makeText(requireContext().applicationContext, "Timer reset & theme changed successfully.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext().applicationContext, "Theme changed successfully.", Toast.LENGTH_LONG).show()
         }
     }
 
