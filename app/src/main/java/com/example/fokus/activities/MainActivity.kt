@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var bottomNav: BottomNavigationView
-    private lateinit var musicPlayer: MediaPlayer
+    lateinit var musicPlayer: MediaPlayer
     private val settings = saveSettings()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeMusic(track: Int) {
-        musicPlayer?.release()
+        musicPlayer.release()
         musicPlayer = MediaPlayer.create(this, track)
     }
 
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     fun changeVolume(volume: Int) {
         val clamped = volume.coerceIn(0, 100)
         val actualVolume = clamped / 100f
-        musicPlayer?.setVolume(actualVolume, actualVolume)
+        musicPlayer.setVolume(actualVolume, actualVolume)
     }
 
     private fun setupViewPagerAndTabs() {

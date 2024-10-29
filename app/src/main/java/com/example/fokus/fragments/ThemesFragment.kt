@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.health.connect.datatypes.units.Length
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ class ThemesFragment : Fragment() {
     private lateinit var cafeBtn: TextView
     private lateinit var classicalBtn: TextView
     private lateinit var electronicBtn: TextView
+    private var musicPlaying = false
     private val save = saveSettings()
 
     override fun onCreateView(
@@ -110,6 +112,7 @@ class ThemesFragment : Fragment() {
         val mainActivity = requireActivity().findViewById<View>(R.id.main)
         val tabLayout = mainActivity.findViewById<TabLayout>(R.id.tabLayout)
         val viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        musicPlaying = (requireActivity() as MainActivity).musicPlayer.isPlaying
 
         val tabTextColors = tabLayout.tabTextColors
         val defaultColor = tabTextColors?.defaultColor
@@ -128,6 +131,11 @@ class ThemesFragment : Fragment() {
 
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(requireContext(), colorTwo))
         (requireActivity() as MainActivity).changeMusic(music)
+
+        if (musicPlaying) {
+            (requireActivity() as MainActivity).toggleMusic()
+        }
+
         save.saveTheme(requireContext().applicationContext, theme)
     }
 }

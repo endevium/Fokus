@@ -573,36 +573,6 @@
     </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/transparent"
-        app:itemTextColor="@color/gray"
-        app:menu="@menu/bottom_nav_menu" />
-
-
-
-
-
-
-
-
 </RelativeLayout>
 
 
