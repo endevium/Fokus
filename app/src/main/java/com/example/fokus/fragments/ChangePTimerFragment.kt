@@ -256,7 +256,7 @@ class ChangePTimerFragment : Fragment(R.layout.fragment_changeptimer) {
         }
 
         backBtn.setOnClickListener {
-            childFragmentManager.popBackStack()
+            parentFragmentManager.popBackStack()
         }
     }
 

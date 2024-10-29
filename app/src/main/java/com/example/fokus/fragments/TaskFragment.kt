@@ -116,8 +116,7 @@ class TaskFragment : Fragment() {
                 if (response.isSuccessful) {
                     val taskList  = response.body()!!
                     for (task in taskList) {
-                        val taskTitle = task.task_title
-                        createTaskCard(taskCardContainer, taskTitle, task.id)
+                        createTaskCard(taskCardContainer, task.task_title, task.id, task.is_completed)
                     }
                 } else {
                     Toast.makeText(requireContext(), "Fetching tasks failed", Toast.LENGTH_SHORT).show()
@@ -148,7 +147,9 @@ class TaskFragment : Fragment() {
     private fun updateTask(id: Int, taskTitle: String) {
         apiService.updateTask(id, taskTitle).enqueue(object: Callback<TaskResponse> {
             override fun onResponse(call: Call<TaskResponse>, response: Response<TaskResponse>) {
-                if (!response.isSuccessful) {
+                if (response.isSuccessful) {
+                    Toast.makeText(requireContext(), "Successfully updated task", Toast.LENGTH_LONG).show()
+                } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "Error updating task: $errorResponse", Toast.LENGTH_LONG).show()
                 }
@@ -156,6 +157,24 @@ class TaskFragment : Fragment() {
 
             override fun onFailure(call: Call<TaskResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "Fatal error: ${t.message}", Toast.LENGTH_LONG).show()
+            }
+
+        })
+    }
+
+    private fun updateTaskCompletion(id: Int, isCompleted: Int) {
+        apiService.updateTaskCompletion(id, isCompleted).enqueue(object: Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(requireContext(), "Task completion status updated", Toast.LENGTH_LONG).show()
+                } else {
+                    val message = response.message()
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
             }
 
         })
@@ -179,8 +198,8 @@ class TaskFragment : Fragment() {
                         Toast.makeText(requireContext(), "New task created", Toast.LENGTH_LONG).show()
                     }
                 } else {
-                    val errorResponse = response.errorBody()?.string()
-                    Toast.makeText(requireContext(), "Error creating new task: $errorResponse", Toast.LENGTH_LONG).show()
+                    val message = response.message()
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -197,20 +216,20 @@ class TaskFragment : Fragment() {
                 if (response.isSuccessful) {
                     Toast.makeText(requireContext(), "Successfully deleted task", Toast.LENGTH_LONG).show()
                 } else {
-                    val errorResponse = response.errorBody()?.string() ?: "Unknown error"
-                    Toast.makeText(requireContext(), "Failed to delete task: $errorResponse", Toast.LENGTH_LONG).show()
+                    val message = response.message()
+                    Toast.makeText(requireContext(), "Failed to delete task: $message", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<TaskDeleteResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Deleting task failed: ${t.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
             }
         })
     }
 
 
     // FOR CREATING A NEW NON-EMPTY TASK CARD
-    private fun createTaskCard(parentLayout: LinearLayout, taskTitle: String, id: Int) {
+    private fun createTaskCard(parentLayout: LinearLayout, taskTitle: String, id: Int, isCompleted: Int) {
         val taskCardView = CardView(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -247,6 +266,12 @@ class TaskFragment : Fragment() {
             ).apply {
                 setMargins(-5, 0, 10, 0)
             }
+
+            if (isCompleted == 0) {
+                isChecked = false
+            } else {
+                isChecked = true
+            }
         }
 
         // Task input layout
@@ -272,11 +297,42 @@ class TaskFragment : Fragment() {
             inputType = InputType.TYPE_CLASS_TEXT
         }
 
-        checkbox.setOnCheckedChangeListener{_, isChecked ->
+        var previousText = inputField.text.toString()
+        inputField.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val currentText = inputField.text.toString()
+                if (previousText != currentText) {
+                    updateTask(id, currentText)
+                    previousText = currentText
+                }
+            }
+        }
+
+        task_container.setOnTouchListener { _, _ ->
+            if (inputField.isFocused) {
+                inputField.clearFocus()
+
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(inputField.windowToken, 0)
+            }
+            false
+        }
+
+        parentLayout.setOnTouchListener { _, _ ->
+            if (inputField.isFocused) {
+                inputField.clearFocus()
+
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(inputField.windowToken, 0)
+            }
+            false
+        }
+
+        checkbox.setOnCheckedChangeListener{ _, isChecked ->
             if (isChecked) {
-                inputField.paintFlags = inputField.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                updateTaskCompletion(id, 1)
             } else {
-                inputField.paintFlags = inputField.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+                updateTaskCompletion(id, 0)
             }
         }
 

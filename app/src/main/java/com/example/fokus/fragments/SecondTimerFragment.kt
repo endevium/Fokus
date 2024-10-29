@@ -69,11 +69,6 @@ class SecondTimerFragment : Fragment(R.layout.fragment_timersecond) {
         tvPomodoroDesc = view.findViewById(R.id.tvPomodoroDesc)
         longBreakFragment = LongBreakFragment()
 
-        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
-            tvPomodoro.setTextColor(color)
-            tvPomodoroDesc.setTextColor(color)
-        })
-
         createNotificationChannel()
         requestPermissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
@@ -170,6 +165,11 @@ class SecondTimerFragment : Fragment(R.layout.fragment_timersecond) {
             parentFragmentManager.setFragmentResult("poppedFragments", Bundle())
             popAllFragments()
         }
+
+        viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
+            tvPomodoro.setTextColor(color)
+            tvPomodoroDesc.setTextColor(color)
+        })
     }
 
     private fun createNotificationChannel() {

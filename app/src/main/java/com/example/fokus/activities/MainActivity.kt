@@ -112,22 +112,28 @@ class MainActivity : AppCompatActivity() {
 
     // show main (reset viewPager2 and tabLayout)
     private fun showMainScreen() {
-        // remove fragments to main
-        supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        // Only pop the back stack if not already on a main tab
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStackImmediate()
+        }
 
-        // show viewPager2 and tabLayout
         viewPager.visibility = View.VISIBLE
         tabLayout.visibility = View.VISIBLE
     }
 
     // load transaction
     private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.main, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        // Check if fragment already exists in the back stack
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        val existingFragment = supportFragmentManager.findFragmentByTag(fragment::class.java.simpleName)
 
-        // hide viewPager2 and tabLayout when in fragment xD
+        if (existingFragment == null) {
+            fragmentTransaction.replace(R.id.main, fragment, fragment::class.java.simpleName)
+            fragmentTransaction.addToBackStack(fragment::class.java.simpleName)
+            fragmentTransaction.commit()
+        }
+
+        // Hide ViewPager2 and TabLayout
         viewPager.visibility = View.GONE
         tabLayout.visibility = View.GONE
     }
