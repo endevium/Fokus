@@ -71,20 +71,27 @@ class TaskController extends Controller
             'task_title' => 'required|string|max:255',
         ]);
 
+        $newTask = $task->exists && $task->task_title === 'Task Title';
+
         // Update the task with validated data
         $task->update($request->only(['task_title']));
+
+        $status = $newTask ? 'Created' : 'Updated';
+        $description = $newTask 
+            ? 'Created the task: ' . $task->task_title
+            : 'Updated the task to: ' . $task->task_title;
 
         // Log the task status change in history
         TaskHistory::create([
             'task_id' => $task->id,
             'user_id' => Auth::id(),
-            'status' => 'Updated',
-            'description' => 'Updated the task to:  ' . $task->task_title,
+            'status' => $status,
+            'description' => $description,
         ]);
 
         return response()->json(['message' => 'Task updated successfully!', 'data' => $task]);
     }
-
+    
     // Delete a task
     public function destroy($id)
     {
