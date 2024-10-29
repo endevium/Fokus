@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.*
 import com.example.fokus.models.UserResponse
 import retrofit2.*
@@ -66,12 +67,14 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
 
 
         cancelBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
 
         backBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
 
@@ -79,7 +82,6 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
             val id = save.getId(requireContext().applicationContext)
             val oldPasswordText = oldPassword.text.toString()
             val newPasswordText = newPassword.text.toString()
-
 
             if (oldPasswordText.isNotEmpty() && newPasswordText.isNotEmpty()) {
                 if (oldPasswordText.length >= 8 && newPasswordText.length >= 8) {
@@ -132,6 +134,8 @@ class ChangePasswordFragment : Fragment(R.layout.fragment_changepassword) {
                 if (response.isSuccessful) {
                     save.savePass(requireContext().applicationContext, password)
                     Toast.makeText(requireContext(), "Changed password successfully", Toast.LENGTH_LONG).show()
+                    (activity as MainActivity).switchedTabs -= 1
+                    requireActivity().supportFragmentManager.popBackStack()
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "$errorResponse", Toast.LENGTH_LONG).show()

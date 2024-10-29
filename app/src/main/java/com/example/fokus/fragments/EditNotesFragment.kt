@@ -1,5 +1,6 @@
 package com.example.fokus
 
+
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -42,6 +43,7 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
 
         viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
             title.setTextColor(color)
+            title.setHintTextColor(color)
         })
 
         viewModel.backColor.observe(viewLifecycleOwner, Observer { drawable ->
@@ -53,14 +55,14 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
                 val updatedTitle = if (title.text.isNotEmpty()) title.text.toString() else "Note Title"
                 val updatedContent = if (content.text.isNotEmpty()) content.text.toString() else "Note Description"
 
-                parentFragmentManager.setFragmentResult("backButtonClicked", Bundle())
 
                 if (updatedTitle != fetchedTitle || updatedContent != fetchedContent) {
                     updateNote(id, updatedTitle, updatedContent)
+                } else {
+                    parentFragmentManager.setFragmentResult("backButtonClicked", Bundle())
+                    requireActivity().supportFragmentManager.popBackStack()
                 }
             }
-
-            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 
@@ -68,17 +70,21 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
         apiService.updateNote(id, title, content).enqueue(object: Callback<NotesResponse> {
             override fun onResponse(call: Call<NotesResponse>, response: Response<NotesResponse>) {
                 if (response.isSuccessful) {
-                    parentFragmentManager.setFragmentResult("noteUpdated", Bundle())
+                    Toast.makeText(requireContext(), "Note updated successfully", Toast.LENGTH_LONG).show()
+                    parentFragmentManager.setFragmentResult("backButtonClicked", Bundle())
+                    requireActivity().supportFragmentManager.popBackStack()
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "Error updating: $errorResponse", Toast.LENGTH_LONG).show()
+                    parentFragmentManager.setFragmentResult("backButtonClicked", Bundle())
+                    requireActivity().supportFragmentManager.popBackStack()
                 }
             }
 
             override fun onFailure(call: Call<NotesResponse>, t: Throwable) {
-                if (isAdded) { // Check if the fragment is still added to the activity
-                    Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
-                }
+                Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
+                parentFragmentManager.setFragmentResult("backButtonClicked", Bundle())
+                requireActivity().supportFragmentManager.popBackStack()
             }
 
         })
@@ -93,4 +99,6 @@ class EditNotesFragment : Fragment (R.layout.fragment_editnotes) {
         fragment?.onResume() // This forces the onResume behavior
     }
 }
+
+
 

@@ -141,6 +141,7 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
             resetTimer()
         }
 
@@ -153,6 +154,8 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
+            resetTimer()
             parentFragmentManager.setFragmentResult("poppedFragments", Bundle())
             popAllFragments()
         }
@@ -165,6 +168,8 @@ class   LongBreakFragment : Fragment(R.layout.fragment_longbreak) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
+            resetTimer()
             Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
             parentFragmentManager.setFragmentResult("poppedFragments", Bundle())
             popAllFragments()

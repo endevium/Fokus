@@ -48,7 +48,6 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private var isTimerRunning: Boolean = false
     private val notificationID = 101
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -147,6 +146,7 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
             resetTimer()
         }
 
@@ -159,6 +159,8 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
+            resetTimer()
             val bundle = Bundle()
             bundle.putBoolean("autoStart", false)
             shortBreakFrag.arguments = bundle
@@ -173,8 +175,9 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
                 playButton.visibility = View.VISIBLE
             }
 
-            Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
+            timer?.cancel()
             resetTimer()
+            Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
         }
 
         viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->

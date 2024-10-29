@@ -368,77 +368,37 @@
             </LinearLayout>
 
 
-
-
             <LinearLayout
                 android:layout_width="300dp"
-                android:layout_height="80dp"
+                android:layout_height="45dp"
                 android:background="@drawable/etcontainer"
                 android:gravity="start"
                 android:orientation="vertical">
 
-
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="7dp">
-
-
-
-
-                    <TextView
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:drawableStart="@drawable/mute"
-                        android:text="  Silent"
-                        android:textColor="@color/lightblack"
-                        android:textSize="16sp">
-                    </TextView>
-
-
-
-
-                    <Switch
-                        android:id="@+id/silentModeBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="false"
-                        android:gravity="end"
-                        tools:checked="false" />
-
-
-                </LinearLayout>
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="start">
-
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:drawableStart="@drawable/volume"
-                        android:textColor="@color/lightblack"
                         android:text="  Volume"
-                        android:textSize="16sp">
-                    </TextView>
+                        android:textColor="@color/lightblack"
+                        android:textSize="16sp"></TextView>
 
                     <ImageButton
                         android:id="@+id/reduceBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/reduce"
-                        android:background="@android:color/transparent"/>
-
+                        android:layout_marginEnd="5dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/reduce" />
 
                     <TextView
                         android:id="@+id/volumeTt"
@@ -447,7 +407,7 @@
                         android:layout_marginEnd="5dp"
                         android:gravity="center"
                         android:text="100"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
 
                     <ImageButton
@@ -455,15 +415,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/increase"
-                        android:background="@android:color/transparent"/>
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/increase" />
                 </LinearLayout>
-
-
-
-
-
-
 
 
             </LinearLayout>

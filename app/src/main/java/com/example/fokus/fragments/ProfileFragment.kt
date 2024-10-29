@@ -1,6 +1,5 @@
 package com.example.fokus.fragments
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +10,6 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.example.fokus.R
 import com.example.fokus.activities.MainActivity
@@ -26,7 +24,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var apiService: APIService
     private lateinit var logoutBtn: LinearLayout
     private lateinit var profilePicture: ImageView
@@ -52,7 +49,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         tvUsername = view.findViewById(R.id.tvUsername)
         tvEmail = view.findViewById(R.id.tvEmail)
         tvProfile = view.findViewById(R.id.tvProfile)
-        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
         apiService = RetrofitClient.create(APIService::class.java)
 
         refreshInfo()
@@ -62,13 +58,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             clearToken(requireContext().applicationContext)
             val intent = Intent(requireContext(), SecondActivity::class.java)
             startActivity(intent)
-        }
-
-        swipeRefreshLayout.setOnRefreshListener {
-            swipeRefreshLayout.postDelayed({
-                refreshInfo()
-                swipeRefreshLayout.isRefreshing = false
-            }, 1000)
         }
 
         viewModel.textColor.observe(viewLifecycleOwner, Observer { color ->
@@ -100,11 +89,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     }
                 }
             }
-
             override fun onFailure(call: Call<ProfilePictureResponse>, t: Throwable) {
                 //
             }
-
         })
     }
 }
+

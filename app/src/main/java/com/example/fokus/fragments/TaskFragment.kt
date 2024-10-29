@@ -1,5 +1,6 @@
 package com.example.fokus.fragments
 
+
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Paint
@@ -21,9 +22,11 @@ import com.example.fokus.api.*
 import com.example.fokus.models.*
 import retrofit2.*
 
+
 class TaskFragment : Fragment() {
     private lateinit var tvTask: TextView
     private lateinit var tvTaskDesc: TextView
+    private lateinit var addTextTv: TextView
     private lateinit var taskCardContainer: LinearLayout
     private lateinit var task_container: RelativeLayout
     private lateinit var addTaskBtn: ImageButton
@@ -54,6 +57,7 @@ class TaskFragment : Fragment() {
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)
         tvTask = view.findViewById(R.id.tvTasks)
         tvTaskDesc = view.findViewById(R.id.tvTasksDesc)
+        addTextTv = view.findViewById(R.id.addTaskTv)
         taskHistoryBtn = view.findViewById(R.id.taskHistory)
 
         fetchTasks()
@@ -69,6 +73,7 @@ class TaskFragment : Fragment() {
 
         // Create a new task card if clicked
         addTaskBtn.setOnClickListener {
+            addTaskBtn.isEnabled = false
             createTask("Task Title")
         }
 
@@ -76,10 +81,8 @@ class TaskFragment : Fragment() {
             swipeRefreshLayout.isRefreshing = true
             swipeRefreshLayout.postDelayed({
                 refreshTasks()
-
                 swipeRefreshLayout.isRefreshing = false
-            }, 1000)
-
+            }, 500)
             tvTask.visibility = View.VISIBLE
             tvTaskDesc.visibility = View.VISIBLE
             taskCardContainer.visibility = View.VISIBLE
@@ -89,7 +92,6 @@ class TaskFragment : Fragment() {
             tvTask.visibility = View.GONE
             tvTaskDesc.visibility = View.GONE
             taskCardContainer.visibility = View.GONE
-
             val taskHistoryFragment = TaskHistoryFragment()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.task_container, taskHistoryFragment)
@@ -97,16 +99,12 @@ class TaskFragment : Fragment() {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commit()
         }
-
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.postDelayed({
                 refreshTasks()
-
                 swipeRefreshLayout.isRefreshing = false
             }, 1000)
         }
-
-
     }
 
     private fun fetchTasks() {
@@ -122,7 +120,6 @@ class TaskFragment : Fragment() {
                     Toast.makeText(requireContext(), "Fetching tasks failed", Toast.LENGTH_SHORT).show()
                 }
             }
-
             override fun onFailure(call: Call<List<Task>>, t: Throwable) {
                 Toast.makeText(requireContext(), "Fetching tasks failed: ${t.message}", Toast.LENGTH_SHORT).show()
             }
@@ -137,13 +134,10 @@ class TaskFragment : Fragment() {
                     taskCardContainer.removeViewAt(i)
                 }
             }
-
             fetchTasks()
-
             swipeRefreshLayout.isRefreshing = false
         }, 1000)
     }
-
     private fun updateTask(id: Int, taskTitle: String) {
         apiService.updateTask(id, taskTitle).enqueue(object: Callback<TaskResponse> {
             override fun onResponse(call: Call<TaskResponse>, response: Response<TaskResponse>) {
@@ -154,11 +148,9 @@ class TaskFragment : Fragment() {
                     Toast.makeText(requireContext(), "Error updating task: $errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
-
             override fun onFailure(call: Call<TaskResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "Fatal error: ${t.message}", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
@@ -168,15 +160,14 @@ class TaskFragment : Fragment() {
                 if (response.isSuccessful) {
                     Toast.makeText(requireContext(), "Task completion status updated", Toast.LENGTH_LONG).show()
                 } else {
-                    val message = response.message()
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+                    val errorResponse = response.errorBody()?.string()
+                    Toast.makeText(requireContext(), "$errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
@@ -185,7 +176,6 @@ class TaskFragment : Fragment() {
             override fun onResponse(call: Call<TaskResponse>, response: Response<TaskResponse>) {
                 if (response.isSuccessful) {
                     val createTaskResponse = response.body()!!
-
                     if (createTaskResponse != null) {
                         for (i in taskCardContainer.childCount - 1 downTo 0) {
                             val view = taskCardContainer.getChildAt(i)
@@ -193,20 +183,21 @@ class TaskFragment : Fragment() {
                                 taskCardContainer.removeViewAt(i)
                             }
                         }
-
                         fetchTasks()
                         Toast.makeText(requireContext(), "New task created", Toast.LENGTH_LONG).show()
+                        addTaskBtn.isEnabled = true
                     }
                 } else {
-                    val message = response.message()
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+                    val errorResponse = response.errorBody()?.string()
+                    Toast.makeText(requireContext(), "$errorResponse", Toast.LENGTH_LONG).show()
+                    addTaskBtn.isEnabled = true
                 }
             }
 
             override fun onFailure(call: Call<TaskResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Fatal error: ${t.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Internet error occured", Toast.LENGTH_LONG).show()
+                addTaskBtn.isEnabled = true
             }
-
         })
     }
 
@@ -216,11 +207,10 @@ class TaskFragment : Fragment() {
                 if (response.isSuccessful) {
                     Toast.makeText(requireContext(), "Successfully deleted task", Toast.LENGTH_LONG).show()
                 } else {
-                    val message = response.message()
-                    Toast.makeText(requireContext(), "Failed to delete task: $message", Toast.LENGTH_LONG).show()
+                    val errorResponse = response.errorBody()?.string()
+                    Toast.makeText(requireContext(), "Failed to delete task: $errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
-
             override fun onFailure(call: Call<TaskDeleteResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "Internet error occurred", Toast.LENGTH_LONG).show()
             }
@@ -249,7 +239,7 @@ class TaskFragment : Fragment() {
         val linearLayout = LinearLayout(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
                 850,
-                180
+                200
             )
 
             // Change visual layout
@@ -297,6 +287,30 @@ class TaskFragment : Fragment() {
             inputType = InputType.TYPE_CLASS_TEXT
         }
 
+        val secondLinearLayout = LinearLayout(requireContext()).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                850,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            // Remove gravity to avoid centering
+            gravity = Gravity.BOTTOM
+            orientation = LinearLayout.HORIZONTAL
+        }
+
+        val idField = TextView(requireContext()).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            ).apply {
+                marginStart = 10
+            }
+
+            background = null
+            text = "Task ID: $id"
+            setTextColor(resources.getColor(R.color.lightgray, null))
+        }
+
+        // Focus change listener for the input field
         var previousText = inputField.text.toString()
         inputField.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
@@ -308,10 +322,10 @@ class TaskFragment : Fragment() {
             }
         }
 
+        // Hide keyboard when touching outside
         task_container.setOnTouchListener { _, _ ->
             if (inputField.isFocused) {
                 inputField.clearFocus()
-
                 val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(inputField.windowToken, 0)
             }
@@ -321,55 +335,61 @@ class TaskFragment : Fragment() {
         parentLayout.setOnTouchListener { _, _ ->
             if (inputField.isFocused) {
                 inputField.clearFocus()
-
                 val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(inputField.windowToken, 0)
             }
             false
         }
 
-        checkbox.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked) {
-                updateTaskCompletion(id, 1)
-            } else {
-                updateTaskCompletion(id, 0)
-            }
+        // Checkbox listener for completion status
+        checkbox.setOnCheckedChangeListener { _, isChecked ->
+            updateTaskCompletion(id, if (isChecked) 1 else 0)
         }
 
+        // Editor action listener for the input field
         inputField.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE ||
                 (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
                 val imm = v.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(v.windowToken, 0)
                 inputField.clearFocus()
-
                 updateTask(id, inputField.text.toString())
-
                 true
             } else {
                 false
             }
         }
 
+        // Delete button
         val deleteBtn = ImageButton(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
-
             setBackgroundColor(Color.TRANSPARENT)
             setImageResource(R.drawable.close)
         }
 
         deleteBtn.setOnClickListener {
             deleteTask(id)
-            parentLayout.removeView(taskCardView)
+            swipeRefreshLayout.isRefreshing = true
+            swipeRefreshLayout.postDelayed({
+                refreshTasks()
+                swipeRefreshLayout.isRefreshing = false
+            }, 500)
         }
 
+        // Add views to the layouts
         linearLayout.addView(checkbox)
         linearLayout.addView(inputField)
         linearLayout.addView(deleteBtn)
-        taskCardView.addView(linearLayout) // Wrap all elements
-        parentLayout.addView(taskCardView, 0) // Display task at the top of the add task button
+
+        // Add the idField to the secondLinearLayout
+        secondLinearLayout.addView(idField)
+
+        // Add both layouts to the taskCardView
+        taskCardView.addView(linearLayout) // Add the first layout
+        taskCardView.addView(secondLinearLayout) // Add the second layout below the first
+        parentLayout.addView(taskCardView, 0) // Display task at the top of the add task button  // Display task at the top of the add task button
     }
 }

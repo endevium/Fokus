@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.APIService
 import com.example.fokus.api.FileUtil
 import com.example.fokus.api.RetrofitClient
@@ -50,11 +51,13 @@ class ChangePfpFragment : Fragment(R.layout.fragment_changepfp) {
         save.getId(requireContext().applicationContext)?.let { getImage(it) }
 
         backBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         cancelBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
 
@@ -103,6 +106,8 @@ class ChangePfpFragment : Fragment(R.layout.fragment_changepfp) {
                 override fun onResponse(call: Call<ProfilePictureResponse>, response: Response<ProfilePictureResponse>) {
                     if (response.isSuccessful) {
                         Toast.makeText(requireContext(), "Upload successful!", Toast.LENGTH_SHORT).show()
+                        (activity as MainActivity).switchedTabs -= 1
+                        requireActivity().supportFragmentManager.popBackStack()
                     } else {
                         Toast.makeText(requireContext(), "Upload failed: ${response.message()}", Toast.LENGTH_SHORT).show()
                     }

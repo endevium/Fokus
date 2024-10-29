@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.*
 import com.example.fokus.models.UserResponse
 import retrofit2.*
@@ -27,11 +28,13 @@ class ChangeUsernameFragment : Fragment(R.layout.fragment_changeusername) {
         apiService = RetrofitClient.create(APIService::class.java)
 
         cancelBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         backBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         saveBtn.setOnClickListener {
@@ -39,8 +42,10 @@ class ChangeUsernameFragment : Fragment(R.layout.fragment_changeusername) {
             val username = etUsername.text.toString()
 
             if (username.isNotEmpty()) {
-                if (id != null) {
+                if (id != null && username != save.getUsername(requireContext().applicationContext)) {
                     changeUsername(id, username)
+                } else {
+                    Toast.makeText(requireContext(), "This is already your current username", Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -52,6 +57,8 @@ class ChangeUsernameFragment : Fragment(R.layout.fragment_changeusername) {
                 if (response.isSuccessful) {
                     save.saveUsername(requireContext().applicationContext, username)
                     Toast.makeText(requireContext(), "Changed username successfully", Toast.LENGTH_LONG).show()
+                    (activity as MainActivity).switchedTabs -= 1
+                    requireActivity().supportFragmentManager.popBackStack()
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "$errorResponse", Toast.LENGTH_LONG).show()

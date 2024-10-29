@@ -140,6 +140,7 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
             resetTimer()
         }
 
@@ -152,6 +153,8 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
+            resetTimer()
             val bundle = Bundle()
             bundle.putBoolean("autoStart", false)
             secondTimerFragment.arguments = bundle
@@ -166,6 +169,8 @@ class ShortBreakFragment : Fragment(R.layout.fragment_shortbreak) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
+            resetTimer()
             Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
             parentFragmentManager.setFragmentResult("poppedFragments", Bundle())
             popAllFragments()

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.fokus.R
+import com.example.fokus.activities.MainActivity
 
 
 class GuideFragment : Fragment(R.layout.fragment_guide) {
@@ -23,7 +24,8 @@ class GuideFragment : Fragment(R.layout.fragment_guide) {
 
 
         exitButton.setOnClickListener{
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 }

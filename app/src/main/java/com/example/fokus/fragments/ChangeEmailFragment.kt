@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.*
 import com.example.fokus.models.UserResponse
 import retrofit2.*
@@ -32,11 +33,13 @@ class ChangeEmailFragment : Fragment(R.layout.fragment_changeemail) {
         apiService = RetrofitClient.create(APIService::class.java)
 
         cancelBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         backBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         saveBtn.setOnClickListener {
@@ -47,8 +50,10 @@ class ChangeEmailFragment : Fragment(R.layout.fragment_changeemail) {
             if (oldEmailText.isNotEmpty() && newEmailText.isNotEmpty()) {
                 if (Patterns.EMAIL_ADDRESS.matcher(oldEmailText).matches() && Patterns.EMAIL_ADDRESS.matcher(newEmailText).matches()) {
                     if (oldEmailText == save.getEmail(requireContext().applicationContext)) {
-                        if (id != null) {
+                        if (id != null && newEmailText != save.getEmail(requireContext().applicationContext)) {
                             changeEmail(id, newEmailText)
+                        } else {
+                            Toast.makeText(requireContext(), "This is already your current e-mail", Toast.LENGTH_LONG).show()
                         }
                     } else {
                         Toast.makeText(requireContext(), "E-mail does not match", Toast.LENGTH_SHORT).show()
@@ -68,6 +73,8 @@ class ChangeEmailFragment : Fragment(R.layout.fragment_changeemail) {
                 if (response.isSuccessful) {
                     save.saveEmail(requireContext().applicationContext, email)
                     Toast.makeText(requireContext(), "Changed e-mail successfully", Toast.LENGTH_LONG).show()
+                    (activity as MainActivity).switchedTabs -= 1
+                    requireActivity().supportFragmentManager.popBackStack()
                 } else {
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "$errorResponse", Toast.LENGTH_LONG).show()

@@ -161,6 +161,8 @@ class SecondTimerFragment : Fragment(R.layout.fragment_timersecond) {
                 playButton.visibility = View.VISIBLE
             }
 
+            timer?.cancel()
+            resetTimer()
             Toast.makeText(requireContext(), "Pomodoro session ended", Toast.LENGTH_SHORT).show()
             parentFragmentManager.setFragmentResult("poppedFragments", Bundle())
             popAllFragments()

@@ -51,6 +51,7 @@ interface APIService {
         @Field("email") email: String
     ): Call<UserResponse> // Sends a request
 
+    // CHANGING THE PASSWORD INSIDE THE APPLICATION
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @PUT("/api/FokusApp/{id}")
@@ -59,12 +60,13 @@ interface APIService {
         @Field("password") password: String
     ): Call<UserResponse> // Sends an edit request
 
+    // FORGOT PASSWORD
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("/api/change_password")
     fun resetPassword(
         @Field("email") email: String,
-        @Field("new_password") new_password: String
+        @Field("password") password: String
     ): Call<ChangePasswordResponse> // Sends a request
 
     // NOTES ROUTES

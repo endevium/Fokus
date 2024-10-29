@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fokus.activities.MainActivity
 import com.example.fokus.api.loadShortbreakSettings
 import com.example.fokus.api.shortBreakSettings
 
@@ -258,11 +259,14 @@ class ChangeSBTimerFragment : Fragment(R.layout.fragment_changesbtimer) {
 
         saveBtn.setOnClickListener {
             saveSettings()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
 
         backBtn.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            (activity as MainActivity).switchedTabs -= 1
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
 

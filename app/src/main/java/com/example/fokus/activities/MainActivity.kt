@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import androidx.activity.addCallback
+import androidx.fragment.app.FragmentManager
 import com.example.fokus.api.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNav: BottomNavigationView
     lateinit var musicPlayer: MediaPlayer
     private val settings = saveSettings()
+    var switchedTabs = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +39,8 @@ class MainActivity : AppCompatActivity() {
         musicPlayer.isLooping = true
 
         val volumeLevel = settings.getVolume(applicationContext)
-        val volume = volumeLevel?.div(100f)
-        if (volume != null) {
-            musicPlayer.setVolume(volume, volume)
+        if (volumeLevel != null) {
+            changeVolume(volumeLevel)
         }
 
         setupViewPagerAndTabs()
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.bHome -> {
+                    while (switchedTabs > 0) {
+                        supportFragmentManager.popBackStack()
+                        switchedTabs--
+                    }
                     showMainScreen()
                     true
                 }
@@ -78,6 +83,10 @@ class MainActivity : AppCompatActivity() {
     fun changeMusic(track: Int) {
         musicPlayer.release()
         musicPlayer = MediaPlayer.create(this, track)
+        val volumeLevel = settings.getVolume(applicationContext)
+        if (volumeLevel != null) {
+            changeVolume(volumeLevel)
+        }
     }
 
     fun stopMusic() {
@@ -112,26 +121,21 @@ class MainActivity : AppCompatActivity() {
 
     // show main (reset viewPager2 and tabLayout)
     private fun showMainScreen() {
-        // Only pop the back stack if not already on a main tab
-        if (supportFragmentManager.backStackEntryCount > 0) {
-            supportFragmentManager.popBackStackImmediate()
-        }
-
         viewPager.visibility = View.VISIBLE
         tabLayout.visibility = View.VISIBLE
     }
 
     // load transaction
     private fun loadFragment(fragment: Fragment) {
+        switchedTabs += 1
         // Check if fragment already exists in the back stack
+
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         val existingFragment = supportFragmentManager.findFragmentByTag(fragment::class.java.simpleName)
 
-        if (existingFragment == null) {
-            fragmentTransaction.replace(R.id.main, fragment, fragment::class.java.simpleName)
-            fragmentTransaction.addToBackStack(fragment::class.java.simpleName)
-            fragmentTransaction.commit()
-        }
+        fragmentTransaction.replace(R.id.main, fragment, fragment::class.java.simpleName)
+        fragmentTransaction.addToBackStack(fragment::class.java.simpleName)
+        fragmentTransaction.commit()
 
         // Hide ViewPager2 and TabLayout
         viewPager.visibility = View.GONE

@@ -1,5 +1,6 @@
 package com.example.fokus.fragments
 
+
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.example.fokus.*
 import com.example.fokus.api.*
 import com.example.fokus.models.*
 import retrofit2.*
+
 
 class NotesFragment : Fragment() {
     private lateinit var tvNotes: TextView
@@ -74,17 +76,15 @@ class NotesFragment : Fragment() {
             addNoteBtn.visibility = View.VISIBLE
         }
 
-        parentFragmentManager.setFragmentResultListener("noteUpdated", viewLifecycleOwner) { _, _ ->
-            Toast.makeText(requireContext(), "Note updated", Toast.LENGTH_LONG).show()
-        }
-
         addNoteBtn.setOnClickListener {
             // Create an empty note card when add button is clicked
+            addNoteBtn.isEnabled = false
             createNote("Note Title", "Note Description")
         }
 
         addNote.setOnClickListener {
             // Create an empty note card when add button is clicked
+            addNote.isEnabled = false
             createNote("Note Title", "Note Description")
         }
 
@@ -129,24 +129,29 @@ class NotesFragment : Fragment() {
         apiService.createNote(title, content).enqueue(object: Callback<NotesResponse> {
             override fun onResponse(call: Call<NotesResponse>, response: Response<NotesResponse>) {
                 if (response.isSuccessful) {
-                    val createNoteResponse = response!!.body()
+                    val createNoteResponse = response.body()
 
                     if (createNoteResponse != null) {
                         notesCardLayout.removeAllViews()
 
                         fetchNotes()
+                        addNoteBtn.isEnabled = true
+                        addNote.isEnabled = true
                         Toast.makeText(requireContext(), "New note created", Toast.LENGTH_LONG).show()
                     }
                 } else {
+                    addNoteBtn.isEnabled = true
+                    addNote.isEnabled = true
                     val errorResponse = response.errorBody()?.string()
                     Toast.makeText(requireContext(), "Error creating new note: $errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<NotesResponse>, t: Throwable) {
+                addNoteBtn.isEnabled = true
+                addNote.isEnabled = true
                 Toast.makeText(requireContext(), "Fatal error: ${t.message}", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
@@ -160,11 +165,9 @@ class NotesFragment : Fragment() {
                     Toast.makeText(requireContext(), "Failed to delete note: $errorResponse", Toast.LENGTH_LONG).show()
                 }
             }
-
             override fun onFailure(call: Call<NotesResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "Deleting note failed: ${t.message}", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
@@ -232,7 +235,13 @@ class NotesFragment : Fragment() {
 
         closeBtn.setOnClickListener {
             deleteNote(id)
-            fetchNotes()
+            swipeRefreshLayout.isRefreshing = true
+            swipeRefreshLayout.postDelayed({
+                notesCardLayout.removeAllViews()
+                fetchNotes()
+
+                swipeRefreshLayout.isRefreshing = false
+            }, 1000)
         }
 
         val secondLinearLayout = LinearLayout(requireContext()).apply {
@@ -321,14 +330,5 @@ class NotesFragment : Fragment() {
         noteCardView.addView(firstLinearLayout) // Wrap all elements in the card
         parentLayout.addView(noteCardView) // Display the card
     }
-
-    override fun onStart() {
-        super.onStart()
-        fetchNotes()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        fetchNotes()
-    }
 }
+

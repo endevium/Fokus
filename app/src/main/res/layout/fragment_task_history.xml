@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
-            android:text="See all the tasks you've previously modified."
+            android:text="See the changes you made to your task list."
             android:textColor="@color/black" />
 
     </LinearLayout>
